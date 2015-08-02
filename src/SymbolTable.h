@@ -6,10 +6,10 @@
  *         2012年1月7日 19:42:37
  * Author:
  *         张彦升
---------------------------------------------------------------------*/
+ --------------------------------------------------------------------*/
 
-#ifndef _SYMBOLTABLE_H_2012_1_7_lisency
-#define _SYMBOLTABLE_H_2012_1_7_lisency
+#ifndef _SymbolTable_h__
+#define _SymbolTable_h__
 
 #include "Base.h"
 #include "Node.h"
@@ -52,22 +52,22 @@ public:
     /**
     * description:
     **/
-    SymbolTable(SymbolTable* t_prev,std::string t_name);
+    SymbolTable(SymbolTable* t_prev, std::string t_name);
     /**
-    * description:    
+    * description:
     **/
     virtual ~SymbolTable();
     /**
-     * 
+     *
      */
-    virtual SymbolTable* enter_scope(std::string t_name,Node* t_node,
+    virtual SymbolTable* enter_scope(std::string t_name, Node* t_node,
         SymbolTableType t_type = OTHER);
     /**
-    *  
+    *
     **/
     virtual SymbolTable* find_sym_table(Node* node);
     /**
-     * 
+     *
      */
     virtual SymbolTable* out_scope();
     /**
@@ -76,13 +76,13 @@ public:
     **/
     virtual SymbolTable* get_prev();
     /**
-    * 
+    *
     **/
     virtual void set_type(SymbolTableType t_type);
     /**
     * description:   将当前符号压入符号表
     * 压入符号表时查看是否存在，并对其设置相应型别
-    * return:        
+    * return:
     **/
     virtual void push_back(std::string item);
     /**
@@ -105,7 +105,7 @@ protected:
     typedef std::set<std::string> SymbolEntry;
     SymbolEntry symbols;  //存所有符号，对应其值
 
-    std::map<Node*,SymbolTable*> symbol_table_map;   
+    std::map<Node*, SymbolTable*> symbol_table_map;
     //该作用域的所有的符号表,当符号表第一次被建立好之后，后面在生产字节码的
     //时候，没进入一个作用域的时候，要根据该作用域的AST跟节点得其符号表。
     std::string name;
@@ -122,5 +122,4 @@ private:
 
 EF_NAMESPACE_END
 
-#endif // _SYMBOLTABLE_H_2012_1_7_lisency
-
+#endif /*!_SymbolTable_h__*/

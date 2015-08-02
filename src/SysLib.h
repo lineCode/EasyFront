@@ -6,9 +6,8 @@
 * Author:
 *         ÕÅÑåÉý
 --------------------------------------------------------------------*/
-
-#ifndef _SYSLIB_H_2012_3_2_lisency
-#define _SYSLIB_H_2012_3_2_lisency
+#ifndef _SysLib_h__
+#define _SysLib_h__
 
 #include "Util.h"
 #include "object.h"
@@ -37,5 +36,4 @@ inline Object* reserver(std::string name)
 
 EF_NAMESPACE_END
 
-#endif // _SYSLIB_H_2012_3_2_lisency
-
+#endif /*!_SysLib_h__*/

@@ -5,10 +5,9 @@
  *         2012年2月9日 17:06:19
  * Author:
  *         张彦升
---------------------------------------------------------------------*/
-
-#ifndef _CODEBUILDER_H_2012_2_9_lisency
-#define _CODEBUILDER_H_2012_2_9_lisency
+ --------------------------------------------------------------------*/
+#ifndef _CodeBuilder_h__
+#define _CodeBuilder_h__
 
 //#include "Compiler.h"
 #include "Opcode.h"
@@ -18,7 +17,7 @@
 
 EF_NAMESPACE_BEGIN
 
-class Assembler 
+class Assembler
 {
 public:
     /**
@@ -28,11 +27,11 @@ public:
      */
     Assembler(int32_t nblocks);
     /**
-     * 
+     *
      */
     ~Assembler();
     /**
-     * 
+     *
      */
     void jump_offsets(Basicblock* blocks);
     /**
@@ -74,7 +73,7 @@ class CodeBuilder
 {
 public:
     /**
-    * 
+    *
     **/
     CodeBuilder(SymbolTable* t_sym_table);
     /**
@@ -165,20 +164,20 @@ public:
     /**
     * 添加新的操作，一个参数
     **/
-    virtual int32_t addop_i(Op opcode,int32_t oparg);
+    virtual int32_t addop_i(Op opcode, int32_t oparg);
     /**
     *  生成跳转指令
     **/
-    virtual int32_t addop_j(Op opcode,Basicblock* b,
+    virtual int32_t addop_j(Op opcode, Basicblock* b,
         int32_t absolute);
     /**
      * 直接跳转
      */
-    virtual int32_t addop_j_abs(Op opcode,Basicblock* b);
+    virtual int32_t addop_j_abs(Op opcode, Basicblock* b);
     /**
      * 相对跳转
      */
-    virtual int32_t addop_j_rel(Op opcode,Basicblock* b);
+    virtual int32_t addop_j_rel(Op opcode, Basicblock* b);
     /**
     *  找到指定符号的位置
     **/
@@ -186,7 +185,7 @@ public:
     /**
     * 根据名称添加一个字节码
     **/
-    virtual int32_t addop_name(Op opcode,std::string& name);
+    virtual int32_t addop_name(Op opcode, std::string& name);
     /**
     * 找到常量在常量表中的位置
     **/
@@ -194,31 +193,31 @@ public:
     /**
     * 根据常量名称添加字节码
     **/
-    virtual int32_t addop_const(Op opcode,std::string& t_const);
+    virtual int32_t addop_const(Op opcode, std::string& t_const);
     /**
-    *  
+    *
     **/
     virtual int32_t add_varname(std::string& var);
     /**
-    *  
+    *
     **/
-    virtual int32_t addop_varname(Op opcode,std::string& var);
+    virtual int32_t addop_varname(Op opcode, std::string& var);
     /**
-    *  
+    *
     **/
     virtual int32_t add_interger(int32_t t_interger);
     /**
-    *  
+    *
     **/
-    virtual int32_t addop_interger(Op opcode,int32_t t_interger);
+    virtual int32_t addop_interger(Op opcode, int32_t t_interger);
     /**
-    *  
+    *
     **/
     virtual int32_t add_float(double t_double);
     /**
-    *  
+    *
     **/
-    virtual int32_t addop_float(Op opcode,double t_double);
+    virtual int32_t addop_float(Op opcode, double t_double);
     /**
     *  下一条指令的位置
     **/
@@ -260,7 +259,7 @@ public:
      * @ fun_name 函数名称
      * @ opcode 生成的函数字节码对象
      */
-    virtual int32_t make_function(std::string fun_name,CodeObject* opcode);
+    virtual int32_t make_function(std::string fun_name, CodeObject* opcode);
     /**
      * 抛出错误异常
      */
@@ -268,7 +267,7 @@ public:
     {
         std::string name = sym_table->get_name();
 
-        EFExc exc(name,-1,-1,error_id);
+        EFExc exc(name, -1, -1, error_id);
         throw exc;
         return 0;
     }
@@ -281,19 +280,19 @@ public:
      */
     int32_t set_next_block(Basicblock* b);
     /**
-     * 
+     *
      */
     Basicblock* get_self_block();
     /**
-     * 
+     *
      */
     int32_t set_self_block(Basicblock* b);
     /**
-     * 
+     *
      */
     std::vector<int32_t> get_vars();
     /**
-     * 
+     *
      */
     int32_t add_var(std::string& var);
 protected:
@@ -335,11 +334,11 @@ class SimpleCodeBuilder
 {
 public:
     /**
-    * 
+    *
     **/
     SimpleCodeBuilder(SymbolTable* t_sym_table);
     /**
-    * 
+    *
     **/
     virtual ~SimpleCodeBuilder();
 protected:
@@ -352,5 +351,4 @@ private:
 
 EF_NAMESPACE_END
 
-#endif // _CODEBUILDER_H_2012_2_9_lisency
-
+#endif /*!_CodeBuilder_h__*/

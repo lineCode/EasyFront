@@ -1,6 +1,6 @@
 /*-------------------------------------------------------------------
  * Purpose:
- *         Lise Debug class cpp
+ *         Debug class cpp
  * Time:
  *         2011Äê12ÔÂ8ÈÕ 22:06:34
  * Author:
@@ -15,12 +15,6 @@
 #include <iostream>
 
 EF_NAMESPACE_BEGIN
-
-//#ifdef lise_DEBUG
-//const bool D::b_lock;
-//#else
-//const bool D::b_lock;
-//#endif
 
 static const std::string log_file_name("log.txt");
 static const std::string debug_file_name("debug.txt");

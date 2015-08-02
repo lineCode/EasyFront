@@ -5,7 +5,7 @@
  *         2012年1月7日 19:49:42
  * Author:
  *         张彦升
---------------------------------------------------------------------*/
+ --------------------------------------------------------------------*/
 
 #include "Compiler.h"
 #include "SymbolTable.h"
@@ -15,9 +15,9 @@
 
 EF_NAMESPACE_BEGIN
 
-/**
+/*
  *
- **/
+ */
 Compiler::Compiler()
 {
     return;
@@ -32,14 +32,13 @@ Compiler::~Compiler()
 /**
  *
  **/
-int32_t Compiler::compile(Node* ast_root,CodeObject*& op_code)
+int32_t Compiler::compile(Node* ast_root, CodeObject*& op_code)
 {
     return 0;
 }
-/*********begin LiseCompiler class scope*******
 /**
- *
- **/
+*
+**/
 EfCompiler::EfCompiler()
 {
     return;
@@ -54,7 +53,7 @@ EfCompiler::~EfCompiler()
 /**
  *
  **/
-int32_t EfCompiler::compile(Node* ast_root,CodeObject*& op_code)
+int32_t EfCompiler::compile(Node* ast_root, CodeObject*& op_code)
 {
 #ifdef EF_DEBUG
     NodePrintor printor(debug_stream);
@@ -82,10 +81,9 @@ int32_t EfCompiler::compile(Node* ast_root,CodeObject*& op_code)
     //下面是优化部分
     return 1;
 }
-/*******begin SSACompiler class scope*********
 /**
- *
- **/
+*
+**/
 SSACompiler::SSACompiler()
 {
     return;
@@ -98,9 +96,9 @@ SSACompiler::~SSACompiler()
     return;
 }
 /**
- * 
+ *
  */
-int32_t SSACompiler::compile(Node* ast_root,CodeObject*& op_code)
+int32_t SSACompiler::compile(Node* ast_root, CodeObject*& op_code)
 {
     return 0;
 }

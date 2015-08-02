@@ -1,28 +1,52 @@
 /*-------------------------------------------------------------------
 * Purpose:
-*         test execute the bytecode
+*         
 * Time:
-*         2012年3月1日 23:13:18
+*         2012年2月28日 22:44:28
 * Author:
 *         张彦升
 --------------------------------------------------------------------*/
 
-#include "Executor.h"
-#include "Parser.h"
+#include "Util.h"
+#include "Base.h"
 #include "Scanner.h"
-#include "Debug.h"
+#include "Parser.h"
+
 #include "Compiler.h"
+#include "Executor.h"
 
 #include <string>
 
-/**
- * execute bytecode
- **/
-int main()
+using namespace std;
+using namespace EF;
+
+int main(int argc,char* argv[])
 {
+    std::string bytecode_file = "bytecode.txt";
+    std::string file_path;
+
+    if (argc <= 1)
+    {
+        return -1;
+    }
+    file_path = argv[1];
+
+    int32_t pos = file_path.find(".ef");
+
+    if (pos == std::string::npos)
+    {
+        pos = file_path.find(".EF");
+        if (pos == std::string::npos)
+        {
+            cout << "正确文件应是以ef为后缀的文件" << endl;
+            return -1;
+        }
+    }
+
+    std::fstream bytecode_stream(bytecode_file.c_str());
+
     try
     {
-        std::string file_path("bit_operation.ef");
         EF::FileReader reader(file_path);
 
         EF::EFScanner scanner(reader);
@@ -34,7 +58,7 @@ int main()
         EF::EfCompiler compiler;
         compiler.compile(module,byte_code);
 
-        EF::Executor  executor(byte_code);
+        EF::Executor executor(byte_code);
 
         int32_t ret = executor.excute();
 

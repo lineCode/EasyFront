@@ -5,10 +5,9 @@
  *         2011年11月20日 19:59:32
  * Author:
  *         张彦升
---------------------------------------------------------------------*/
-
-#ifndef _GRAMMAR_H_2011_11_20_lisency
-#define _GRAMMAR_H_2011_11_20_lisency
+ --------------------------------------------------------------------*/
+#ifndef _Grammar_h__
+#define _Grammar_h__
 
 #include <string>
 #include <bitset>
@@ -25,7 +24,7 @@ EF_NAMESPACE_BEGIN
  *                            表示当parser处于某个状态，如果遇到了’if’这个标示
  *                            符，则移动另外一个状态。
  **/
-typedef struct {
+ typedef struct {
     int         lb_type;
     std::string lb_str;
 } label;
@@ -66,7 +65,7 @@ typedef struct {
 typedef struct {
     int         s_narcs;
     arc        *s_arc;        /* Array of arcs */
-    
+
     /* Optional accelerators */
     int         s_lower;    /* Lowest label index */
     int         s_upper;    /* Highest label index */
@@ -107,23 +106,23 @@ public:
     *                @accel 加速状态
     * return:        nothing
     **/
-    Grammar(int dfa_num,dfa dfas,labellist lblist,int start,int accel = 0);
+    Grammar(int dfa_num, dfa dfas, labellist lblist, int start, int accel = 0);
     /**
     * description:    nothing!just realese
-    * parameter:    
+    * parameter:
     * return:        none
     **/
     ~Grammar();
     /**
     * description:    增加一个DFA状态
     * parameter:    @t_dfa 增加一个状态
-    * return:        nothing 
+    * return:        nothing
     **/
     void adddfa(dfa t_dfa);
     /**
     * description:    添加一个新状态，参数还不定
-    * parameter:    
-    * return:        
+    * parameter:
+    * return:
     **/
     int addstate(dfa *t_dfa);
     /**
@@ -132,9 +131,9 @@ public:
     *                @from 其实状态
     *                @to 终止状态
     *                @lbl 转换时用到的边
-    * return:        
+    * return:
     **/
-    void addarc(dfa *d,int from,int to,int lbl);
+    void addarc(dfa *d, int from, int to, int lbl);
     /**
     * description:    通过DFA编号查找一个DFA
     * parameter:    @id DFA编号
@@ -143,21 +142,21 @@ public:
     dfa *finddfa(int32_t id);
     /**
     * description:    添加一条新的边
-    * parameter:    
-    * return:        
+    * parameter:
+    * return:
     **/
-    int addlabel(labellist *ll, int type,std::string str);
+    int addlabel(labellist *ll, int type, std::string str);
     /**
     * description:    查找一条边
-    * parameter:    
-    * return:        
+    * parameter:
+    * return:
     **/
     int findlabel(labellist *ll, int type, std::string str);
 
     /**
     * description:    打印文法，在调试过程中会用到
-    * parameter:    
-    * return:        
+    * parameter:
+    * return:
     **/
     void printgrammar();
 
@@ -191,7 +190,7 @@ public:
     ~LiseGrammar();
     /**
     * description:    返回一个语法分析对象，singleton模式
-    * parameter:    
+    * parameter:
     * return:        a constant LiseGrammar instance
     **/
     static const LiseGrammar *getgrammar();
@@ -209,5 +208,4 @@ private:
 
 EF_NAMESPACE_END
 
-#endif // _GRAMMAR_H_2011_11_20_lisency
-
+#endif /*!_Grammar_h__*/

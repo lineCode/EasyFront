@@ -6,11 +6,10 @@
  *         2011年12月13日 22:04:49
  * Author:
  *         张彦升
---------------------------------------------------------------------*/
-
-#ifndef _NODE_H_2011_12_13_lisency
-#define _NODE_H_2011_12_13_lisency
-
+ --------------------------------------------------------------------*/
+#ifndef _Node_h__
+#define _Node_h__
+ 
 #include "Base.h"
 #include "Token.h"
 //#include "Visitor.h"
@@ -90,7 +89,7 @@ class Node
 {
 public:
     /**
-    *  
+    *
     **/
     virtual ~Node() = 0;
     /**
@@ -134,7 +133,7 @@ protected:
     * @row 存储行号，若为-1说明该节点没有存储行号和列号
     * @col 存储列号，
     **/
-    Node(int32_t t_row,int32_t t_col);
+    Node(int32_t t_row, int32_t t_col);
 private:
     int row;
     int col;
@@ -162,7 +161,7 @@ protected:
     /**
     *
     **/
-    Stmt(int32_t t_row,int32_t t_col);
+    Stmt(int32_t t_row, int32_t t_col);
 private:
 };
 /**
@@ -180,7 +179,7 @@ public:
     *  StmtSeq的节点行号和列好信息是节点stmt的行号和列号信息
     * 两个语句连接之后形成一个语法树
     **/
-    StmtSeq(Stmt *t_stmt,StmtSeq *t_stmt_seq);
+    StmtSeq(Stmt *t_stmt, StmtSeq *t_stmt_seq);
     /**
     *
     **/
@@ -227,7 +226,7 @@ protected:
     /**
     *
     **/
-    SmallStmt(int32_t t_row,int32_t t_col);
+    SmallStmt(int32_t t_row, int32_t t_col);
 private:
 };
 /**
@@ -243,7 +242,7 @@ public:
     /**
     * small_stmt有两个节点，以圆括号分割，构造函数分别传入两个节点
     **/
-    SimpleStmt(SmallStmt* t_small_stmt,SimpleStmt* t_small_stmt_r);
+    SimpleStmt(SmallStmt* t_small_stmt, SimpleStmt* t_small_stmt_r);
     /**
     *
     **/
@@ -253,7 +252,7 @@ public:
     **/
     virtual void visit(Visitor& visitor);
     /**
-    * 得到左孩子  
+    * 得到左孩子
     **/
     inline SmallStmt* get_small_stmt()
     {
@@ -343,14 +342,14 @@ public:
     **/
     ~AssignBase();
     /**
-    *        
+    *
     **/
     virtual void visit(Visitor& visitor);
 protected:
-	/**
+    /**
     *
     **/
-    AssignBase(int32_t t_row,int32_t t_col);
+    AssignBase(int32_t t_row, int32_t t_col);
 private:
 };
 
@@ -364,16 +363,16 @@ class Assign
     :public AssignBase
 {
 public:
-	/**
+    /**
     *  @t_expr
     *  @assign_r赋值语句的右部
     **/
-    Assign(Expr* t_expr,DerictAssign* t_assign_r = NULL);
-	/**
+    Assign(Expr* t_expr, DerictAssign* t_assign_r = NULL);
+    /**
     *  @t_expr
     *  @assign_r赋值语句的右部
     **/
-    Assign(Expr* t_expr,AugAssign* t_assign_r);
+    Assign(Expr* t_expr, AugAssign* t_assign_r);
     /**
     *
     **/
@@ -383,21 +382,21 @@ public:
     **/
     virtual void visit(Visitor& visitor);
     /**
-    *  
+    *
     **/
     inline Expr* get_expr()
     {
         return expr;
     }
     /**
-     * 
+     *
      */
     inline DerictAssign* get_derict_assign()
     {
         return derict_assign;
     }
     /**
-     * 
+     *
      */
     inline AugAssign* get_aug_assign()
     {
@@ -422,7 +421,7 @@ public:
     /**
     *
     **/
-    DerictAssign(Expr* t_expr,DerictAssign* t_exprs_r);
+    DerictAssign(Expr* t_expr, DerictAssign* t_exprs_r);
     /**
     *
     **/
@@ -432,18 +431,18 @@ public:
     **/
     virtual void visit(Visitor& visitor);
     /**
-    *   
+    *
     **/
     inline Expr* get_expr()
     {
         return expr;
     }
     /**
-    *   
+    *
     **/
     inline DerictAssign* get_exprs_r()
     {
-        return exprs_r  ;
+        return exprs_r;
     }
 protected:
     Expr* expr;
@@ -463,7 +462,7 @@ public:
     /**
     *  将t_token的id保存到token_flag中
     **/
-    AugAssign(Token* t_token,Expr* t_expr);
+    AugAssign(Token* t_token, Expr* t_expr);
     /**
     *
     **/
@@ -473,14 +472,14 @@ public:
     **/
     virtual void visit(Visitor& visitor);
     /**
-    *   
+    *
     **/
     inline TokenFlag get_token_flag()
     {
         return token_flag;
     }
     /**
-    *   
+    *
     **/
     inline Expr* get_expr()
     {
@@ -516,7 +515,7 @@ protected:
     /**
     *
     **/
-    CompoundStmt(int32_t t_row,int32_t t_col);
+    CompoundStmt(int32_t t_row, int32_t t_col);
 private:
 };
 
@@ -534,12 +533,12 @@ class IfStmt
 {
 public:
     /**
-    * 'if' conditional_expr ':' suite 
+    * 'if' conditional_expr ':' suite
     * ('elif' conditional_expr ':' suite)['else'':'suite]
     * @expr->conditional_expr
     * @stmt->remain statement
     **/
-    IfStmt(Expr *t_expr,Suite *t_stmt,ElifStmt* t_elif,
+    IfStmt(Expr *t_expr, Suite *t_stmt, ElifStmt* t_elif,
         ElseStmt* t_else_);
     /**
     *
@@ -550,28 +549,28 @@ public:
     **/
     virtual void visit(Visitor& visitor);
     /**
-    * 
+    *
     **/
     inline Expr* get_expr()
     {
         return expr;
     }
     /**
-    * 
+    *
     **/
     inline Suite* get_suite()
     {
         return stmt;
     }
     /**
-    *        
+    *
     **/
     inline ElifStmt* get_elif_stmt()
     {
         return elif;
     }
     /**
-    *        
+    *
     **/
     inline ElseStmt* get_else_stmt()
     {
@@ -596,7 +595,7 @@ public:
     /**
     *
     **/
-    ElifStmt(Expr* t_expr,Suite* t_stmt,ElifStmt* t_elif);
+    ElifStmt(Expr* t_expr, Suite* t_stmt, ElifStmt* t_elif);
     /**
     *
     **/
@@ -606,21 +605,21 @@ public:
     **/
     virtual void visit(Visitor& visitor);
     /**
-    *        
+    *
     **/
     inline Expr* get_expr()
     {
         return expr;
     }
     /**
-    *        
+    *
     **/
     inline Suite* get_suite()
     {
         return stmt;
     }
     /**
-    *        
+    *
     **/
     inline ElifStmt* get_elif()
     {
@@ -633,7 +632,7 @@ protected:
 private:
 };
 /**
- * 
+ *
  **/
 class ElseStmt
     :public CompoundStmt
@@ -652,7 +651,7 @@ public:
     **/
     virtual void visit(Visitor& visitor);
     /**
-    *        
+    *
     **/
     inline Suite* get_suite()
     {
@@ -675,7 +674,7 @@ public:
     /**
     *  while ::= 'while' conditional_expr ':' suite ['else' ':'suite]
     **/
-    WhileStmt(Expr *t_expr,Suite *t_stmt,ElseStmt* t_else_ = NULL);
+    WhileStmt(Expr *t_expr, Suite *t_stmt, ElseStmt* t_else_ = NULL);
     /**
     *
     **/
@@ -685,21 +684,21 @@ public:
     **/
     virtual void visit(Visitor& visitor);
     /**
-    *        
+    *
     **/
     inline Expr* get_expr()
     {
         return expr;
     }
     /**
-    *   
+    *
     **/
     inline Suite* get_suite()
     {
         return stmt;
     }
     /**
-    *        
+    *
     **/
     inline ElseStmt* get_else_stmt()
     {
@@ -724,32 +723,32 @@ public:
     /**
     *
     **/
-    ForStmt(Expr* t_expr_con,Expr* t_expr_range,Suite* t_stmt,
+    ForStmt(Expr* t_expr_con, Expr* t_expr_range, Suite* t_stmt,
         ElseStmt* t_else_);
     /**
     *
     **/
     virtual ~ForStmt();
     /**
-    *  
+    *
     **/
     virtual void visit(Visitor& visitor);
     /**
-    *        
+    *
     **/
     inline Expr* get_expr_con()
     {
         return expr_con;
     }
     /**
-    *        
+    *
     **/
     inline Expr* get_expr_range()
     {
         return expr_range;
     }
     /**
-    * 
+    *
     **/
     inline Suite* get_suite()
     {
@@ -770,7 +769,7 @@ protected:
 private:
 };
 /**
- *        try_stmt -> 'try' ':' suite 
+ *        try_stmt -> 'try' ':' suite
  *                catch_clase+ ['finally' ':' suite]
  *                        try
  *                /        |        \
@@ -783,7 +782,7 @@ public:
     /**
     *
     **/
-    TryStmt(Suite* t_stmt_target,CatchStmt* t_stmt_catchs,
+    TryStmt(Suite* t_stmt_target, CatchStmt* t_stmt_catchs,
         Suite* t_stmt_finally);
     /**
     *
@@ -794,21 +793,21 @@ public:
     **/
     virtual void visit(Visitor& visitor);
     /**
-    *        
+    *
     **/
     inline Suite* get_target()
     {
         return stmt_target;
     }
     /**
-    *        
+    *
     **/
     inline CatchStmt* get_catchs()
     {
         return stmt_catchs;
     }
     /**
-    *        
+    *
     **/
     inline Suite* get_finally()
     {
@@ -833,7 +832,7 @@ public:
     /**
     *
     **/
-    CatchStmt(Expr* t_expr,Suite* t_stmt,CatchStmt* t_catchs);
+    CatchStmt(Expr* t_expr, Suite* t_stmt, CatchStmt* t_catchs);
     /**
     *
     **/
@@ -843,21 +842,21 @@ public:
     **/
     virtual void visit(Visitor& visitor);
     /**
-    *  
+    *
     **/
     inline Expr* get_expr()
     {
         return expr;
     }
     /**
-    *        
+    *
     **/
     inline Suite* get_suite()
     {
         return stmt;
     }
     /**
-    * 
+    *
     **/
     inline CatchStmt* get_catchs()
     {
@@ -882,7 +881,7 @@ public:
     /**
     *
     **/
-    FunStmt(Token* t_token,ParametersExpr* t_para,Suite* t_stmt);
+    FunStmt(Token* t_token, ParametersExpr* t_para, Suite* t_stmt);
     /**
     *
     **/
@@ -892,21 +891,21 @@ public:
     **/
     virtual void visit(Visitor& visitor);
     /**
-    * 
+    *
     **/
     inline std::string get_name()
     {
         return name;
     }
     /**
-    *        
+    *
     **/
     inline ParametersExpr* get_para()
     {
         return para;
     }
     /**
-    * 
+    *
     **/
     inline Suite* get_suite()
     {
@@ -932,7 +931,7 @@ public:
     /**
     *
     **/
-    ClassStmt(Token* t_token,Suite* t_stmt);
+    ClassStmt(Token* t_token, Suite* t_stmt);
     /**
     *
     **/
@@ -942,14 +941,14 @@ public:
     **/
     virtual void visit(Visitor& visitor);
     /**
-    *   
+    *
     **/
     inline std::string get_name()
     {
         return name;
     }
     /**
-    *   
+    *
     **/
     inline Suite* get_suite()
     {
@@ -978,7 +977,7 @@ public:
     **/
     Suite(SimpleStmt* t_simple_stmt);
     /**
-    * 
+    *
     **/
     virtual ~Suite();
     /**
@@ -986,14 +985,14 @@ public:
     **/
     virtual void visit(Visitor& visitor);
     /**
-    *   
+    *
     **/
     inline StmtSeq* get_stmts()
     {
         return stmts;
     }
     /**
-    *        
+    *
     **/
     inline SimpleStmt* get_simple_stmt()
     {
@@ -1029,7 +1028,7 @@ protected:
     /**
     *
     **/
-    Expr(int32_t t_row,int32_t t_col);
+    Expr(int32_t t_row, int32_t t_col);
 private:
 };
 /**
@@ -1045,14 +1044,14 @@ public:
     **/
     virtual ~ParameterExprAtom() = 0;
     /**
-    *  
+    *
     **/
     virtual void visit(Visitor& visitor);
 protected:
     /**
     *
     **/
-    ParameterExprAtom(int32_t t_row,int32_t t_col);
+    ParameterExprAtom(int32_t t_row, int32_t t_col);
 private:
 };
 /**
@@ -1079,14 +1078,14 @@ public:
     **/
     virtual void visit(Visitor& visitor);
     /**
-    *   
+    *
     **/
     inline ParameterExprAtom* get_parameter()
     {
         return parameter;
     }
     /**
-    *        
+    *
     **/
     inline ParametersExpr* get_other_para()
     {
@@ -1111,7 +1110,7 @@ public:
     /**
     *
     **/
-    NostarParameterExpr(AtomExpr* t_atom,Expr* t_expr);
+    NostarParameterExpr(AtomExpr* t_atom, Expr* t_expr);
     /**
     *
     **/
@@ -1152,24 +1151,24 @@ public:
     /**
     *
     **/
-    TupleParameterExpr(Token* t_token,Expr* t_expr);
+    TupleParameterExpr(Token* t_token, Expr* t_expr);
     /**
     *
     **/
     virtual ~TupleParameterExpr();
     /**
-    *  
+    *
     **/
     virtual void visit(Visitor& visitor);
     /**
-    *        
+    *
     **/
     inline std::string get_name()
     {
         return name;
     }
     /**
-    *        
+    *
     **/
     inline Expr* get_expr()
     {
@@ -1193,7 +1192,7 @@ public:
     /**
     *
     **/
-    MapParameterExpr(Token* t_token,Expr* t_expr);
+    MapParameterExpr(Token* t_token, Expr* t_expr);
     /**
     *
     **/
@@ -1203,14 +1202,14 @@ public:
     **/
     virtual void visit(Visitor& visitor);
     /**
-    *        
+    *
     **/
     inline std::string get_name()
     {
         return name;
     }
     /**
-    *        
+    *
     **/
     inline Expr* get_expr()
     {
@@ -1236,14 +1235,14 @@ public:
     **/
     virtual ~ConExpr() = 0;
     /**
-    *  
+    *
     **/
     virtual void visit(Visitor& visitor);
 protected:
     /**
     *
     **/
-    ConExpr(int32_t t_row,int32_t t_col);
+    ConExpr(int32_t t_row, int32_t t_col);
 private:
 };
 /**
@@ -1259,10 +1258,10 @@ class LambdaExpr
     :public ConExpr
 {
 public:
-	/**
-    * 
+    /**
+    *
     **/
-    LambdaExpr(ParametersExpr* t_paramters,ConExpr* t_expr);
+    LambdaExpr(ParametersExpr* t_paramters, ConExpr* t_expr);
     /**
     *
     **/
@@ -1272,14 +1271,14 @@ public:
     **/
     virtual void visit(Visitor& visitor);
     /**
-    *        
+    *
     **/
     inline ParametersExpr* get_parameters()
     {
         return parameters;
     }
     /**
-    *        
+    *
     **/
     inline ConExpr* get_expr()
     {
@@ -1309,7 +1308,7 @@ protected:
     /**
     *
     **/
-    LogicalExpr(int32_t t_row,int32_t t_col);
+    LogicalExpr(int32_t t_row, int32_t t_col);
 private:
 };
 /**
@@ -1327,7 +1326,7 @@ class LogicalOrExpr
 {
 public:
     /**
-    *  
+    *
     **/
     LogicalOrExpr(LogicalAndExpr* t_and_expr,
         LogicalOrExpr* t_or_expr_r);
@@ -1340,14 +1339,14 @@ public:
     **/
     virtual void visit(Visitor& visitor);
     /**
-    *        
+    *
     **/
     inline LogicalAndExpr* get_and_expr()
     {
         return and_expr;
     }
     /**
-    *        
+    *
     **/
     inline LogicalOrExpr* get_or_expr_r()
     {
@@ -1386,14 +1385,14 @@ public:
     **/
     virtual void visit(Visitor& visitor);
     /**
-    *        
+    *
     **/
     inline LogicalNotExpr* get_not_expr()
     {
         return not_expr;
     }
     /**
-    *        
+    *
     **/
     inline LogicalAndExpr* get_and_expr_r()
     {
@@ -1433,14 +1432,14 @@ public:
     **/
     virtual void visit(Visitor& visitor);
     /**
-    *        
+    *
     **/
     inline LogicalNotExpr* get_not_expr()
     {
         return not_expr;
     }
     /**
-    *        
+    *
     **/
     inline LogicalRelExpr* get_rel_expr()
     {
@@ -1453,7 +1452,7 @@ protected:
 private:
 };
 /**
- *  实现< <= != >= == > 
+ *  实现< <= != >= == >
  * comparision -> small_expr (comp_op small_expr)*
  *               comparision
  *               /         \
@@ -1467,7 +1466,7 @@ public:
     * 这种多个表达式连在一起的比较真叫人纠结，暂时只要一个，没发现它会有什么
     * 太好的用处
     **/
-    LogicalRelExpr(SmallExpr* t_small_expr1,LogicalRelExprR* t_rel_r);
+    LogicalRelExpr(SmallExpr* t_small_expr1, LogicalRelExprR* t_rel_r);
     /**
     *
     **/
@@ -1477,14 +1476,14 @@ public:
     **/
     virtual void visit(Visitor& visitor);
     /**
-    *        
+    *
     **/
     inline SmallExpr* get_small_expr()
     {
         return small_expr1;
     }
     /**
-    *        
+    *
     **/
     inline LogicalRelExprR* get_rel_r()
     {
@@ -1497,7 +1496,7 @@ private:
 };
 /**
  *   comparision_r -> (comp_op small_expr)*
- *                  comparision 
+ *                  comparision
  *             /         |          \
  *       comp_op    small_expr  comparision_r
  *  改进为comparison_r -> com_op small_expr
@@ -1506,35 +1505,35 @@ class LogicalRelExprR
     :LogicalExpr
 {
 public:
-	/**
+    /**
     *
     **/
-    LogicalRelExprR(Token* t_token,SmallExpr* t_small_expr,
+    LogicalRelExprR(Token* t_token, SmallExpr* t_small_expr,
         LogicalRelExprR* t_rel_r);
     /**
     *
     **/
     ~LogicalRelExprR();
     /**
-    *  
+    *
     **/
     virtual void visit(Visitor& visitor);
     /**
-    *        
+    *
     **/
     inline SmallExpr* get_small_expr()
     {
         return small_expr1;
     }
     /**
-    *        
+    *
     **/
     inline TokenFlag get_token_flag()
     {
         return token_flag;
     }
     /**
-    *   
+    *
     **/
     inline LogicalRelExprR* get_rel_r()
     {
@@ -1566,7 +1565,7 @@ protected:
     /**
     *
     **/
-    SmallExpr(int32_t t_row,int32_t t_col);
+    SmallExpr(int32_t t_row, int32_t t_col);
 private:
 };
 /**
@@ -1584,7 +1583,7 @@ public:
     /**
     *
     **/
-    OrExpr(XorExpr* t_xor_expr,OrExpr* t_or_expr_r);
+    OrExpr(XorExpr* t_xor_expr, OrExpr* t_or_expr_r);
     /**
     *
     **/
@@ -1627,7 +1626,7 @@ public:
     /**
     *
     **/
-    XorExpr(AndExpr* t_and_expr,XorExpr* t_xor_expr_r);
+    XorExpr(AndExpr* t_and_expr, XorExpr* t_xor_expr_r);
     /**
     *
     **/
@@ -1637,14 +1636,14 @@ public:
     **/
     virtual void visit(Visitor& visitor);
     /**
-    *        
+    *
     **/
     inline AndExpr* get_and_expr()
     {
         return and_expr;
     }
     /**
-    *        
+    *
     **/
     inline XorExpr* get_xor_expr_r()
     {
@@ -1670,24 +1669,24 @@ public:
     /**
     *
     **/
-    AndExpr(ShiftExpr* t_shift_expr,AndExpr* t_and_expr_r);
+    AndExpr(ShiftExpr* t_shift_expr, AndExpr* t_and_expr_r);
     /**
     *
     **/
     virtual ~AndExpr();
     /**
-    *  
+    *
     **/
     virtual void visit(Visitor& visitor);
     /**
-    *        
+    *
     **/
     inline ShiftExpr* get_shift_expr()
     {
         return shift_expr;
     }
     /**
-    *        
+    *
     **/
     inline AndExpr* get_and_expr_r()
     {
@@ -1713,7 +1712,7 @@ public:
     /**
     *
     **/
-    ShiftExpr(ArithExpr* t_arith_expr,ShiftExprR* t_shift_expr_r);
+    ShiftExpr(ArithExpr* t_arith_expr, ShiftExprR* t_shift_expr_r);
     /**
     *
     **/
@@ -1723,14 +1722,14 @@ public:
     **/
     virtual void visit(Visitor& visitor);
     /**
-    *        
+    *
     **/
     inline ArithExpr* get_arith_expr()
     {
         return arith_expr;
     }
     /**
-    *        
+    *
     **/
     inline ShiftExprR* get_shift_expr_r()
     {
@@ -1754,7 +1753,7 @@ public:
     /**
     *
     **/
-    ShiftExprR(Token* t_token,ArithExpr* t_arith_expr,
+    ShiftExprR(Token* t_token, ArithExpr* t_arith_expr,
         ShiftExprR* t_shift_expr_r);
     /**
     *
@@ -1765,21 +1764,21 @@ public:
     **/
     virtual void visit(Visitor& visitor);
     /**
-    *        
+    *
     **/
     inline TokenFlag get_token_flag()
     {
         return token_flag;
     }
     /**
-    *        
+    *
     **/
     inline ArithExpr* get_arith_expr()
     {
         return arith_expr;
     }
     /**
-    *   
+    *
     **/
     inline ShiftExprR* get_shift_expr_r()
     {
@@ -1806,7 +1805,7 @@ public:
     /**
     *
     **/
-    ArithExpr(TermExpr* t_term,ArithExprR* t_arith_expr_r);
+    ArithExpr(TermExpr* t_term, ArithExprR* t_arith_expr_r);
     /**
     *
     **/
@@ -1816,14 +1815,14 @@ public:
     **/
     virtual void visit(Visitor& visitor);
     /**
-    *        
+    *
     **/
     inline TermExpr* get_term()
     {
         return term;
     }
     /**
-    *        
+    *
     **/
     inline ArithExprR* get_arith_expr_r()
     {
@@ -1835,7 +1834,7 @@ protected:
 private:
 };
 /**
- * 
+ *
  **/
 class ArithExprR
     :public SmallExpr
@@ -1844,7 +1843,7 @@ public:
     /**
     *
     **/
-    ArithExprR(Token* t_token,TermExpr* t_term,ArithExprR* t_arith_expr_r);
+    ArithExprR(Token* t_token, TermExpr* t_term, ArithExprR* t_arith_expr_r);
     /**
     *
     **/
@@ -1854,21 +1853,21 @@ public:
     **/
     virtual void visit(Visitor& visitor);
     /**
-    *        
+    *
     **/
     inline TokenFlag get_token_flag()
     {
         return token_flag;
     }
     /**
-    *   
+    *
     **/
     inline TermExpr* get_term()
     {
         return term;
     }
     /**
-    *        
+    *
     **/
     inline ArithExprR* get_arith_expr_r()
     {
@@ -1895,24 +1894,24 @@ public:
     /**
     *
     **/
-    TermExpr(FactorExpr* t_factor,TermExprR* t_term_r);
+    TermExpr(FactorExpr* t_factor, TermExprR* t_term_r);
     /**
     *
     **/
     virtual ~TermExpr();
     /**
-    *  
+    *
     **/
     virtual void visit(Visitor& visitor);
     /**
-    *   
+    *
     **/
     inline FactorExpr* get_factor()
     {
         return factor;
     }
     /**
-    *   
+    *
     **/
     inline TermExprR* get_term_r()
     {
@@ -1924,7 +1923,7 @@ protected:
 private:
 };
 /**
- * 
+ *
  **/
 class TermExprR
     :public SmallExpr
@@ -1933,32 +1932,32 @@ public:
     /**
     *
     **/
-    TermExprR(Token* t_token,FactorExpr* t_factor,
+    TermExprR(Token* t_token, FactorExpr* t_factor,
         TermExprR* t_term_r);
     /**
     *
     **/
     ~TermExprR();
     /**
-    *  
+    *
     **/
     virtual void visit(Visitor& visitor);
     /**
-    *        
+    *
     **/
     inline TokenFlag get_token_flag()
     {
         return token_flag;
     }
     /**
-    *        
+    *
     **/
     inline FactorExpr* get_factor()
     {
         return factor;
     }
     /**
-    *        
+    *
     **/
     inline TermExprR* get_term_r()
     {
@@ -1983,13 +1982,13 @@ public:
     /**
     *  token_flag = t_token->id,power = t_power,factor = NULL
     **/
-    FactorExpr(Token* t_token,FactorExpr* t_factor);
+    FactorExpr(Token* t_token, FactorExpr* t_factor);
     /**
     *   token_flag = EMPTY,power = NULL,factor = t_factor
     **/
     FactorExpr(PowerExpr* t_power);
     /**
-    * 
+    *
     **/
     virtual ~FactorExpr();
     /**
@@ -1997,21 +1996,21 @@ public:
     **/
     virtual void visit(Visitor& visitor);
     /**
-    *        
+    *
     **/
     inline TokenFlag get_token_flag()
     {
         return token_flag;
     }
     /**
-    *   
+    *
     **/
     inline FactorExpr* get_factor()
     {
         return factor;
     }
     /**
-    *   
+    *
     **/
     inline PowerExpr* get_power_expr()
     {
@@ -2037,24 +2036,24 @@ public:
     /**
     *  后面的factor为空的话，表明没有求平方
     **/
-    PowerExpr(AtomExpr* t_atom,FactorExpr* t_factor = NULL);
+    PowerExpr(AtomExpr* t_atom, FactorExpr* t_factor = NULL);
     /**
     *
     **/
     virtual ~PowerExpr();
     /**
-    *  
+    *
     **/
     virtual void visit(Visitor& visitor);
     /**
-    *        
+    *
     **/
     inline AtomExpr* get_atom()
     {
         return atom;
     }
     /**
-    *        
+    *
     **/
     inline FactorExpr* get_factor()
     {
@@ -2089,13 +2088,13 @@ public:
     virtual void visit(Visitor& visitor);
 protected:
     /**
-    *   
+    *
     **/
-    AtomExpr(int32_t t_row,int32_t t_col);
+    AtomExpr(int32_t t_row, int32_t t_col);
 private:
 };
 /**
- *  
+ *
  * 根据asdl生成IR的提示，将atom规则右部作为其子类较好
  *   tuple_expr -> '(' tuple_variables ')'
  *               tuple_expr
@@ -2107,11 +2106,11 @@ class TupleExpr
 {
 public:
     /**
-    * 
+    *
     **/
     TupleExpr(TupleVariableExpr* t_variable);
     /**
-    * 
+    *
     **/
     ~TupleExpr();
     /**
@@ -2119,7 +2118,7 @@ public:
     **/
     virtual void visit(Visitor& visitor);
     /**
-    *        
+    *
     **/
     inline TupleVariableExpr* get_variable()
     {
@@ -2141,7 +2140,7 @@ class MapExpr
 {
 public:
     /**
-    * 
+    *
     **/
     MapExpr(MapVariableExpr* t_variable);
     /**
@@ -2153,7 +2152,7 @@ public:
     **/
     virtual void visit(Visitor& visitor);
     /**
-    *        
+    *
     **/
     inline MapVariableExpr* get_variable()
     {
@@ -2180,10 +2179,10 @@ public:
     **/
     virtual void visit(Visitor& visitor);
 protected:
-	/**
+    /**
     *
     **/
-    VariablesExpr(int32_t t_row,int32_t t_col);
+    VariablesExpr(int32_t t_row, int32_t t_col);
 private:
 };
 /**
@@ -2196,27 +2195,27 @@ class TupleVariableExpr
     :public VariablesExpr
 {
 public:
-	/**
+    /**
     *
     **/
-    TupleVariableExpr(Expr* t_expr,TupleVariableExpr* t_variable_r);
+    TupleVariableExpr(Expr* t_expr, TupleVariableExpr* t_variable_r);
     /**
     *
     **/
     ~TupleVariableExpr();
     /**
-    *  
+    *
     **/
     virtual void visit(Visitor& visitor);
     /**
-    *   
+    *
     **/
     inline Expr* get_expr()
     {
         return expr;
     }
     /**
-    *   
+    *
     **/
     inline TupleVariableExpr* get_variable()
     {
@@ -2237,14 +2236,14 @@ class MapVariableExpr
     :public VariablesExpr
 {
 public:
-	/**
-    * 
+    /**
+    *
     **/
     MapVariableExpr(Expr* t_expr_l,
         Expr* t_expr_r,
         MapVariableExpr* t_variable_r);
     /**
-    * 
+    *
     **/
     ~MapVariableExpr();
     /**
@@ -2252,21 +2251,21 @@ public:
     **/
     virtual void visit(Visitor& visitor);
     /**
-    *        
+    *
     **/
     inline Expr* get_expr_l()
     {
         return expr_l;
     }
     /**
-    *        
+    *
     **/
     inline Expr* get_expr_r()
     {
         return expr_r;
     }
     /**
-    *   
+    *
     **/
     inline MapVariableExpr* get_variable()
     {
@@ -2286,7 +2285,7 @@ class NumberExpr
 {
 public:
     /**
-    * 
+    *
     **/
     NumberExpr(Token *t_token);
     /**
@@ -2298,14 +2297,14 @@ public:
     **/
     virtual void visit(Visitor& visitor);
     /**
-    *        
+    *
     **/
     inline LongObject* get_int()
     {
         return int_value;
     }
     /**
-     * 
+     *
      */
     inline FloatObject* get_float()
     {
@@ -2326,7 +2325,7 @@ public:
     /**
     *
     **/
-    StringExpr(Token *t_token,StringExpr* t_string_other);
+    StringExpr(Token *t_token, StringExpr* t_string_other);
     /**
     *
     **/
@@ -2336,14 +2335,14 @@ public:
     **/
     virtual void visit(Visitor& visitor);
     /**
-    *   
+    *
     **/
     inline std::string get_value()
     {
         return value;
     }
     /**
-    *        
+    *
     **/
     inline StringExpr* get_string_other()
     {
@@ -2367,7 +2366,7 @@ public:
     **/
     KeyWordExpr(Token *t_token);
     /**
-    * 
+    *
     **/
     ~KeyWordExpr();
     /**
@@ -2375,7 +2374,7 @@ public:
     **/
     void visit(Visitor& visitor);
     /**
-    *        
+    *
     **/
     inline LongObject* get_value()
     {
@@ -2383,7 +2382,7 @@ public:
     }
 protected:
     LongObject *value;  //考虑这样实现，null存0，false存0，true存1，
-                            //使用int类型来实现
+    //使用int类型来实现
 private:
 };
 /**
@@ -2397,12 +2396,12 @@ class NameExpr
     :public AtomExpr
 {
 public:
-	/**
+    /**
     *
     **/
-    NameExpr(Token* t_token,AtomExpr* t_name_expr_r);
+    NameExpr(Token* t_token, AtomExpr* t_name_expr_r);
     /**
-    * 
+    *
     **/
     ~NameExpr();
     /**
@@ -2410,14 +2409,14 @@ public:
     **/
     virtual void visit(Visitor& visitor);
     /**
-    *        
+    *
     **/
     inline std::string get_name()
     {
         return name;
     }
     /**
-    *        
+    *
     **/
     inline AtomExpr* get_name_expr_r()
     {
@@ -2426,12 +2425,12 @@ public:
 protected:
     std::string name;
     AtomExpr* name_expr_r;  //可以是fun_invoke和module_invoke中的一个，也可以
-                            //为空
+    //为空
     //可以使用下面代码做判断
     //if (typeid(name_expr_r) != typeid(FunInvokeExpr)
-        //||  typeid(name_expr_r) != typeid(ModuleInvokeExpr))
+    //||  typeid(name_expr_r) != typeid(ModuleInvokeExpr))
     //{
-        //return false;
+    //return false;
     //}
 private:
 };
@@ -2452,7 +2451,7 @@ public:
     /**
      * 当函数调用无参的时候直接传入行号，而使paras变量为NULL
      */
-    FunInvokeExpr(int32_t row,int32_t col);
+    FunInvokeExpr(int32_t row, int32_t col);
     /**
     *
     **/
@@ -2462,7 +2461,7 @@ public:
     **/
     virtual void visit(Visitor& visitor);
     /**
-    *        
+    *
     **/
     inline ParametersExpr* get_paras()
     {
@@ -2494,18 +2493,18 @@ public:
     **/
     virtual ~ModuleInvokeExpr();
     /**
-    *  
+    *
     **/
     virtual void visit(Visitor& visitor);
     /**
-    *        
+    *
     **/
     inline std::string get_name()
     {
         return name;
     }
     /**
-    *        
+    *
     **/
     inline ModuleInvokeExpr* get_module_expr_r()
     {
@@ -2519,5 +2518,4 @@ private:
 
 EF_NAMESPACE_END
 
-#endif // _NODE_H_2011_12_13_lisency
-
+#endif /*!_Node_h__*/

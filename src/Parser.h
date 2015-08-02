@@ -5,18 +5,17 @@
  *          更好的与其它部分分离，以前使用的string与file明确的分工，这使得在
  *          scanner里面需要明确分工，在这里也需要明确的分工，从而出现了
  *          代码冗余。结论：使用更高级的产物要比低级的产物好，这是封装的必然
- *          
+ *
  *          该词法分析不能完成像C++这样能识别< <到底是减号，还是模板开始标志
  *          这样具有回溯特性的文法
  * Time:
  *         2011年12月1日 21:15:18
  * Author:
  *         张彦升
---------------------------------------------------------------------*/
-
-#ifndef _PARSER_H_2011_12_1_lisency
-#define _PARSER_H_2011_12_1_lisency
-
+ --------------------------------------------------------------------*/
+#ifndef _Parser_h__
+#define _Parser_h__
+ 
 #include "Scanner.h"
 #include "Object.h"
 #include "Node.h"
@@ -35,7 +34,7 @@ class Parser
 {
 public:
     /**
-     * 
+     *
      */
     virtual ~Parser() = 0;
 protected:
@@ -57,7 +56,7 @@ private:
  *    file_input        ::= stmt file_input | stmt
  *    stmt            ::= simple_stmt | compound_stmt
  *    simple_stmt        ::= small_stmt simple_stmt
- *    compound_stmt    ::= if_stmt | while_stmt | for_stmt | try_stmt 
+ *    compound_stmt    ::= if_stmt | while_stmt | for_stmt | try_stmt
  *                          | fundef_stmt | classdef_stmt
  **/
 class EFParser
@@ -65,11 +64,11 @@ class EFParser
 {
 public:
     /**
-    * 
+    *
     **/
     EFParser(Scanner &scanner);
     /**
-    * 
+    *
     **/
     virtual ~EFParser();
     /**
@@ -156,12 +155,12 @@ public:
     *                 for_stmt |
     *                 try_stmt |
     *              fundef_stmt |
-    *            classdef_stmt 
+    *            classdef_stmt
     **/
     CompoundStmt* compound_stmt();
     /**
     * 构造if语句节点
-    * if_stmt -> 'if' expr ':' suite 
+    * if_stmt -> 'if' expr ':' suite
     *         ('elif' expr ';' suite) *
     *             ['else' ':' suite]
     *
@@ -182,35 +181,35 @@ public:
     **/
     ElifStmt* elif_stmt();
     /**
-    *        
+    *
     **/
     ElseStmt* else_stmt();
     /**
-    *        
+    *
     **/
     ForStmt* for_stmt();
     /**
-    *        
+    *
     **/
     TryStmt* try_stmt();
     /**
-    *        
+    *
     **/
     CatchStmt* catch_stmt();
     /**
-    *        
+    *
     **/
     FunStmt* fun_stmt();
     /**
-    *        
+    *
     **/
     ClassStmt* cla_stmt();
     /**
-    *        
+    *
     **/
     Suite* suite();
     /**
-    *        
+    *
     **/
     ParametersExpr* parameters();
     /**
@@ -227,143 +226,143 @@ public:
     **/
     ConExpr* con_expr();
     /**
-    *        
+    *
     **/
     LambdaExpr* lambda_expr();
     /**
-    *        
+    *
     **/
     LogicalOrExpr* logical_or_expr();
     /**
-    *        
+    *
     **/
     LogicalOrExpr* logical_or_expr_r();
     /**
-    *        
+    *
     **/
     LogicalAndExpr* logical_and_expr();
     /**
-    *        
+    *
     **/
     LogicalAndExpr* logical_and_expr_r();
     /**
-    *        
+    *
     **/
     LogicalNotExpr* not_expr();
     /**
-    *        
+    *
     **/
     LogicalRelExpr* comparison();
     /**
-    *       
+    *
     **/
     LogicalRelExprR* comparison_r();
     /**
-    *        
+    *
     **/
     OrExpr* or_expr();
     /**
-    *        
+    *
     **/
     OrExpr* or_expr_r();
     /**
-    *        
+    *
     **/
     XorExpr* xor_expr();
     /**
-    *        
+    *
     **/
     XorExpr* xor_expr_r();
     /**
-    *        
+    *
     **/
     AndExpr* and_expr();
     /**
-    *        
+    *
     **/
     AndExpr* and_expr_r();
     /**
-    *        
+    *
     **/
     ShiftExpr* shift_expr();
     /**
-    *        
+    *
     **/
     ShiftExprR* shift_expr_r();
     /**
-    *        
+    *
     **/
     ArithExpr* arith_expr();
     /**
-    *        
+    *
     **/
     ArithExprR* arith_expr_r();
     /**
-    *        
+    *
     **/
     TermExpr* term_expr();
     /**
-    *        
+    *
     **/
     TermExprR* term_expr_r();
     /**
-    *        
+    *
     **/
     FactorExpr* factor();
     /**
-    *        
+    *
     **/
     PowerExpr* power();
     /**
-    *        
+    *
     **/
     AtomExpr* atom();
     /**
-    *       
+    *
     **/
     TupleExpr* tuple_expr();
     /**
-    *       
+    *
     **/
     TupleVariableExpr* tuple_variable_expr();
     /**
-    *       
+    *
     **/
     TupleVariableExpr* tuple_variable_expr_r();
     /**
-    *       
+    *
     **/
     MapExpr* map_expr();
     /**
-    *       
+    *
     **/
     MapVariableExpr* map_variable_expr();
     /**
-    *       
+    *
     **/
     MapVariableExpr* map_variable_expr_r();
     /**
-    *       
+    *
     **/
     NumberExpr* number_expr();
     /**
-    *       
+    *
     **/
     StringExpr* string_expr();
     /**
-    *       
+    *
     **/
     KeyWordExpr* keyword_expr();
     /**
-    *       
+    *
     **/
     NameExpr* name_expr();
     /**
-    *        
+    *
     **/
     FunInvokeExpr* fun_invoke();
     /**
-    *        
+    *
     **/
     ModuleInvokeExpr* module_invoke();
 protected:
@@ -421,5 +420,4 @@ private:
 
 EF_NAMESPACE_END
 
-#endif // _PARSER_H_2011_12_1_lisency
-
+#endif /*!_Parser_h__*/

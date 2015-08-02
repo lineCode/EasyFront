@@ -5,10 +5,9 @@
  *         2011年12月1日 18:15:36
  * Author:
  *         张彦升
---------------------------------------------------------------------*/
-
-#ifndef _SCANNER_H_2011_12_1_lisency
-#define _SCANNER_H_2011_12_1_lisency
+ --------------------------------------------------------------------*/
+#ifndef _Scanner_h__
+#define _Scanner_h__
 
 #include <string>
 #include <queue>
@@ -36,7 +35,7 @@ public:
     virtual ~Scanner() = 0;
     /**
     * 获取下一字符串
-    * 
+    *
     * the token have read,到文件末尾返回NULL
     * 预留问题1,不能有续行符
     *         2,不能有其它进制数字
@@ -45,7 +44,7 @@ public:
     **/
     virtual Token* nextToken();
     /**
-    *得到缩进  //notation anded [2/17/2012 张彦升] 
+    *得到缩进  //notation anded [2/17/2012 张彦升]
     **/
     int32_t getpendin();
     /**
@@ -119,7 +118,7 @@ protected:
     * @c2 第二个字符
     * 定义在Token.h中的常量符
     **/
-    virtual TokenFlag proctwochars(int32_t c1,int32_t c2);
+    virtual TokenFlag proctwochars(int32_t c1, int32_t c2);
     /**
     * 对三个字符的情况做处理
     * @c1 第一个字符
@@ -127,7 +126,7 @@ protected:
     * @c3 第三个字符
     * 定义在Token.h中的常量符
     **/
-    virtual TokenFlag procthreechars(int32_t c1,int32_t c2,int32_t c3);
+    virtual TokenFlag procthreechars(int32_t c1, int32_t c2, int32_t c3);
     /**
     * 判断是否是注释,或者是注释的开头
     * 如果是，那么交给注释处理函数
@@ -171,7 +170,7 @@ protected:
         if (back_look_char.empty() == true)
         {
             ch = reader.getch();
-            col ++;
+            col++;
         }
         else
         {
@@ -187,7 +186,7 @@ protected:
      */
     inline Token* new_token(TokenFlag token_flag)
     {
-        return new Token(token_flag,buffer,row,get_prev_col());
+        return new Token(token_flag, buffer, row, get_prev_col());
     }
     /**
      * 处理关键字
@@ -198,7 +197,7 @@ protected:
      */
     inline int32_t get_prev_col()
     {
-        int32_t t_size = buffer.empty() ? 0 : buffer.size() - 1 ;
+        int32_t t_size = buffer.empty() ? 0 : buffer.size() - 1;
         int32_t t_col = col - t_size - back_look_char.size();
 
         return t_col;
@@ -227,7 +226,7 @@ public:
 protected:
     /**
     * 无需自己扩展
-    * 
+    *
     * EF_NAMESPACE_BEGIN
     **/
     //virtual bool isidentifierstart(int32_t ch);
@@ -266,11 +265,11 @@ protected:
     **/
     //virtual TokenFlag proconechars(int32_t c1);
     /**
-    * 
+    *
     **/
     //virtual TokenFlag proctwochars(int32_t c1,int32_t c2);
     /**
-    * 
+    *
     **/
     //virtual TokenFlag procthreechars(int32_t c1,int32_t c2,int32_t c3);
     /**
@@ -373,5 +372,4 @@ private:
 
 EF_NAMESPACE_END
 
-#endif // _SCANNER_H_2011_12_1_lisency
-
+#endif /*!_Scanner_h__*/

@@ -5,10 +5,9 @@
  *         2011年11月30日 15:32:56
  * Author:
  *         张彦升
---------------------------------------------------------------------*/
-
-#ifndef _EFEXCEPTION_H_2011_11_30_lisency
-#define _EFEXCEPTION_H_2011_11_30_lisency
+ --------------------------------------------------------------------*/
+#ifndef _Exception_h__
+#define _Exception_h__
 
 #include "Util.h"
 #include "Base.h"
@@ -51,7 +50,7 @@ public:
     *  异常类的构造函数往往给我带来了许多困惑
     **/
     explicit EFExc(std::string t_file_path,
-        int32_t t_row,int32_t t_col,int32_t t_error_id)
+        int32_t t_row, int32_t t_col, int32_t t_error_id)
         : file_path(t_file_path),
         row(t_row),
         col(t_col),
@@ -72,8 +71,8 @@ public:
         std::string exc_massage = file_path;
 
         char message[1000] = "0";
-        sprintf_s(message,1000,"\t%s at row:%d column:%d",
-            get_message(error_id),row,col);
+        sprintf_s(message, 1000, "\t%s at row:%d column:%d",
+            get_message(error_id), row, col);
         exc_massage += message;
         return exc_massage;
     }
@@ -136,5 +135,4 @@ private:
 
 EF_NAMESPACE_END
 
-#endif // _EFEXCEPTION_H_2011_11_30_lisency
-
+#endif /*!_Exception_h__*/

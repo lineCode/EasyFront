@@ -5,10 +5,9 @@
  *         2011年11月13日 13:35:45
  * Author:
  *         张彦升
---------------------------------------------------------------------*/
-
-#ifndef _BASE_H_2011_11_13_lisency
-#define _BASE_H_2011_11_13_lisency
+ --------------------------------------------------------------------*/
+#ifndef _Base_h__
+#define _Base_h__
 
 #include "Util.h"
 
@@ -16,7 +15,7 @@ EF_NAMESPACE_BEGIN
 
 /**
  * abstract class,not for initialize
- * 
+ *
  **/
 class Base
 {
@@ -29,5 +28,4 @@ private:
 
 EF_NAMESPACE_END
 
-#endif // _BASE_H_2011_11_13_lisency
-
+#endif /*!_Base_h__*/

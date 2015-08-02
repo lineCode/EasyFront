@@ -5,25 +5,25 @@
  *         2011年12月1日 17:49:40
  * Author:
  *         张彦升
---------------------------------------------------------------------*/
+ --------------------------------------------------------------------*/
 
 #include "Scanner.h"
 #include "Exception.h"
 
 EF_NAMESPACE_BEGIN
 
-static const ChFlags ERRORCH = (ChFlags) 0;         //错误字符
-static const ChFlags NEEDNEXTCH = (ChFlags) 1;      //需下一字符才能判断
-static const ChFlags READEND = (ChFlags) 2;         //文件结束
-static const ChFlags ANNOTATION = (ChFlags) 3;      //注释
-static const ChFlags NEXTLINE = (ChFlags) 4;        //新行
-static const ChFlags IDENTIFIERSTART = (ChFlags) 5; //可能是关键字的开头符[a-zA-Z_]
-static const ChFlags IDENTIFIER = (ChFlags) 6;      //是个关键字
-static const ChFlags INVOKEDOT = (ChFlags) 7;       //函数调用符
-static const ChFlags DIGIT = (ChFlags) 8;           //数字[0-9]
-static const ChFlags STRINGFLAG = (ChFlags) 9;      //字符串
-static const ChFlags BACKSLASHFLAG = (ChFlags) 10;  //反斜线
-static const ChFlags PUNCTATION = (ChFlags) 11;     //标点
+static const ChFlags ERRORCH = (ChFlags)0;         //错误字符
+static const ChFlags NEEDNEXTCH = (ChFlags)1;      //需下一字符才能判断
+static const ChFlags READEND = (ChFlags)2;         //文件结束
+static const ChFlags ANNOTATION = (ChFlags)3;      //注释
+static const ChFlags NEXTLINE = (ChFlags)4;        //新行
+static const ChFlags IDENTIFIERSTART = (ChFlags)5; //可能是关键字的开头符[a-zA-Z_]
+static const ChFlags IDENTIFIER = (ChFlags)6;      //是个关键字
+static const ChFlags INVOKEDOT = (ChFlags)7;       //函数调用符
+static const ChFlags DIGIT = (ChFlags)8;           //数字[0-9]
+static const ChFlags STRINGFLAG = (ChFlags)9;      //字符串
+static const ChFlags BACKSLASHFLAG = (ChFlags)10;  //反斜线
+static const ChFlags PUNCTATION = (ChFlags)11;     //标点
 
 /**
  * 词法分析器
@@ -36,7 +36,7 @@ Scanner::Scanner(Reader &reader)
     pendin(0)
 {
     //缩进栈全部初始化为1
-    for (int i = 0;i < MAXINDENTSIZE;i++)
+    for (int i = 0; i < MAXINDENTSIZE; i++)
     {
         indent_stack[i] = 1;
     }
@@ -71,12 +71,13 @@ spaces:
     {//缩进,没有为这个留个接口，也不知道会在其他地方用不
         if (0 > pendin)
         {
-            pendin ++;
+            pendin++;
             buffer.clear();
             return new_token(DEDENT);
-        }else
+        }
+        else
         {
-            pendin --;
+            pendin--;
             buffer.clear();
             return new_token(INDENT);
         }
@@ -133,7 +134,7 @@ spaces:
         {
             buffer.clear();
             backupch(ch);
-            for (;isdigit(ch) == true;backupch(ch))
+            for (; isdigit(ch) == true; backupch(ch))
             {
                 ch = nextch();
             }
@@ -144,7 +145,7 @@ spaces:
         else
         {//若不是数字，那么它就是函数调用符
             back_look_char.push_back(ch);
-            return new Token(DOT,".",row,get_prev_col());
+            return new Token(DOT, ".", row, get_prev_col());
         }
     }
     if (isdigit(ch) == true)
@@ -161,7 +162,7 @@ spaces:
             {//是点号
                 if (dot_have == true)
                 {
-                    EFExc exc(get_path(),row,col,ERROR_ERRORTOKEN);
+                    EFExc exc(get_path(), row, col, ERROR_ERRORTOKEN);
                     throw exc;
                 }
                 dot_have = true;
@@ -169,7 +170,7 @@ spaces:
                 ch = nextch();
                 if (isdigit(ch) == false)
                 {//点号后面不是数字，那就肯定是拼写错了
-                    EFExc exc(get_path(),row,col,ERROR_ERRORTOKEN);
+                    EFExc exc(get_path(), row, col, ERROR_ERRORTOKEN);
                     throw exc;
                 }
             }
@@ -191,7 +192,7 @@ spaces:
             ch = nextch();
             if ('\n' == ch || READ_END == ch || 0x0d == ch)
             {//结尾不正确
-                EFExc exc(get_path(),row,col,ERROR_ERRORTOKEN);
+                EFExc exc(get_path(), row, col, ERROR_ERRORTOKEN);
                 throw exc;
             }
             if ('\\' == ch)
@@ -220,7 +221,7 @@ spaces:
     char ch3 = nextch();
     //开始处理两个字符的操作符 
     TokenFlag token_flag;
-    token_flag = procthreechars(ch,ch2,ch3);
+    token_flag = procthreechars(ch, ch2, ch3);
 
     //如果不为空，说明匹配成功
     if (token_flag != EMPTY)
@@ -231,7 +232,7 @@ spaces:
         return new_token(token_flag);
     }
 
-    token_flag = proctwochars(ch,ch2);
+    token_flag = proctwochars(ch, ch2);
 
     if (token_flag != EMPTY)
     {
@@ -244,7 +245,7 @@ spaces:
     token_flag = proconechars(ch);
     if (token_flag == ERRORTOKEN)
     {
-        EFExc exc(get_path(),row,col,ERROR_ERRORTOKEN);
+        EFExc exc(get_path(), row, col, ERROR_ERRORTOKEN);
         throw exc;
     }
     back_look_char.push_back(ch2);
@@ -303,32 +304,32 @@ bool Scanner::isstringstart(int32_t ch)
     return false;
 }
 /**
- * 
+ *
  */
 int32_t Scanner::procspaces()
 {
     return 0;
 }
 /**
- * 
+ *
  */
 int32_t Scanner::procindent()
 {
     return 0;
 }
 /**
- * 
+ *
  */
 void Scanner::procnewline()
 {
     return;
 }
 /**
- * 
+ *
  */
 TokenFlag Scanner::proconechars(int32_t c1)
 {
-    switch (c1) 
+    switch (c1)
     {
     case '(':            return LPAR;
     case ')':            return RPAR;
@@ -356,9 +357,9 @@ TokenFlag Scanner::proconechars(int32_t c1)
     }
 }
 /**
- * 
+ *
  */
-TokenFlag Scanner::proctwochars(int32_t c1,int32_t c2)
+TokenFlag Scanner::proctwochars(int32_t c1, int32_t c2)
 {
     switch (c1)
     {
@@ -446,7 +447,7 @@ TokenFlag Scanner::proctwochars(int32_t c1,int32_t c2)
 /**
  *  处理由三个字符组成的词素
  */
-TokenFlag Scanner::procthreechars(int32_t c1,int32_t c2,int32_t c3)
+TokenFlag Scanner::procthreechars(int32_t c1, int32_t c2, int32_t c3)
 {
     switch (c1)
     {
@@ -535,7 +536,7 @@ int32_t Scanner::getpendin()
     return pendin;
 }
 /**
- * 
+ *
  */
 Token* Scanner::proc_keyword()
 {
@@ -549,7 +550,7 @@ RegScanner::RegScanner(Reader &reader)
     return;
 }
 /**
- * 
+ *
  */
 RegScanner::~RegScanner()
 {
@@ -557,11 +558,11 @@ RegScanner::~RegScanner()
 }
 /*bool RegScanner::isidentifierstart(int32_t ch)
 {
-    return false;
+return false;
 }
 bool RegScanner::isidentifier(int32_t ch)
 {
-    return false;
+return false;
 }*/
 /**
  * 以单引号开头
@@ -584,7 +585,8 @@ int32_t RegScanner::procspaces()
         if (' ' == ch || '\t' == ch)
         {//空格的这一位已经在nextch里面加上了
             ch = nextch();
-        }else
+        }
+        else
         {
             break;
         }
@@ -607,15 +609,15 @@ void RegScanner::procnewline()
 }
 /*nt32_t RegScanner::proconechars(int32_t c1)
 {
-    return -1;
+return -1;
 }
 int32_t RegScanner::proctwochars(char c1,char c2)
 {
-    return -1
+return -1
 }
 int32_t RegScanner::procthreechars(char c1,char c2,char c3)
 {
-    return -1;
+return -1;
 }*/
 /**
  * 注释以#号开头
@@ -660,7 +662,7 @@ EFScanner::EFScanner(Reader &reader)
     return;
 }
 /**
- * do nothing 
+ * do nothing
  */
 EFScanner::~EFScanner()
 {
@@ -669,7 +671,7 @@ EFScanner::~EFScanner()
 /**
  * 单引号或双引号
  */
-bool EFScanner::isstringstart( int32_t ch )
+bool EFScanner::isstringstart(int32_t ch)
 {
     if ('\'' == ch || '\"' == ch)
     {
@@ -688,17 +690,20 @@ int32_t EFScanner::procspaces()
         {
             if (' ' == ch || 0x0b == ch || 0x0c == ch)
             {//空格的这一位已经在nextch里面加上了
-            }else if ('\t' == ch)
+            }
+            else if ('\t' == ch)
             {
                 int32_t tabsize = 4;
-                col = (col/tabsize + 1) * tabsize;
-            }else
+                col = (col / tabsize + 1) * tabsize;
+            }
+            else
             {
                 break;
             }
             ch = nextch();
         }
-    }else
+    }
+    else
     {
         while (' ' == ch || '\t' == ch
             || 0x0b == ch || 0x0c == ch)
@@ -763,11 +768,11 @@ int32_t EFScanner::procindent()
     {//indent
         if (indent_index + 1 >= MAXINDENTSIZE)
         {
-            EFExc exc(get_path(),row,t_col,ERROR_ERRORTOKEN);
+            EFExc exc(get_path(), row, t_col, ERROR_ERRORTOKEN);
             throw exc;
         }
-        indent_index ++;
-        pendin ++;
+        indent_index++;
+        pendin++;
         indent_stack[indent_index] = t_col;
     }
     else
@@ -775,8 +780,8 @@ int32_t EFScanner::procindent()
         while (indent_index > 0
             && t_col < indent_stack[indent_index])
         {
-            indent_index --;
-            pendin --;
+            indent_index--;
+            pendin--;
         }
     }
     return 1;
@@ -833,87 +838,87 @@ Token* EFScanner::proc_keyword()
     int col = this->col - buffer.size();
     if (buffer == "if")
     {
-        token = new Token(IF_MARKER,"if",row,col);
+        token = new Token(IF_MARKER, "if", row, col);
     }
     else if (buffer == "elif")
     {
-        token = new Token(ELIF_MARKER,"elif",row,col);
+        token = new Token(ELIF_MARKER, "elif", row, col);
     }
     else if (buffer == "else")
     {
-        token = new Token(ELSE_MARKER,"else",row,col);
+        token = new Token(ELSE_MARKER, "else", row, col);
     }
     else if (buffer == "while")
     {
-        token = new Token(WHILE_MARKER,"while",row,col);
+        token = new Token(WHILE_MARKER, "while", row, col);
     }
     else if (buffer == "for")
     {
-        token = new Token(FOR_MARKER,"for",row,col);
+        token = new Token(FOR_MARKER, "for", row, col);
     }
     else if (buffer == "in")
     {
-        token = new Token(IN_MARKER,"in",row,col);
+        token = new Token(IN_MARKER, "in", row, col);
     }
     else if (buffer == "try")
     {
-        token = new Token(TRY_MARKER,"try",row,col);
+        token = new Token(TRY_MARKER, "try", row, col);
     }
     else if (buffer == "finally")
     {
-        token = new Token(FINALLY_MARKER,"finally",row,col);
+        token = new Token(FINALLY_MARKER, "finally", row, col);
     }
     else if (buffer == "catch")
     {
-        token = new Token(CATCH_MARKER,"catch",row,col);
+        token = new Token(CATCH_MARKER, "catch", row, col);
     }
     else if (buffer == "fun")
     {
-        token = new Token(FUN_MARKER,"fun",row,col);
+        token = new Token(FUN_MARKER, "fun", row, col);
     }
     else if (buffer == "class")
     {
-        token = new Token(CLASS_MARKER,"class",row,col);
+        token = new Token(CLASS_MARKER, "class", row, col);
     }
     else if (buffer == "del")
     {
-        token = new Token(DEL_MARKER,"del",row,col);
+        token = new Token(DEL_MARKER, "del", row, col);
     }
     else if (buffer == "import")
     {
-        token = new Token(IMPORT_MARKER,"import",row,col);
+        token = new Token(IMPORT_MARKER, "import", row, col);
     }
     else if (buffer == "null")
     {
-        token = new Token(NULL_MARKER,"null",row,col);
+        token = new Token(NULL_MARKER, "null", row, col);
     }
     else if (buffer == "true")
     {
-        token = new Token(TRUE_MARKER,"true",row,col);
+        token = new Token(TRUE_MARKER, "true", row, col);
     }
     else if (buffer == "false")
     {
-        token = new Token(FALSE_MARKER,"false",row,col);
+        token = new Token(FALSE_MARKER, "false", row, col);
     }
     else if (buffer == "lambda")
     {
-        token = new Token(LAMBDA_MARKER,"lambda",row,col);
+        token = new Token(LAMBDA_MARKER, "lambda", row, col);
     }
     else if (buffer == "not")
     {
-        token = new Token(NOT_MARKER,"not",row,col);
+        token = new Token(NOT_MARKER, "not", row, col);
     }
     else if (buffer == "or")
     {
-        token = new Token(OR_MARKER,"or",row,col);
+        token = new Token(OR_MARKER, "or", row, col);
     }
     else if (buffer == "and")
     {
-        token = new Token(AND_MARKER,"and",row,col);
+        token = new Token(AND_MARKER, "and", row, col);
     }
     else
     {
-        token = new Token(NAME,buffer,row,col);
+        token = new Token(NAME, buffer, row, col);
     }
     buffer.clear();//用完了我们就把它清理掉
 

@@ -6,9 +6,8 @@
 * Author:
 *         张彦升
 --------------------------------------------------------------------*/
-
-#ifndef _EXECUTOR_H_2012_2_26_lisency
-#define _EXECUTOR_H_2012_2_26_lisency
+#ifndef _Executor_h__
+#define _Executor_h__
 
 #include "Base.h"
 #include "Opcode.h"
@@ -27,7 +26,7 @@ class Executor
     :public Base
 {
 public:
-	/**
+    /**
      *
      */
     Executor(CodeObject* t_code_object);
@@ -36,20 +35,20 @@ public:
      */
     ~Executor();
     /**
-     * 
+     *
      */
     inline int32_t throw_error(int32_t error_id)
     {
-        EFExc exc("",-1,-1,error_id);
+        EFExc exc("", -1, -1, error_id);
         throw exc;
         return 0;
     }
     /**
-     * 
+     *
      */
     int32_t excute();
     /**
-     * 
+     *
      */
     int32_t load_name(int32_t id);
     /**
@@ -57,15 +56,15 @@ public:
      */
     int32_t load_int(int32_t id);
     /**
-     * 
+     *
      */
     int32_t load_double(int32_t id);
     /**
-     * 
+     *
      */
     int32_t load_const(int32_t id);
     /**
-     * 
+     *
      */
     int32_t load_object(int32_t id);
     /**
@@ -89,11 +88,11 @@ public:
      */
     Instruction* pop_jump_if_false(int32_t arg);
     /**
-     * 
+     *
      */
     Instruction* pop_jump_if_true(int32_t arg);
     /**
-     * 
+     *
      */
     Instruction* jump_forword(int32_t arg);
     /**
@@ -101,9 +100,9 @@ public:
      */
     Instruction* jump_absulute(int32_t arg);
     /**
-     * 
+     *
      */
-    int32_t stack_push(Object* ob,ObjectType ty);
+    int32_t stack_push(Object* ob, ObjectType ty);
     /**
      * 二元加
      */
@@ -113,35 +112,35 @@ public:
      */
     int32_t binary_subscr(int32_t arg);
     /**
-     * 
+     *
      */
     int32_t binary_multiply(int32_t arg);
     /**
-     * 
+     *
      */
     int32_t binary_ture_divide(int32_t arg);
     /**
-     * 
+     *
      */
     int32_t binary_modulo(int32_t arg);
     /**
-     * 
+     *
      */
     int32_t binary_floor_divide(int32_t arg);
     /**
-     * 
+     *
      */
     int32_t binary_or(int32_t arg);
     /**
-     * 
+     *
      */
     int32_t binary_xor(int32_t arg);
     /**
-     * 
+     *
      */
     int32_t make_function(int32_t arg);
     /**
-     * 
+     *
      */
     ValueEntry* get_values();
 protected:
@@ -162,5 +161,4 @@ private:
 
 EF_NAMESPACE_END
 
-#endif // _EXECUTOR_H_2012_2_26_lisency
-
+#endif /*!_Executor_h__*/

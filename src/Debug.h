@@ -1,14 +1,13 @@
 /*-------------------------------------------------------------------
  * Purpose:
- *         Lise Debug class 这个类使用静态成员不是很好，我们还是改一下吧
+ *         Debug class 这个类使用静态成员不是很好，我们还是改一下吧
  * Time:
  *         2011年11月30日 16:04:20
  * Author:
  *         张彦升
---------------------------------------------------------------------*/
-
-#ifndef _EFDEBUG_H_2011_11_30_lisency
-#define _EFDEBUG_H_2011_11_30_lisency
+ --------------------------------------------------------------------*/
+#ifndef _Debug_h__
+#define _Debug_h__
 
 #include <iostream>
 #include <string>
@@ -36,7 +35,7 @@ public:
     {
         return;
     }
-    EfDebug(std::ostream &ost1,std::ostream &ost2)
+    EfDebug(std::ostream &ost1, std::ostream &ost2)
         :ost1(&ost1),
         ost2(&ost2)
     {
@@ -108,7 +107,7 @@ public:
     Debug();
     ~Debug();
 protected:
-    
+
 private:
 };
 class Log
@@ -118,7 +117,7 @@ public:
     Log();
     ~Log();
 protected:
-    
+
 private:
 };
 class Error
@@ -128,7 +127,7 @@ public:
     Error();
     ~Error();
 protected:
-    
+
 private:
 };
 class Info
@@ -138,15 +137,15 @@ public:
     Info();
     ~Info();
 protected:
-    
+
 private:
 };
-/**
- *  d:debug信息，即向屏幕输出，又向DEBUG文件输出
+/*
+ * d:debug信息，即向屏幕输出，又向DEBUG文件输出
  * l:log信息，只向log文件输出
  * e:error信息，向屏幕和log文件输出
  * i:information,仅向屏幕输出
- **/
+ */
 extern EfDebug d;
 extern EfDebug l;
 extern EfDebug e;
@@ -177,6 +176,4 @@ extern std::fstream debug_stream;
 #endif
 EF_NAMESPACE_END
 
-
-#endif // _EFDEBUG_H_2011_11_30_lisency
-
+#endif /*!_Debug_h__*/

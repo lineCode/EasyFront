@@ -5,7 +5,7 @@
  *         2012年2月5日 15:49:37
  * Author:
  *         张彦升
---------------------------------------------------------------------*/
+ --------------------------------------------------------------------*/
 
 #include "Visitor.h"
 #include "Exception.h"
@@ -19,365 +19,365 @@ EF_NAMESPACE_BEGIN
                     context->get_row(),context->get_col(),error_id);\
                     throw exc;
 /**
- * 
+ *
  **/
-Visitor::Visitor()
+ Visitor::Visitor()
 {
     return;
 }
 /**
- * 
+ *
  **/
 Visitor::~Visitor()
 {
     return;
 }
 /**
- * 
+ *
  **/
-void Visitor::visit_stmt_seq( StmtSeq* context )
+void Visitor::visit_stmt_seq(StmtSeq* context)
 {
     return;
 }
 /**
- * 
+ *
  **/
-void Visitor::visit_simple_stmt( SimpleStmt* context )
+void Visitor::visit_simple_stmt(SimpleStmt* context)
 {
     return;
 }
 /**
- * 
+ *
  **/
-void Visitor::visit_del_stmt( DelStmt* context )
+void Visitor::visit_del_stmt(DelStmt* context)
 {
     return;
 }
 /**
- * 
+ *
  **/
-void Visitor::visit_import_stmt( ImportStmt* context )
+void Visitor::visit_import_stmt(ImportStmt* context)
 {
     return;
 }
 /**
- * 
+ *
  **/
-void Visitor::visit_assign_stmt( Assign* context )
+void Visitor::visit_assign_stmt(Assign* context)
 {
     return;
 }
 /**
- * 
+ *
  **/
-void Visitor::visit_derict_assign_stmt( DerictAssign* context )
+void Visitor::visit_derict_assign_stmt(DerictAssign* context)
 {
     return;
 }
 /**
- * 
+ *
  **/
-void Visitor::visit_aug_assign_stmt( AugAssign* context )
+void Visitor::visit_aug_assign_stmt(AugAssign* context)
 {
     return;
 }
 /**
- * 
+ *
  **/
-void Visitor::visit_if_stmt( IfStmt* context )
+void Visitor::visit_if_stmt(IfStmt* context)
 {
     return;
 }
 /**
- * 
+ *
  **/
-void Visitor::visit_elif_stmt( ElifStmt* context )
+void Visitor::visit_elif_stmt(ElifStmt* context)
 {
     return;
 }
 /**
- * 
+ *
  **/
-void Visitor::visit_else_stmt( ElseStmt* context )
+void Visitor::visit_else_stmt(ElseStmt* context)
 {
     return;
 }
 /**
- * 
+ *
  **/
-void Visitor::visit_while_stmt( WhileStmt* context )
+void Visitor::visit_while_stmt(WhileStmt* context)
 {
     return;
 }
 /**
- * 
+ *
  **/
-void Visitor::visit_for_stmt( ForStmt* context )
+void Visitor::visit_for_stmt(ForStmt* context)
 {
     return;
 }
 /**
- * 
+ *
  **/
-void Visitor::visit_try_stmt( TryStmt* context )
+void Visitor::visit_try_stmt(TryStmt* context)
 {
     return;
 }
 /**
- * 
+ *
  **/
-void Visitor::visit_catch_stmt( CatchStmt* context )
+void Visitor::visit_catch_stmt(CatchStmt* context)
 {
     return;
 }
 /**
- * 
+ *
  **/
-void Visitor::visit_fun_stmt( FunStmt* context )
+void Visitor::visit_fun_stmt(FunStmt* context)
 {
     return;
 }
 /**
- * 
+ *
  **/
-void Visitor::visit_class_stmt( ClassStmt* context )
+void Visitor::visit_class_stmt(ClassStmt* context)
 {
     return;
 }
 /**
- * 
+ *
  **/
-void Visitor::visit_suite_stmt( Suite* context )
+void Visitor::visit_suite_stmt(Suite* context)
 {
     return;
 }
 /**
- * 
+ *
  **/
-void Visitor::visit_parameters_expr( ParametersExpr* context )
+void Visitor::visit_parameters_expr(ParametersExpr* context)
 {
     return;
 }
 /**
- * 
+ *
  **/
-void Visitor::visit_no_star_parameter_expr( NostarParameterExpr* context )
+void Visitor::visit_no_star_parameter_expr(NostarParameterExpr* context)
 {
     return;
 }
 /**
- * 
+ *
  **/
-void Visitor::visit_tuple_parameter_expr( TupleParameterExpr* context )
+void Visitor::visit_tuple_parameter_expr(TupleParameterExpr* context)
 {
     return;
 }
 /**
- * 
+ *
  **/
-void Visitor::visit_map_parameter_expr( MapParameterExpr* context )
+void Visitor::visit_map_parameter_expr(MapParameterExpr* context)
 {
     return;
 }
 /**
- * 
+ *
  **/
-void Visitor::visit_lambda_expr( LambdaExpr* context )
+void Visitor::visit_lambda_expr(LambdaExpr* context)
 {
     return;
 }
 /**
- * 
+ *
  **/
-void Visitor::visit_logical_or_expr( LogicalOrExpr* context )
+void Visitor::visit_logical_or_expr(LogicalOrExpr* context)
 {
     return;
 }
 /**
- * 
+ *
  **/
-void Visitor::visit_logical_and_expr( LogicalAndExpr* context )
+void Visitor::visit_logical_and_expr(LogicalAndExpr* context)
 {
     return;
 }
 /**
- * 
+ *
  **/
-void Visitor::visit_logical_not_expr( LogicalNotExpr* context )
+void Visitor::visit_logical_not_expr(LogicalNotExpr* context)
 {
     return;
 }
 /**
- * 
+ *
  **/
-void Visitor::visit_logical_rel_expr( LogicalRelExpr* context )
+void Visitor::visit_logical_rel_expr(LogicalRelExpr* context)
 {
     return;
 }
 /**
- * 
+ *
  **/
-void Visitor::visit_logical_rel_expr_r( LogicalRelExprR* context )
+void Visitor::visit_logical_rel_expr_r(LogicalRelExprR* context)
 {
     return;
 }
 /**
- * 
+ *
  **/
-void Visitor::visit_or_expr( OrExpr* context )
+void Visitor::visit_or_expr(OrExpr* context)
 {
     return;
 }
 /**
- * 
+ *
  **/
-void Visitor::visit_xor_expr( XorExpr* context )
+void Visitor::visit_xor_expr(XorExpr* context)
 {
     return;
 }
 /**
- * 
+ *
  **/
-void Visitor::visit_and_expr( AndExpr* context )
+void Visitor::visit_and_expr(AndExpr* context)
 {
     return;
 }
 /**
- * 
+ *
  **/
-void Visitor::visit_shift_expr( ShiftExpr* context )
+void Visitor::visit_shift_expr(ShiftExpr* context)
 {
     return;
 }
 /**
- * 
+ *
  **/
-void Visitor::visit_shift_expr_r( ShiftExprR* context )
+void Visitor::visit_shift_expr_r(ShiftExprR* context)
 {
     return;
 }
 /**
- * 
+ *
  **/
-void Visitor::visit_arith_expr( ArithExpr* context )
+void Visitor::visit_arith_expr(ArithExpr* context)
 {
     return;
 }
 /**
- * 
+ *
  **/
-void Visitor::visit_arith_expr_r( ArithExprR* context )
+void Visitor::visit_arith_expr_r(ArithExprR* context)
 {
     return;
 }
 /**
- * 
+ *
  **/
-void Visitor::visit_term_expr( TermExpr* context )
+void Visitor::visit_term_expr(TermExpr* context)
 {
     return;
 }
 /**
- * 
+ *
  **/
-void Visitor::visit_term_expr_r( TermExprR* context )
+void Visitor::visit_term_expr_r(TermExprR* context)
 {
     return;
 }
 /**
- * 
+ *
  **/
-void Visitor::visit_factor_expr( FactorExpr* context )
+void Visitor::visit_factor_expr(FactorExpr* context)
 {
     return;
 }
 /**
- * 
+ *
  **/
-void Visitor::visit_power_expr( PowerExpr* context )
+void Visitor::visit_power_expr(PowerExpr* context)
 {
     return;
 }
 /**
- * 
+ *
  **/
-void Visitor::visit_tuple_expr( TupleExpr* context )
+void Visitor::visit_tuple_expr(TupleExpr* context)
 {
     return;
 }
 /**
- * 
+ *
  **/
-void Visitor::visit_map_expr( MapExpr* context )
+void Visitor::visit_map_expr(MapExpr* context)
 {
     return;
 }
 /**
- * 
+ *
  **/
-void Visitor::visit_tuple_variable_expr( TupleVariableExpr* context )
+void Visitor::visit_tuple_variable_expr(TupleVariableExpr* context)
 {
     return;
 }
 /**
- * 
+ *
  **/
-void Visitor::visit_map_variable_expr( MapVariableExpr* context )
+void Visitor::visit_map_variable_expr(MapVariableExpr* context)
 {
     return;
 }
 /**
- * 
+ *
  **/
-void Visitor::visit_number_expr( NumberExpr* context )
+void Visitor::visit_number_expr(NumberExpr* context)
 {
     return;
 }
 /**
- * 
+ *
  **/
-void Visitor::visit_string_expr( StringExpr* context )
+void Visitor::visit_string_expr(StringExpr* context)
 {
     return;
 }
 /**
- * 
+ *
  **/
-void Visitor::visit_keyword_expr( KeyWordExpr* context )
+void Visitor::visit_keyword_expr(KeyWordExpr* context)
 {
     return;
 }
 /**
- * 
+ *
  **/
-void Visitor::visit_name_expr( NameExpr* context )
+void Visitor::visit_name_expr(NameExpr* context)
 {
     return;
 }
 /**
- * 
+ *
  **/
-void Visitor::visit_fun_invoke_expr( FunInvokeExpr* context )
+void Visitor::visit_fun_invoke_expr(FunInvokeExpr* context)
 {
     return;
 }
 /**
- * 
+ *
  **/
-void Visitor::visit_module_invoke_expr( ModuleInvokeExpr* context )
+void Visitor::visit_module_invoke_expr(ModuleInvokeExpr* context)
 {
     return;
 }
 /******let's begin bytecode generate*************
- * 
+ *
  **/
-ByteCodeGen::ByteCodeGen( CodeBuilder& t_code_builder )
-:code_builder(t_code_builder)
+ByteCodeGen::ByteCodeGen(CodeBuilder& t_code_builder)
+    :code_builder(t_code_builder)
 {
     return;
 }
 /**
- * 
+ *
  **/
 ByteCodeGen::~ByteCodeGen()
 {
@@ -386,7 +386,7 @@ ByteCodeGen::~ByteCodeGen()
 /**
  * 依次遍历每个语句节点
  **/
-void ByteCodeGen::visit_stmt_seq( StmtSeq* context )
+void ByteCodeGen::visit_stmt_seq(StmtSeq* context)
 {
     Stmt* t_stmt = context->get_stmt();
     StmtSeq* stmt_seq = context->get_stmt_seq();
@@ -404,7 +404,7 @@ void ByteCodeGen::visit_stmt_seq( StmtSeq* context )
 /**
  * 简单语句的变量，不会引发作用域的问题
  **/
-void ByteCodeGen::visit_simple_stmt( SimpleStmt* context )
+void ByteCodeGen::visit_simple_stmt(SimpleStmt* context)
 {
     SmallStmt* small_stmt = context->get_small_stmt();
     SimpleStmt* small_stmt_r = context->get_small_stmt_r();
@@ -422,7 +422,7 @@ void ByteCodeGen::visit_simple_stmt( SimpleStmt* context )
 /**
  * 删除语句的遍历
  **/
-void ByteCodeGen::visit_del_stmt( DelStmt* context )
+void ByteCodeGen::visit_del_stmt(DelStmt* context)
 {
     std::string name = context->get_name();
 
@@ -430,7 +430,7 @@ void ByteCodeGen::visit_del_stmt( DelStmt* context )
 
     //code_builder.addop_name(LOAD_NAME,name);  //不需要这一句
     //调用delete指令将name从符号表中删除
-    code_builder.addop_name(DELETE_NAME,name);
+    code_builder.addop_name(DELETE_NAME, name);
     std::string message("DELETE_NAME:");
     message += name;
     D(message);
@@ -439,15 +439,15 @@ void ByteCodeGen::visit_del_stmt( DelStmt* context )
 /**
  * 遍历import节点的时候要将import的name信息存入指令表中
  **/
-void ByteCodeGen::visit_import_stmt( ImportStmt* context )
+void ByteCodeGen::visit_import_stmt(ImportStmt* context)
 {
     std::string name = context->get_name();
     assert(name.empty() != true);
 
-    code_builder.addop_name(IMPORT_NAME,name);
+    code_builder.addop_name(IMPORT_NAME, name);
     //将name的文件引导进来并编译它，然后将该值村给name，也就是说name此时
     //持有的是字节码对象
-    code_builder.addop_name(STORE_NAME,name);
+    code_builder.addop_name(STORE_NAME, name);
     std::string message("IMPORT_NAME:");
     message += name;
     D(message);
@@ -460,7 +460,7 @@ void ByteCodeGen::visit_import_stmt( ImportStmt* context )
 /**
  * 这里对两种赋值采用不同的遍历方式
  **/
-void ByteCodeGen::visit_assign_stmt( Assign* context )
+void ByteCodeGen::visit_assign_stmt(Assign* context)
 {
     Expr* t_expr = context->get_expr();
 
@@ -504,13 +504,13 @@ void ByteCodeGen::visit_assign_stmt( Assign* context )
 /**
  * 遍历单一赋值语句
  **/
-void ByteCodeGen::visit_derict_assign_stmt( DerictAssign* context )
+void ByteCodeGen::visit_derict_assign_stmt(DerictAssign* context)
 {
     Expr* t_expr = context->get_expr();
     DerictAssign* exprs_r = context->get_exprs_r();
 
     assert(t_expr != NULL);
-    
+
     //这里是递归调用，其实用循环会更好些
     if (exprs_r == NULL)
     {
@@ -540,7 +540,7 @@ void ByteCodeGen::visit_derict_assign_stmt( DerictAssign* context )
 /**
  * 复合赋值使用前序遍历
  **/
-void ByteCodeGen::visit_aug_assign_stmt( AugAssign* context )
+void ByteCodeGen::visit_aug_assign_stmt(AugAssign* context)
 {
     Expr* t_expr = context->get_expr();
     TokenFlag token_flag = context->get_token_flag();
@@ -550,7 +550,7 @@ void ByteCodeGen::visit_aug_assign_stmt( AugAssign* context )
     t_expr->visit(*this);
     Op opcode = code_builder.inplace_binop(token_flag);
     code_builder.addop(opcode);
-    
+
     std::string message("AUG_ASSIGN");
     D(message);
     return;
@@ -559,7 +559,7 @@ void ByteCodeGen::visit_aug_assign_stmt( AugAssign* context )
  * if语句
  * if语句要endblock支持，这是应该注意的一个地方
  **/
-void ByteCodeGen::visit_if_stmt( IfStmt* context )
+void ByteCodeGen::visit_if_stmt(IfStmt* context)
 {
     Expr* t_expr = context->get_expr();
     Suite* t_stmt = context->get_suite();
@@ -576,8 +576,8 @@ void ByteCodeGen::visit_if_stmt( IfStmt* context )
 
     code_builder.enter_scope(context);  //进入一层牢房
 
-    Basicblock *end, *next,*self;
-    next =code_builder.new_block();
+    Basicblock *end, *next, *self;
+    next = code_builder.new_block();
     self = code_builder.new_block();
     //结束位置在elif语句
     if (elif != NULL || else_ != NULL)
@@ -597,7 +597,7 @@ void ByteCodeGen::visit_if_stmt( IfStmt* context )
 
 
     //确保在访问t_expr的时候没有添加最后一条跳转指令
-    code_builder.addop_j_abs(POP_JUMP_IF_FALSE,next);
+    code_builder.addop_j_abs(POP_JUMP_IF_FALSE, next);
     std::string message("POP_JUMP_IF_FALSE");
     D(message);
 
@@ -609,7 +609,7 @@ void ByteCodeGen::visit_if_stmt( IfStmt* context )
         THROW_ERROR(ERROR_STMT_EMPTY);
     }
     t_stmt->visit(*this);    //访问stmt节点
-    code_builder.addop_j_rel(JUMP_FORWARD,end);
+    code_builder.addop_j_rel(JUMP_FORWARD, end);
 
     message = "JUMP_FORWARD";
     D(message);
@@ -647,7 +647,7 @@ void ByteCodeGen::visit_if_stmt( IfStmt* context )
         //code_builder.set_endblock(end);//直接执行完else紧接就是下一block
         else_->visit(*this);
     }
-    
+
     //将block的指针指向end
     code_builder.use_next_block(end);
     return;
@@ -655,7 +655,7 @@ void ByteCodeGen::visit_if_stmt( IfStmt* context )
 /**
  * 对elif语句进行遍历
  **/
-void ByteCodeGen::visit_elif_stmt( ElifStmt* context )
+void ByteCodeGen::visit_elif_stmt(ElifStmt* context)
 {
     Expr* t_expr = context->get_expr();
     Suite* t_stmt = context->get_suite();
@@ -663,13 +663,13 @@ void ByteCodeGen::visit_elif_stmt( ElifStmt* context )
 
     assert(t_expr != NULL);
     assert(t_stmt != NULL);
-    
+
     code_builder.enter_scope(context);  //再进一层牢房
 
     //该expr使用的是在if语句中北设置过的一个快
     code_builder.set_context_ty(Load);
 
-    Basicblock* next,*end,*self;
+    Basicblock* next, *end, *self;
     self = code_builder.new_block();
 
     end = code_builder.get_endblock();
@@ -678,27 +678,27 @@ void ByteCodeGen::visit_elif_stmt( ElifStmt* context )
 
     //if (elif == NULL)
     //{
-        //next = end;
+    //next = end;
     //}
     //else
     //{
-        next = code_builder.new_block();
+    next = code_builder.new_block();
     //}
     code_builder.set_self_block(self);
     code_builder.set_next_block(next);
 
     t_expr->visit(*this);
 
-    code_builder.addop_j_rel(POP_JUMP_IF_FALSE,next);
+    code_builder.addop_j_rel(POP_JUMP_IF_FALSE, next);
 
     std::string message("POP_JUMP_IF_FALSE");
     D(message);
 
     code_builder.use_next_block(self);
     t_stmt->visit(*this);
-    code_builder.addop_j_abs(JUMP_FORWARD,end);
+    code_builder.addop_j_abs(JUMP_FORWARD, end);
 
-     message = "JUMP_FORWARD";
+    message = "JUMP_FORWARD";
     D(message);
 
     //前序遍历访问所有的elif节点
@@ -724,7 +724,7 @@ void ByteCodeGen::visit_elif_stmt( ElifStmt* context )
         code_builder.set_self_block(self);
 
         t_expr->visit(*this);
-        code_builder.addop_j_rel(POP_JUMP_IF_FALSE,next);
+        code_builder.addop_j_rel(POP_JUMP_IF_FALSE, next);
 
         message = "POP_JUMP_IF_FALSE";
         D(message);
@@ -733,7 +733,7 @@ void ByteCodeGen::visit_elif_stmt( ElifStmt* context )
 
         code_builder.use_next_block(self);
         t_stmt->visit(*this);
-        code_builder.addop_j_abs(JUMP_FORWARD,end);
+        code_builder.addop_j_abs(JUMP_FORWARD, end);
 
         message = "JUMP_FORWARD";
         D(message);
@@ -745,7 +745,7 @@ void ByteCodeGen::visit_elif_stmt( ElifStmt* context )
 /**
  * else statement
  **/
-void ByteCodeGen::visit_else_stmt( ElseStmt* context )
+void ByteCodeGen::visit_else_stmt(ElseStmt* context)
 {
     Suite* t_stmt = context->get_suite();
 
@@ -759,7 +759,7 @@ void ByteCodeGen::visit_else_stmt( ElseStmt* context )
 /**
  * while statement
  **/
-void ByteCodeGen::visit_while_stmt( WhileStmt* context )
+void ByteCodeGen::visit_while_stmt(WhileStmt* context)
 {
     Expr* t_expr = context->get_expr();
     Suite* t_stmt = context->get_suite();
@@ -807,14 +807,14 @@ void ByteCodeGen::visit_while_stmt( WhileStmt* context )
     code_builder.set_context_ty(Load);
     t_expr->visit(*this);
     code_builder.set_context_ty(Empty);
-    code_builder.addop_j_abs(POP_JUMP_IF_FALSE,orelse);
+    code_builder.addop_j_abs(POP_JUMP_IF_FALSE, orelse);
 
     std::string message = "POP_JUMP_IF_FALSE";
     D(message);
 
     //表达式与stmt之间没有block之隔，它们是一体的，所以这里不在newblock
     t_stmt->visit(*this);
-    code_builder.addop_j_abs(JUMP_ABSOLUTE,loop);
+    code_builder.addop_j_abs(JUMP_ABSOLUTE, loop);
 
     message = "JUMP_ABSOLUTE";
     D(message);
@@ -828,7 +828,7 @@ void ByteCodeGen::visit_while_stmt( WhileStmt* context )
         else_->visit(*this);
         //else完了之后不做跳转，直接进入下一块
     }
-    
+
     code_builder.use_next_block(end);
 
     return;
@@ -836,7 +836,7 @@ void ByteCodeGen::visit_while_stmt( WhileStmt* context )
 /**
  * for statement
  **/
-void ByteCodeGen::visit_for_stmt( ForStmt* context )
+void ByteCodeGen::visit_for_stmt(ForStmt* context)
 {
     Expr* expr_con = context->get_expr_con();
     Expr* expr_range = context->get_expr_range();
@@ -861,13 +861,13 @@ void ByteCodeGen::visit_for_stmt( ForStmt* context )
     {
         cleanup = end;
     }
-    
+
     if (start == NULL || end == NULL || cleanup == NULL)
     {
-        return ;
+        return;
     }
     //遍历顺序，先遍历range再遍历条件，再stmt，再else
-    code_builder.addop_j_rel(SETUP_LOOP,cleanup);
+    code_builder.addop_j_rel(SETUP_LOOP, cleanup);
 
     std::string message = "SETUP_LOOP";
     D(message);
@@ -884,7 +884,7 @@ void ByteCodeGen::visit_for_stmt( ForStmt* context )
     //得到迭代器
 
     code_builder.use_next_block(start);
-    code_builder.addop_j_rel(FOR_ITER,cleanup);
+    code_builder.addop_j_rel(FOR_ITER, cleanup);
 
     message = "FOR_ITER";
     D(message);
@@ -895,7 +895,7 @@ void ByteCodeGen::visit_for_stmt( ForStmt* context )
     code_builder.set_context_ty(Empty);
 
     t_stmt->visit(*this);
-    code_builder.addop_j_abs(JUMP_ABSOLUTE,start);
+    code_builder.addop_j_abs(JUMP_ABSOLUTE, start);
 
     message = "JUMP_ABSOLUTE";
     D(message);
@@ -907,7 +907,7 @@ void ByteCodeGen::visit_for_stmt( ForStmt* context )
     {
         else_->visit(*this);
     }
-    
+
     //如果else语句为空，这一句其实是重复的
     code_builder.use_next_block(end);
     return;
@@ -915,7 +915,7 @@ void ByteCodeGen::visit_for_stmt( ForStmt* context )
 /**
  * try catch
  **/
-void ByteCodeGen::visit_try_stmt( TryStmt* context )
+void ByteCodeGen::visit_try_stmt(TryStmt* context)
 {
     Suite* stmt_target = context->get_target();
     CatchStmt* stmt_catchs = context->get_catchs();
@@ -931,7 +931,7 @@ void ByteCodeGen::visit_try_stmt( TryStmt* context )
 /**
  * catch部分
  **/
-void ByteCodeGen::visit_catch_stmt( CatchStmt* context )
+void ByteCodeGen::visit_catch_stmt(CatchStmt* context)
 {
     Expr* t_expr = context->get_expr();
     Suite* t_stmt = context->get_suite();
@@ -947,7 +947,7 @@ void ByteCodeGen::visit_catch_stmt( CatchStmt* context )
 /**
  * 函数定义
  **/
-void ByteCodeGen::visit_fun_stmt( FunStmt* context )
+void ByteCodeGen::visit_fun_stmt(FunStmt* context)
 {
     std::string name = context->get_name();
     ParametersExpr* para = context->get_para();
@@ -977,14 +977,14 @@ void ByteCodeGen::visit_fun_stmt( FunStmt* context )
     CodeObject* op_code = fun_code_builder.get_code();
 
     op_code->print(debug_stream);
-    code_builder.make_function(name,op_code);
+    code_builder.make_function(name, op_code);
     code_builder.out_scope();
-    return ;
+    return;
 }
 /**
  * 类定义
  **/
-void ByteCodeGen::visit_class_stmt( ClassStmt* context )
+void ByteCodeGen::visit_class_stmt(ClassStmt* context)
 {
     std::string name = context->get_name();
     Suite* stmt = context->get_suite();
@@ -1001,7 +1001,7 @@ void ByteCodeGen::visit_class_stmt( ClassStmt* context )
 /**
  * 一件套装，只需简单遍历即可
  **/
-void ByteCodeGen::visit_suite_stmt( Suite* context )
+void ByteCodeGen::visit_suite_stmt(Suite* context)
 {
     StmtSeq* stmts = context->get_stmts();
     SimpleStmt* simple_stmt = context->get_simple_stmt();
@@ -1023,7 +1023,7 @@ void ByteCodeGen::visit_suite_stmt( Suite* context )
 /**
  * 遍历参数
  **/
-void ByteCodeGen::visit_parameters_expr( ParametersExpr* context )
+void ByteCodeGen::visit_parameters_expr(ParametersExpr* context)
 {
     ParameterExprAtom* parameter = context->get_parameter();
     ParametersExpr* other = context->get_other_para();
@@ -1046,7 +1046,7 @@ void ByteCodeGen::visit_parameters_expr( ParametersExpr* context )
 /**
  * 通用参数
  **/
-void ByteCodeGen::visit_no_star_parameter_expr( NostarParameterExpr* context )
+void ByteCodeGen::visit_no_star_parameter_expr(NostarParameterExpr* context)
 {
     //std::string name = context->get_name();
     AtomExpr* atom = context->get_atom();
@@ -1061,7 +1061,7 @@ void ByteCodeGen::visit_no_star_parameter_expr( NostarParameterExpr* context )
 /**
  * 元组参数
  **/
-void ByteCodeGen::visit_tuple_parameter_expr( TupleParameterExpr* context )
+void ByteCodeGen::visit_tuple_parameter_expr(TupleParameterExpr* context)
 {
     std::string name = context->get_name();
     Expr* t_expr = context->get_expr();
@@ -1071,7 +1071,7 @@ void ByteCodeGen::visit_tuple_parameter_expr( TupleParameterExpr* context )
 }
 /**
  **/
-void ByteCodeGen::visit_map_parameter_expr( MapParameterExpr* context )
+void ByteCodeGen::visit_map_parameter_expr(MapParameterExpr* context)
 {
     std::string name = context->get_name();
     Expr* t_expr = context->get_expr();
@@ -1083,7 +1083,7 @@ void ByteCodeGen::visit_map_parameter_expr( MapParameterExpr* context )
  * lambda表达式需要进入一个新的作用域，要做的工作很多，
  * 先放着
  **/
-void ByteCodeGen::visit_lambda_expr( LambdaExpr* context )
+void ByteCodeGen::visit_lambda_expr(LambdaExpr* context)
 {
     ParametersExpr* parameters = context->get_parameters();
     ConExpr* t_expr = context->get_expr();
@@ -1102,7 +1102,7 @@ void ByteCodeGen::visit_lambda_expr( LambdaExpr* context )
  * 逻辑或
  * 逻辑或处在表达式节点的最高层......
  **/
-void ByteCodeGen::visit_logical_or_expr( LogicalOrExpr* context )
+void ByteCodeGen::visit_logical_or_expr(LogicalOrExpr* context)
 {
     LogicalAndExpr* and_expr = context->get_and_expr();
     LogicalOrExpr* or_expr_r = context->get_or_expr_r();
@@ -1125,7 +1125,7 @@ void ByteCodeGen::visit_logical_or_expr( LogicalOrExpr* context )
     }
     //或表达式需要前序遍历，只要发现前面的一个为真，全为真
     //先遍历左孩子
-    code_builder.addop_j_abs(POP_JUMP_IF_TRUE,abs_next);
+    code_builder.addop_j_abs(POP_JUMP_IF_TRUE, abs_next);
 
     std::string message = "POP_JUMP_IF_TRUE";
     D(message);
@@ -1143,7 +1143,7 @@ void ByteCodeGen::visit_logical_or_expr( LogicalOrExpr* context )
         //对每个子节点的左孩子进行遍历
 
         //在这里不需要新的block
-        code_builder.addop_j_abs(POP_JUMP_IF_TRUE,abs_next);
+        code_builder.addop_j_abs(POP_JUMP_IF_TRUE, abs_next);
 
         message = "POP_JUMP_IF_TRUE";
         D(message);
@@ -1164,7 +1164,7 @@ void ByteCodeGen::visit_logical_or_expr( LogicalOrExpr* context )
 /**
  * 逻辑与表达式
  **/
-void ByteCodeGen::visit_logical_and_expr( LogicalAndExpr* context )
+void ByteCodeGen::visit_logical_and_expr(LogicalAndExpr* context)
 {
     LogicalNotExpr* not_expr = context->get_not_expr();
     LogicalAndExpr* and_expr = context->get_and_expr_r();
@@ -1187,7 +1187,7 @@ void ByteCodeGen::visit_logical_and_expr( LogicalAndExpr* context )
     }
     //and与or实现完全一样，如果能合并到一块那会更好
     //只要有一处为假，就跳到做末尾
-    code_builder.addop_j_abs(POP_JUMP_IF_FALSE,abs_next);
+    code_builder.addop_j_abs(POP_JUMP_IF_FALSE, abs_next);
     //如果为假，直接跳转到最后
 
     std::string message = "POP_JUMP_IF_FALSE";
@@ -1202,7 +1202,7 @@ void ByteCodeGen::visit_logical_and_expr( LogicalAndExpr* context )
 
         not_expr->visit(*this);
 
-        code_builder.addop_j_abs(POP_JUMP_IF_FALSE,abs_next);
+        code_builder.addop_j_abs(POP_JUMP_IF_FALSE, abs_next);
 
         message = "POP_JUMP_IF_FALSE";
         D(message);
@@ -1221,7 +1221,7 @@ void ByteCodeGen::visit_logical_and_expr( LogicalAndExpr* context )
 /**
  * 逻辑非
  **/
-void ByteCodeGen::visit_logical_not_expr( LogicalNotExpr* context )
+void ByteCodeGen::visit_logical_not_expr(LogicalNotExpr* context)
 {
     //两个参数其中有一个必为空
     LogicalNotExpr* not_expr = context->get_not_expr();
@@ -1232,7 +1232,7 @@ void ByteCodeGen::visit_logical_not_expr( LogicalNotExpr* context )
     if (not_expr != NULL && rel == NULL)
     {
         not_expr->visit(*this);
-        code_builder.addop(UNARY_NOT); 
+        code_builder.addop(UNARY_NOT);
 
         std::string message = "UNARY_NOT";
         D(message);
@@ -1247,7 +1247,7 @@ void ByteCodeGen::visit_logical_not_expr( LogicalNotExpr* context )
 /**
  * 复合表达式
  **/
-void ByteCodeGen::visit_logical_rel_expr( LogicalRelExpr* context )
+void ByteCodeGen::visit_logical_rel_expr(LogicalRelExpr* context)
 {
     SmallExpr* small_expr = context->get_small_expr();
     LogicalRelExprR* rel = context->get_rel_r();
@@ -1267,7 +1267,7 @@ void ByteCodeGen::visit_logical_rel_expr( LogicalRelExpr* context )
 /**
  * 复合表达式的右端
  **/
-void ByteCodeGen::visit_logical_rel_expr_r( LogicalRelExprR* context )
+void ByteCodeGen::visit_logical_rel_expr_r(LogicalRelExprR* context)
 {
     SmallExpr* small_expr = context->get_small_expr();
     TokenFlag token_flag = context->get_token_flag();
@@ -1279,7 +1279,7 @@ void ByteCodeGen::visit_logical_rel_expr_r( LogicalRelExprR* context )
     small_expr->visit(*this);
     code_builder.set_context_ty(Empty);
     int32_t arg = code_builder.cmpop(token_flag);
-    code_builder.addop_i(COMPARE_OP,arg);
+    code_builder.addop_i(COMPARE_OP, arg);
     //注意：这里没有管rel，实际上我不打算实现它了
 
     std::string message = "COMPARE_OP";
@@ -1295,7 +1295,7 @@ void ByteCodeGen::visit_logical_rel_expr_r( LogicalRelExprR* context )
  *　另一种可行的方案是，根本不需要这么多类，只要一个类，并
  * 记录其的操作符即可，python中就是这样做的
  **/
-void ByteCodeGen::visit_or_expr( OrExpr* context )
+void ByteCodeGen::visit_or_expr(OrExpr* context)
 {
     XorExpr* xor_expr = context->get_xor_expr();
     OrExpr* or_expr = context->get_or_expr_r();
@@ -1322,7 +1322,7 @@ void ByteCodeGen::visit_or_expr( OrExpr* context )
 /**
  * 异或表达式
  **/
-void ByteCodeGen::visit_xor_expr( XorExpr* context )
+void ByteCodeGen::visit_xor_expr(XorExpr* context)
 {
     AndExpr* and_expr = context->get_and_expr();
     XorExpr* xor_expr = context->get_xor_expr_r();
@@ -1349,7 +1349,7 @@ void ByteCodeGen::visit_xor_expr( XorExpr* context )
 /**
  * 与表达式
  **/
-void ByteCodeGen::visit_and_expr( AndExpr* context )
+void ByteCodeGen::visit_and_expr(AndExpr* context)
 {
     ShiftExpr* shift_expr = context->get_shift_expr();
     AndExpr* and_expr = context->get_and_expr_r();
@@ -1376,7 +1376,7 @@ void ByteCodeGen::visit_and_expr( AndExpr* context )
 /**
  * 左移右移表达式
  **/
-void ByteCodeGen::visit_shift_expr( ShiftExpr* context )
+void ByteCodeGen::visit_shift_expr(ShiftExpr* context)
 {
     ArithExpr* arith_expr = context->get_arith_expr();
     ShiftExprR* shift_expr = context->get_shift_expr_r();
@@ -1398,7 +1398,7 @@ void ByteCodeGen::visit_shift_expr( ShiftExpr* context )
 /**
  * 左移右移表达式的右端
  **/
-void ByteCodeGen::visit_shift_expr_r( ShiftExprR* context )
+void ByteCodeGen::visit_shift_expr_r(ShiftExprR* context)
 {
     TokenFlag token_flag = context->get_token_flag();
     ArithExpr* arith_expr = context->get_arith_expr();
@@ -1454,7 +1454,7 @@ void ByteCodeGen::visit_shift_expr_r( ShiftExprR* context )
 /**
  * 算数表达式
  **/
-void ByteCodeGen::visit_arith_expr( ArithExpr* context )
+void ByteCodeGen::visit_arith_expr(ArithExpr* context)
 {
     TermExpr* term = context->get_term();
     ArithExprR* arith_expr = context->get_arith_expr_r();
@@ -1474,7 +1474,7 @@ void ByteCodeGen::visit_arith_expr( ArithExpr* context )
 /**
  * 算数表达式的右端
  **/
-void ByteCodeGen::visit_arith_expr_r( ArithExprR* context )
+void ByteCodeGen::visit_arith_expr_r(ArithExprR* context)
 {
     TokenFlag token_flag = context->get_token_flag();
     TermExpr* term = context->get_term();
@@ -1507,7 +1507,7 @@ void ByteCodeGen::visit_arith_expr_r( ArithExprR* context )
         term = arith_expr->get_term();
 
         assert(term != NULL);
-        
+
         term->visit(*this);
         if (token_flag == PLUS)
         {
@@ -1530,7 +1530,7 @@ void ByteCodeGen::visit_arith_expr_r( ArithExprR* context )
 /**
  * term
  **/
-void ByteCodeGen::visit_term_expr( TermExpr* context )
+void ByteCodeGen::visit_term_expr(TermExpr* context)
 {
     FactorExpr* factor = context->get_factor();
     TermExprR* term_r = context->get_term_r();
@@ -1549,7 +1549,7 @@ void ByteCodeGen::visit_term_expr( TermExpr* context )
 /**
  * term的右端
  **/
-void ByteCodeGen::visit_term_expr_r( TermExprR* context )
+void ByteCodeGen::visit_term_expr_r(TermExprR* context)
 {
     TokenFlag token_flag = context->get_token_flag();
     FactorExpr* factor = context->get_factor();
@@ -1633,7 +1633,7 @@ void ByteCodeGen::visit_term_expr_r( TermExprR* context )
 /**
  * factor
  **/
-void ByteCodeGen::visit_factor_expr( FactorExpr* context )
+void ByteCodeGen::visit_factor_expr(FactorExpr* context)
 {
     TokenFlag token_flag = context->get_token_flag();
     FactorExpr* factor = context->get_factor();
@@ -1675,7 +1675,7 @@ void ByteCodeGen::visit_factor_expr( FactorExpr* context )
 /**
  * power平方
  **/
-void ByteCodeGen::visit_power_expr( PowerExpr* context )
+void ByteCodeGen::visit_power_expr(PowerExpr* context)
 {
     AtomExpr* atom = context->get_atom();
     FactorExpr* factor = context->get_factor();
@@ -1697,7 +1697,7 @@ void ByteCodeGen::visit_power_expr( PowerExpr* context )
 /**
  * 元组,参数还存在很多问题，暂留吧
  **/
-void ByteCodeGen::visit_tuple_expr( TupleExpr* context )
+void ByteCodeGen::visit_tuple_expr(TupleExpr* context)
 {
     TupleVariableExpr* variable = context->get_variable();
 
@@ -1709,7 +1709,7 @@ void ByteCodeGen::visit_tuple_expr( TupleExpr* context )
 /**
  * 映射类型
  **/
-void ByteCodeGen::visit_map_expr( MapExpr* context )
+void ByteCodeGen::visit_map_expr(MapExpr* context)
 {
     MapVariableExpr* variable = context->get_variable();
 
@@ -1721,7 +1721,7 @@ void ByteCodeGen::visit_map_expr( MapExpr* context )
 /**
  * 元组参数
  **/
-void ByteCodeGen::visit_tuple_variable_expr( TupleVariableExpr* context )
+void ByteCodeGen::visit_tuple_variable_expr(TupleVariableExpr* context)
 {
     Expr* t_expr = context->get_expr();
     TupleVariableExpr* variable = context->get_variable();
@@ -1738,7 +1738,7 @@ void ByteCodeGen::visit_tuple_variable_expr( TupleVariableExpr* context )
 /**
  * 映射类型参数
  **/
-void ByteCodeGen::visit_map_variable_expr( MapVariableExpr* context )
+void ByteCodeGen::visit_map_variable_expr(MapVariableExpr* context)
 {
     Expr* t_expr_l = context->get_expr_l();
     Expr* t_expr_r = context->get_expr_r();
@@ -1755,7 +1755,7 @@ void ByteCodeGen::visit_map_variable_expr( MapVariableExpr* context )
 /**
  * 数字
  **/
-void ByteCodeGen::visit_number_expr( NumberExpr* context )
+void ByteCodeGen::visit_number_expr(NumberExpr* context)
 {
     LongObject* int_value = context->get_int();
     FloatObject* float_value = context->get_float();
@@ -1765,7 +1765,7 @@ void ByteCodeGen::visit_number_expr( NumberExpr* context )
     if (int_value != NULL)
     {
         int32_t t_value = int_value->get_int();
-        code_builder.addop_interger(LOAD_INT,t_value);
+        code_builder.addop_interger(LOAD_INT, t_value);
 
         message = "LOAD_INT";
         D(message);
@@ -1773,7 +1773,7 @@ void ByteCodeGen::visit_number_expr( NumberExpr* context )
     else if (float_value != NULL)
     {
         double t_value = float_value->get_double();
-        code_builder.addop_float(LOAD_FLOAT,t_value);
+        code_builder.addop_float(LOAD_FLOAT, t_value);
 
         message = "LOAD_FLOAT";
         D(message);
@@ -1787,15 +1787,15 @@ void ByteCodeGen::visit_number_expr( NumberExpr* context )
 /**
  * 字符串
  **/
-void ByteCodeGen::visit_string_expr( StringExpr* context )
+void ByteCodeGen::visit_string_expr(StringExpr* context)
 {
     std::string name = context->get_value();
     StringExpr* string_other = context->get_string_other();
 
     assert(name.empty() != true);
 
-    code_builder.addop_const(LOAD_CONST,name);
-    
+    code_builder.addop_const(LOAD_CONST, name);
+
     std::string message = "LOAD_CONST";
     D(message);
 
@@ -1809,7 +1809,7 @@ void ByteCodeGen::visit_string_expr( StringExpr* context )
 /**
  * 关键字集合
  **/
-void ByteCodeGen::visit_keyword_expr( KeyWordExpr* context )
+void ByteCodeGen::visit_keyword_expr(KeyWordExpr* context)
 {
     LongObject* value = context->get_value();
 
@@ -1819,14 +1819,14 @@ void ByteCodeGen::visit_keyword_expr( KeyWordExpr* context )
 
     if (t_value)
     {
-        code_builder.addop_interger(LOAD_INT,1);
+        code_builder.addop_interger(LOAD_INT, 1);
 
         message = "LOAD_INT";
         D(message);
     }
     else
     {
-        code_builder.addop_interger(LOAD_INT,0);
+        code_builder.addop_interger(LOAD_INT, 0);
         message = "LOAD_INT";
         D(message);
     }
@@ -1836,7 +1836,7 @@ void ByteCodeGen::visit_keyword_expr( KeyWordExpr* context )
  * 生成我们用的最多的字节码序列
  * 对NameExpr我们采用前序遍历
  **/
-void ByteCodeGen::visit_name_expr( NameExpr* context )
+void ByteCodeGen::visit_name_expr(NameExpr* context)
 {
     std::string name = context->get_name();
     AtomExpr* name_expr_r = context->get_name_expr_r();
@@ -1854,7 +1854,7 @@ void ByteCodeGen::visit_name_expr( NameExpr* context )
         {
             THROW_ERROR(ERROR_NO_FOUND_SYMBOL);
         }
-        code_builder.addop_name(LOAD_NAME,name);
+        code_builder.addop_name(LOAD_NAME, name);
 
         message = "LOAD_NAME";
         D(message);
@@ -1883,12 +1883,12 @@ void ByteCodeGen::visit_name_expr( NameExpr* context )
         message = "add_var";
         D(message);
         //向参数中添加
-        return ;
+        return;
     default:
         opcode = LOAD_NAME;
         message = "LOAD_NAME";
     }
-    code_builder.addop_name(opcode,name);
+    code_builder.addop_name(opcode, name);
 
     D(message);
     return;
@@ -1896,7 +1896,7 @@ void ByteCodeGen::visit_name_expr( NameExpr* context )
 /**
  * 函数调用
  **/
-void ByteCodeGen::visit_fun_invoke_expr( FunInvokeExpr* context )
+void ByteCodeGen::visit_fun_invoke_expr(FunInvokeExpr* context)
 {
     ParametersExpr* paras = context->get_paras();
 
@@ -1910,7 +1910,7 @@ void ByteCodeGen::visit_fun_invoke_expr( FunInvokeExpr* context )
         paras = paras->get_other_para();
         counter++;
     }
-    code_builder.addop_i(CALL_FUNCTION,counter);
+    code_builder.addop_i(CALL_FUNCTION, counter);
 
     std::string message("CALL_FUNCTION");
     D(message);
@@ -1920,7 +1920,7 @@ void ByteCodeGen::visit_fun_invoke_expr( FunInvokeExpr* context )
 /**
  * 模块调用，从下至上调用
  **/
-void ByteCodeGen::visit_module_invoke_expr( ModuleInvokeExpr* context )
+void ByteCodeGen::visit_module_invoke_expr(ModuleInvokeExpr* context)
 {
     std::string name = context->get_name();
     ModuleInvokeExpr* module_invoke = context->get_module_expr_r();
@@ -1928,7 +1928,7 @@ void ByteCodeGen::visit_module_invoke_expr( ModuleInvokeExpr* context )
     assert(name.empty() != NULL);
     assert(module_invoke != NULL);
 
-    code_builder.addop_name(LOAD_NAME,name);
+    code_builder.addop_name(LOAD_NAME, name);
 
     uint32_t counter = 1;
     while (module_invoke != NULL)
@@ -1937,10 +1937,10 @@ void ByteCodeGen::visit_module_invoke_expr( ModuleInvokeExpr* context )
         name = module_invoke->get_name();
         assert(name.empty() != NULL);
 
-        code_builder.addop_name(LOAD_NAME,name);
+        code_builder.addop_name(LOAD_NAME, name);
         counter++;
     }
-    code_builder.addop_i(LOAD_BUILD_CLASS,counter);
+    code_builder.addop_i(LOAD_BUILD_CLASS, counter);
     //将栈顶的counter个元素取出，从下往上调用
     return;
 }
@@ -1952,7 +1952,7 @@ SymTableGen::SymTableGen(std::string& t_file_path)
 {
     //模块前一符号表为空，恰好为返回标志
     //模块的名字为文件路径
-    sym_table = new SymbolTable(NULL,t_file_path);
+    sym_table = new SymbolTable(NULL, t_file_path);
     sym_table->set_type(MODULE);    //初始化为一个模块类型的符号表
     return;
 }
@@ -1966,7 +1966,7 @@ SymTableGen::~SymTableGen()
 /**
  * @context 上下文环境
  **/
-void SymTableGen::visit_stmt_seq( StmtSeq* context )
+void SymTableGen::visit_stmt_seq(StmtSeq* context)
 {
     Stmt* t_stmt = context->get_stmt();
     StmtSeq* stmt_seq = context->get_stmt_seq();
@@ -1983,7 +1983,7 @@ void SymTableGen::visit_stmt_seq( StmtSeq* context )
 /**
  * simple_stmt是连续的，不进入作用域
  **/
-void SymTableGen::visit_simple_stmt( SimpleStmt* context )
+void SymTableGen::visit_simple_stmt(SimpleStmt* context)
 {
     SmallStmt* small_stmt = context->get_small_stmt();
     SimpleStmt* small_stmt_r = context->get_small_stmt_r();
@@ -2001,9 +2001,9 @@ void SymTableGen::visit_simple_stmt( SimpleStmt* context )
     return;
 }
 /**
- *   将DelStmt的NAME域加入符号表 
+ *   将DelStmt的NAME域加入符号表
  **/
-void SymTableGen::visit_del_stmt( DelStmt* context )
+void SymTableGen::visit_del_stmt(DelStmt* context)
 {
     std::string name = context->get_name();
     assert(name.empty() != true);
@@ -2014,7 +2014,7 @@ void SymTableGen::visit_del_stmt( DelStmt* context )
 /**
  * import与del语句相同，只是简单的向符号表中添加名字
  **/
-void SymTableGen::visit_import_stmt( ImportStmt* context )
+void SymTableGen::visit_import_stmt(ImportStmt* context)
 {
     std::string name = context->get_name();
 
@@ -2026,7 +2026,7 @@ void SymTableGen::visit_import_stmt( ImportStmt* context )
 /**
  * 赋值语句的左部与右部都不能为空
  **/
-void SymTableGen::visit_assign_stmt( Assign* context )
+void SymTableGen::visit_assign_stmt(Assign* context)
 {
     Expr* t_expr = context->get_expr();
 
@@ -2058,7 +2058,7 @@ void SymTableGen::visit_assign_stmt( Assign* context )
 /**
  *
  **/
-void SymTableGen::visit_derict_assign_stmt( DerictAssign* context )
+void SymTableGen::visit_derict_assign_stmt(DerictAssign* context)
 {
     Expr* t_expr = context->get_expr();
     DerictAssign* exprs_r = context->get_exprs_r();
@@ -2076,7 +2076,7 @@ void SymTableGen::visit_derict_assign_stmt( DerictAssign* context )
 /**
  *
  **/
-void SymTableGen::visit_aug_assign_stmt( AugAssign* context )
+void SymTableGen::visit_aug_assign_stmt(AugAssign* context)
 {
     //对tokenflag不做处理
     Expr* t_expr = context->get_expr();
@@ -2089,7 +2089,7 @@ void SymTableGen::visit_aug_assign_stmt( AugAssign* context )
 /**
  * 访问if语句的时候要注意elif与else语句可以为空
  **/
-void SymTableGen::visit_if_stmt( IfStmt* context )
+void SymTableGen::visit_if_stmt(IfStmt* context)
 {
     Expr* t_expr = context->get_expr();
     Suite* t_stmt = context->get_suite();
@@ -2100,7 +2100,7 @@ void SymTableGen::visit_if_stmt( IfStmt* context )
     assert(t_stmt != NULL);
 
     //严格的前序遍历
-    sym_table = sym_table->enter_scope("if",context);
+    sym_table = sym_table->enter_scope("if", context);
     t_expr->visit(*this);
     t_stmt->visit(*this);
 
@@ -2115,9 +2115,9 @@ void SymTableGen::visit_if_stmt( IfStmt* context )
     return;
 }
 /**
- * 
+ *
  **/
-void SymTableGen::visit_elif_stmt( ElifStmt* context )
+void SymTableGen::visit_elif_stmt(ElifStmt* context)
 {
     Expr* t_expr = context->get_expr();
     Suite* t_stmt = context->get_suite();
@@ -2125,8 +2125,8 @@ void SymTableGen::visit_elif_stmt( ElifStmt* context )
 
     assert(t_expr != NULL);
     assert(t_stmt != NULL);
-    
-    sym_table = sym_table->enter_scope("elif",context);
+
+    sym_table = sym_table->enter_scope("elif", context);
 
     t_expr->visit(*this);
     t_stmt->visit(*this);
@@ -2141,20 +2141,20 @@ void SymTableGen::visit_elif_stmt( ElifStmt* context )
 /**
  * else语句只是简单的访问suite
  **/
-void SymTableGen::visit_else_stmt( ElseStmt* context )
+void SymTableGen::visit_else_stmt(ElseStmt* context)
 {
     Suite* t_stmt = context->get_suite();
 
     assert(t_stmt != NULL);
 
-    sym_table = sym_table->enter_scope("else",context);
+    sym_table = sym_table->enter_scope("else", context);
     t_stmt->visit(*this);
     return;
 }
 /**
  * else 语句也只是简单的访问，不对else进行访问
  **/
-void SymTableGen::visit_while_stmt( WhileStmt* context )
+void SymTableGen::visit_while_stmt(WhileStmt* context)
 {
     Expr* t_expr = context->get_expr();
     Suite* t_stmt = context->get_suite();
@@ -2163,7 +2163,7 @@ void SymTableGen::visit_while_stmt( WhileStmt* context )
     assert(t_expr != NULL);
     assert(t_stmt != NULL);
 
-    sym_table = sym_table->enter_scope("while",context);
+    sym_table = sym_table->enter_scope("while", context);
 
     t_expr->visit(*this);
     t_stmt->visit(*this);
@@ -2176,7 +2176,7 @@ void SymTableGen::visit_while_stmt( WhileStmt* context )
 /**
  * for statement
  **/
-void SymTableGen::visit_for_stmt( ForStmt* context )
+void SymTableGen::visit_for_stmt(ForStmt* context)
 {
     Expr* expr_con = context->get_expr_con();
     Expr* expr_range = context->get_expr_range();
@@ -2187,7 +2187,7 @@ void SymTableGen::visit_for_stmt( ForStmt* context )
     assert(expr_range != NULL);
     assert(stmt != NULL);
 
-    sym_table = sym_table->enter_scope("for",context);
+    sym_table = sym_table->enter_scope("for", context);
     expr_con->visit(*this);
     expr_range->visit(*this);
     stmt->visit(*this);
@@ -2200,7 +2200,7 @@ void SymTableGen::visit_for_stmt( ForStmt* context )
 /**
  * finally可以为空
  **/
-void SymTableGen::visit_try_stmt( TryStmt* context )
+void SymTableGen::visit_try_stmt(TryStmt* context)
 {
     Suite* stmt_target = context->get_target();
     CatchStmt* stmt_catchs = context->get_catchs();
@@ -2209,10 +2209,10 @@ void SymTableGen::visit_try_stmt( TryStmt* context )
     assert(stmt_target != NULL);
     assert(stmt_catchs != NULL);
 
-    sym_table = sym_table->enter_scope("try",context);
+    sym_table = sym_table->enter_scope("try", context);
     stmt_target->visit(*this);
     stmt_catchs->visit(*this);
-    
+
     if (stmt_finally != NULL)
     {
         stmt_finally->visit(*this);
@@ -2220,9 +2220,9 @@ void SymTableGen::visit_try_stmt( TryStmt* context )
     return;
 }
 /**
- * 
+ *
  **/
-void SymTableGen::visit_catch_stmt( CatchStmt* context )
+void SymTableGen::visit_catch_stmt(CatchStmt* context)
 {
     Expr* t_expr = context->get_expr();
     Suite* t_stmt = context->get_suite();
@@ -2231,7 +2231,7 @@ void SymTableGen::visit_catch_stmt( CatchStmt* context )
     assert(t_expr != NULL);
     assert(t_stmt != NULL);
 
-    sym_table = sym_table->enter_scope("catch",context);
+    sym_table = sym_table->enter_scope("catch", context);
     t_expr->visit(*this);
     t_stmt->visit(*this);
     //递归结束条件
@@ -2242,9 +2242,9 @@ void SymTableGen::visit_catch_stmt( CatchStmt* context )
     return;
 }
 /**
- * 
+ *
  **/
-void SymTableGen::visit_fun_stmt( FunStmt* context )
+void SymTableGen::visit_fun_stmt(FunStmt* context)
 {
     std::string name = context->get_name();
     ParametersExpr* para = context->get_para();
@@ -2254,8 +2254,8 @@ void SymTableGen::visit_fun_stmt( FunStmt* context )
 
     //参数可以为空，所以不做判断
     assert(stmt != NULL);
-   
-    sym_table = sym_table->enter_scope(name,context,FUN);
+
+    sym_table = sym_table->enter_scope(name, context, FUN);
 
     if (para != NULL)
     {
@@ -2265,9 +2265,9 @@ void SymTableGen::visit_fun_stmt( FunStmt* context )
     return;
 }
 /**
- * 
+ *
  **/
-void SymTableGen::visit_class_stmt( ClassStmt* context )
+void SymTableGen::visit_class_stmt(ClassStmt* context)
 {
     std::string name = context->get_name();
     Suite* stmt = context->get_suite();
@@ -2275,14 +2275,14 @@ void SymTableGen::visit_class_stmt( ClassStmt* context )
     assert(name.empty() != true);
     assert(stmt != NULL);
 
-    sym_table = sym_table->enter_scope(name,context,CLASS);
+    sym_table = sym_table->enter_scope(name, context, CLASS);
     stmt->visit(*this);
     return;
 }
 /**
- * 
+ *
  **/
-void SymTableGen::visit_suite_stmt( Suite* context )
+void SymTableGen::visit_suite_stmt(Suite* context)
 {
     StmtSeq* stmts = context->get_stmts();
     SimpleStmt* simple_stmt = context->get_simple_stmt();
@@ -2305,7 +2305,7 @@ void SymTableGen::visit_suite_stmt( Suite* context )
 /**
  * 遍历所有参数
  **/
-void SymTableGen::visit_parameters_expr( ParametersExpr* context )
+void SymTableGen::visit_parameters_expr(ParametersExpr* context)
 {
     ParameterExprAtom* parameter = context->get_parameter();
     ParametersExpr* other = context->get_other_para();
@@ -2322,7 +2322,7 @@ void SymTableGen::visit_parameters_expr( ParametersExpr* context )
 /**
  * 普通参数
  **/
-void SymTableGen::visit_no_star_parameter_expr( NostarParameterExpr* context )
+void SymTableGen::visit_no_star_parameter_expr(NostarParameterExpr* context)
 {
     //std::string name = context->get_name();
     AtomExpr* atom = context->get_atom();
@@ -2340,9 +2340,9 @@ void SymTableGen::visit_no_star_parameter_expr( NostarParameterExpr* context )
     return;
 }
 /**
- * 
+ *
  **/
-void SymTableGen::visit_tuple_parameter_expr( TupleParameterExpr* context )
+void SymTableGen::visit_tuple_parameter_expr(TupleParameterExpr* context)
 {
     std::string name = context->get_name();
     Expr* t_expr = context->get_expr();
@@ -2358,9 +2358,9 @@ void SymTableGen::visit_tuple_parameter_expr( TupleParameterExpr* context )
     return;
 }
 /**
- * 
+ *
  **/
-void SymTableGen::visit_map_parameter_expr( MapParameterExpr* context )
+void SymTableGen::visit_map_parameter_expr(MapParameterExpr* context)
 {
     std::string name = context->get_name();
     Expr* t_expr = context->get_expr();
@@ -2377,9 +2377,9 @@ void SymTableGen::visit_map_parameter_expr( MapParameterExpr* context )
     return;
 }
 /**
- * 
+ *
  **/
-void SymTableGen::visit_lambda_expr( LambdaExpr* context )
+void SymTableGen::visit_lambda_expr(LambdaExpr* context)
 {
     ParametersExpr* parameters = context->get_parameters();
     ConExpr* t_expr = context->get_expr();
@@ -2395,9 +2395,9 @@ void SymTableGen::visit_lambda_expr( LambdaExpr* context )
     return;
 }
 /**
- * 
+ *
  **/
-void SymTableGen::visit_logical_or_expr( LogicalOrExpr* context )
+void SymTableGen::visit_logical_or_expr(LogicalOrExpr* context)
 {
     LogicalAndExpr* and_expr = context->get_and_expr();
     LogicalOrExpr* or_expr_r = context->get_or_expr_r();
@@ -2413,9 +2413,9 @@ void SymTableGen::visit_logical_or_expr( LogicalOrExpr* context )
     return;
 }
 /**
- * 
+ *
  **/
-void SymTableGen::visit_logical_and_expr( LogicalAndExpr* context )
+void SymTableGen::visit_logical_and_expr(LogicalAndExpr* context)
 {
     LogicalNotExpr* not_expr = context->get_not_expr();
     LogicalAndExpr* and_expr = context->get_and_expr_r();
@@ -2432,7 +2432,7 @@ void SymTableGen::visit_logical_and_expr( LogicalAndExpr* context )
 /**
  *  逻辑非
  **/
-void SymTableGen::visit_logical_not_expr( LogicalNotExpr* context )
+void SymTableGen::visit_logical_not_expr(LogicalNotExpr* context)
 {
     LogicalNotExpr* not_expr = context->get_not_expr();
     LogicalRelExpr* rel = context->get_rel_expr();
@@ -2451,9 +2451,9 @@ void SymTableGen::visit_logical_not_expr( LogicalNotExpr* context )
     return;
 }
 /**
- * 
+ *
  **/
-void SymTableGen::visit_logical_rel_expr( LogicalRelExpr* context )
+void SymTableGen::visit_logical_rel_expr(LogicalRelExpr* context)
 {
     SmallExpr* small_expr = context->get_small_expr();
     LogicalRelExprR* rel = context->get_rel_r();
@@ -2471,7 +2471,7 @@ void SymTableGen::visit_logical_rel_expr( LogicalRelExpr* context )
 /**
  * 复合二元比较的右部
  **/
-void SymTableGen::visit_logical_rel_expr_r( LogicalRelExprR* context )
+void SymTableGen::visit_logical_rel_expr_r(LogicalRelExprR* context)
 {
     SmallExpr* small_expr = context->get_small_expr();
     LogicalRelExprR* rel = context->get_rel_r();
@@ -2479,7 +2479,7 @@ void SymTableGen::visit_logical_rel_expr_r( LogicalRelExprR* context )
     assert(small_expr != NULL);
 
     small_expr->visit(*this);
-    
+
     if (rel != NULL)
     {
         rel->visit(*this);
@@ -2487,9 +2487,9 @@ void SymTableGen::visit_logical_rel_expr_r( LogicalRelExprR* context )
     return;
 }
 /**
- * 
+ *
  **/
-void SymTableGen::visit_or_expr( OrExpr* context )
+void SymTableGen::visit_or_expr(OrExpr* context)
 {
     XorExpr* xor_expr = context->get_xor_expr();
     OrExpr* or_expr = context->get_or_expr_r();
@@ -2505,9 +2505,9 @@ void SymTableGen::visit_or_expr( OrExpr* context )
     return;
 }
 /**
- * 
+ *
  **/
-void SymTableGen::visit_xor_expr( XorExpr* context )
+void SymTableGen::visit_xor_expr(XorExpr* context)
 {
     AndExpr* and_expr = context->get_and_expr();
     XorExpr* xor_expr = context->get_xor_expr_r();
@@ -2523,9 +2523,9 @@ void SymTableGen::visit_xor_expr( XorExpr* context )
     return;
 }
 /**
- * 
+ *
  **/
-void SymTableGen::visit_and_expr( AndExpr* context )
+void SymTableGen::visit_and_expr(AndExpr* context)
 {
     ShiftExpr* shift_expr = context->get_shift_expr();
     AndExpr* and_expr = context->get_and_expr_r();
@@ -2543,7 +2543,7 @@ void SymTableGen::visit_and_expr( AndExpr* context )
 /**
  * 包含有右部，其右部都必须不为空
  **/
-void SymTableGen::visit_shift_expr( ShiftExpr* context )
+void SymTableGen::visit_shift_expr(ShiftExpr* context)
 {
     ArithExpr* arith_expr = context->get_arith_expr();
     ShiftExprR* shift_expr = context->get_shift_expr_r();
@@ -2561,9 +2561,9 @@ void SymTableGen::visit_shift_expr( ShiftExpr* context )
     return;
 }
 /**
- * 
+ *
  **/
-void SymTableGen::visit_shift_expr_r( ShiftExprR* context )
+void SymTableGen::visit_shift_expr_r(ShiftExprR* context)
 {
     ArithExpr* arith_expr = context->get_arith_expr();
     ShiftExprR* shift_expr = context->get_shift_expr_r();
@@ -2582,7 +2582,7 @@ void SymTableGen::visit_shift_expr_r( ShiftExprR* context )
 /**
  * 两个孩子都不能为空
  **/
-void SymTableGen::visit_arith_expr( ArithExpr* context )
+void SymTableGen::visit_arith_expr(ArithExpr* context)
 {
     TermExpr* term = context->get_term();
     ArithExprR* arith_expr = context->get_arith_expr_r();
@@ -2599,9 +2599,9 @@ void SymTableGen::visit_arith_expr( ArithExpr* context )
     return;
 }
 /**
- * 
+ *
  **/
-void SymTableGen::visit_arith_expr_r( ArithExprR* context )
+void SymTableGen::visit_arith_expr_r(ArithExprR* context)
 {
     TermExpr* term = context->get_term();
     ArithExprR* arith_expr = context->get_arith_expr_r();
@@ -2617,9 +2617,9 @@ void SymTableGen::visit_arith_expr_r( ArithExprR* context )
     return;
 }
 /**
- * 
+ *
  **/
-void SymTableGen::visit_term_expr( TermExpr* context )
+void SymTableGen::visit_term_expr(TermExpr* context)
 {
     FactorExpr* factor = context->get_factor();
     TermExprR* term_r = context->get_term_r();
@@ -2637,9 +2637,9 @@ void SymTableGen::visit_term_expr( TermExpr* context )
     return;
 }
 /**
- * 
+ *
  **/
-void SymTableGen::visit_term_expr_r( TermExprR* context )
+void SymTableGen::visit_term_expr_r(TermExprR* context)
 {
     FactorExpr* factor = context->get_factor();
     TermExprR* term_r = context->get_term_r();
@@ -2657,7 +2657,7 @@ void SymTableGen::visit_term_expr_r( TermExprR* context )
 /**
  * factor要注意一下
  **/
-void SymTableGen::visit_factor_expr( FactorExpr* context )
+void SymTableGen::visit_factor_expr(FactorExpr* context)
 {
     FactorExpr* factor = context->get_factor();
     PowerExpr* power = context->get_power_expr();
@@ -2675,9 +2675,9 @@ void SymTableGen::visit_factor_expr( FactorExpr* context )
     return;
 }
 /**
- * 
+ *
  **/
-void SymTableGen::visit_power_expr( PowerExpr* context )
+void SymTableGen::visit_power_expr(PowerExpr* context)
 {
     AtomExpr* atom = context->get_atom();
     FactorExpr* factor = context->get_factor();
@@ -2692,9 +2692,9 @@ void SymTableGen::visit_power_expr( PowerExpr* context )
     return;
 }
 /**
- * 
+ *
  **/
-void SymTableGen::visit_tuple_expr( TupleExpr* context )
+void SymTableGen::visit_tuple_expr(TupleExpr* context)
 {
     TupleVariableExpr* variable = context->get_variable();
 
@@ -2704,9 +2704,9 @@ void SymTableGen::visit_tuple_expr( TupleExpr* context )
     return;
 }
 /**
- * 
+ *
  **/
-void SymTableGen::visit_map_expr( MapExpr* context )
+void SymTableGen::visit_map_expr(MapExpr* context)
 {
     MapVariableExpr* variable = context->get_variable();
 
@@ -2716,9 +2716,9 @@ void SymTableGen::visit_map_expr( MapExpr* context )
     return;
 }
 /**
- * 
+ *
  **/
-void SymTableGen::visit_tuple_variable_expr( TupleVariableExpr* context )
+void SymTableGen::visit_tuple_variable_expr(TupleVariableExpr* context)
 {
     Expr* t_expr = context->get_expr();
     TupleVariableExpr* variable = context->get_variable();
@@ -2735,9 +2735,9 @@ void SymTableGen::visit_tuple_variable_expr( TupleVariableExpr* context )
     return;
 }
 /**
- * 
+ *
  **/
-void SymTableGen::visit_map_variable_expr( MapVariableExpr* context )
+void SymTableGen::visit_map_variable_expr(MapVariableExpr* context)
 {
     Expr* t_expr_l = context->get_expr_l();
     Expr* t_expr_r = context->get_expr_r();
@@ -2759,28 +2759,28 @@ void SymTableGen::visit_map_variable_expr( MapVariableExpr* context )
 /**
  * number属于常量，不需要想符号表中添加
  **/
-void SymTableGen::visit_number_expr( NumberExpr* context )
+void SymTableGen::visit_number_expr(NumberExpr* context)
 {
     return;
 }
 /**
  * string也属于常量，也不需要想符号表中添加
  **/
-void SymTableGen::visit_string_expr( StringExpr* context )
+void SymTableGen::visit_string_expr(StringExpr* context)
 {
     return;
 }
 /**
  * do nothing
  **/
-void SymTableGen::visit_keyword_expr( KeyWordExpr* context )
+void SymTableGen::visit_keyword_expr(KeyWordExpr* context)
 {
     return;
 }
 /**
- * 
+ *
  **/
-void SymTableGen::visit_name_expr( NameExpr* context )
+void SymTableGen::visit_name_expr(NameExpr* context)
 {
     std::string name = context->get_name();
     AtomExpr* name_expr = context->get_name_expr_r();
@@ -2796,9 +2796,9 @@ void SymTableGen::visit_name_expr( NameExpr* context )
     return;
 }
 /**
- * 
+ *
  **/
-void SymTableGen::visit_fun_invoke_expr( FunInvokeExpr* context )
+void SymTableGen::visit_fun_invoke_expr(FunInvokeExpr* context)
 {
     ParametersExpr* paras = context->get_paras();
 
@@ -2810,9 +2810,9 @@ void SymTableGen::visit_fun_invoke_expr( FunInvokeExpr* context )
     return;
 }
 /**
- * 
+ *
  **/
-void SymTableGen::visit_module_invoke_expr( ModuleInvokeExpr* context )
+void SymTableGen::visit_module_invoke_expr(ModuleInvokeExpr* context)
 {
     std::string name = context->get_name();
     ModuleInvokeExpr* module_invoke = context->get_module_expr_r();
@@ -2824,7 +2824,7 @@ void SymTableGen::visit_module_invoke_expr( ModuleInvokeExpr* context )
     return;
 }
 /**
- * 
+ *
  **/
 SymbolTable* SymTableGen::get_sym_table()
 {
@@ -2834,16 +2834,16 @@ SymbolTable* SymTableGen::get_sym_table()
 
 #ifdef EF_DEBUG
 /**
- * 
+ *
  */
 NodePrintor::NodePrintor(std::ostream& out)
-:cout(out)
+    :cout(out)
 {
     cout.flags(std::ios_base::hex);
     return;
 }
 /**
- * 
+ *
  */
 NodePrintor::~NodePrintor()
 {
@@ -2852,7 +2852,7 @@ NodePrintor::~NodePrintor()
 /**
  * @context 上下文环境
  **/
-void NodePrintor::visit_stmt_seq( StmtSeq* context )
+void NodePrintor::visit_stmt_seq(StmtSeq* context)
 {
     Stmt* t_stmt = context->get_stmt();
     StmtSeq* stmt_seq = context->get_stmt_seq();
@@ -2873,7 +2873,7 @@ void NodePrintor::visit_stmt_seq( StmtSeq* context )
 /**
  * simple_stmt是连续的，不进入作用域
  **/
-void NodePrintor::visit_simple_stmt( SimpleStmt* context )
+void NodePrintor::visit_simple_stmt(SimpleStmt* context)
 {
     SmallStmt* small_stmt = context->get_small_stmt();
     SimpleStmt* small_stmt_r = context->get_small_stmt_r();
@@ -2895,9 +2895,9 @@ void NodePrintor::visit_simple_stmt( SimpleStmt* context )
     return;
 }
 /**
- *   将DelStmt的NAME域加入符号表 
+ *   将DelStmt的NAME域加入符号表
  **/
-void NodePrintor::visit_del_stmt( DelStmt* context )
+void NodePrintor::visit_del_stmt(DelStmt* context)
 {
     std::string name = context->get_name();
     assert(name.empty() != true);
@@ -2909,7 +2909,7 @@ void NodePrintor::visit_del_stmt( DelStmt* context )
 /**
  * import与del语句相同，只是简单的向符号表中添加名字
  **/
-void NodePrintor::visit_import_stmt( ImportStmt* context )
+void NodePrintor::visit_import_stmt(ImportStmt* context)
 {
     std::string name = context->get_name();
 
@@ -2922,7 +2922,7 @@ void NodePrintor::visit_import_stmt( ImportStmt* context )
 /**
  * 赋值语句的左部与右部都不能为空
  **/
-void NodePrintor::visit_assign_stmt( Assign* context )
+void NodePrintor::visit_assign_stmt(Assign* context)
 {
     Expr* t_expr = context->get_expr();
 
@@ -2960,7 +2960,7 @@ void NodePrintor::visit_assign_stmt( Assign* context )
 /**
  *
  **/
-void NodePrintor::visit_derict_assign_stmt( DerictAssign* context )
+void NodePrintor::visit_derict_assign_stmt(DerictAssign* context)
 {
     Expr* t_expr = context->get_expr();
     DerictAssign* exprs_r = context->get_exprs_r();
@@ -2982,7 +2982,7 @@ void NodePrintor::visit_derict_assign_stmt( DerictAssign* context )
 /**
  *
  **/
-void NodePrintor::visit_aug_assign_stmt( AugAssign* context )
+void NodePrintor::visit_aug_assign_stmt(AugAssign* context)
 {
     //对tokenflag不做处理
     Expr* t_expr = context->get_expr();
@@ -2998,7 +2998,7 @@ void NodePrintor::visit_aug_assign_stmt( AugAssign* context )
 /**
  * 访问if语句的时候要注意elif与else语句可以为空
  **/
-void NodePrintor::visit_if_stmt( IfStmt* context )
+void NodePrintor::visit_if_stmt(IfStmt* context)
 {
     Expr* t_expr = context->get_expr();
     Suite* t_stmt = context->get_suite();
@@ -3029,9 +3029,9 @@ void NodePrintor::visit_if_stmt( IfStmt* context )
     return;
 }
 /**
- * 
+ *
  **/
-void NodePrintor::visit_elif_stmt( ElifStmt* context )
+void NodePrintor::visit_elif_stmt(ElifStmt* context)
 {
     Expr* t_expr = context->get_expr();
     Suite* t_stmt = context->get_suite();
@@ -3039,7 +3039,7 @@ void NodePrintor::visit_elif_stmt( ElifStmt* context )
 
     assert(t_expr != NULL);
     assert(t_stmt != NULL);
-    
+
     cout << "Elifstmt::" << context << "\t"
         << "Expr:" << t_expr << "\t"
         << "Suite:" << t_stmt << "\t"
@@ -3058,7 +3058,7 @@ void NodePrintor::visit_elif_stmt( ElifStmt* context )
 /**
  * else语句只是简单的访问suite
  **/
-void NodePrintor::visit_else_stmt( ElseStmt* context )
+void NodePrintor::visit_else_stmt(ElseStmt* context)
 {
     Suite* t_stmt = context->get_suite();
 
@@ -3073,7 +3073,7 @@ void NodePrintor::visit_else_stmt( ElseStmt* context )
 /**
  * else 语句也只是简单的访问，不对else进行访问
  **/
-void NodePrintor::visit_while_stmt( WhileStmt* context )
+void NodePrintor::visit_while_stmt(WhileStmt* context)
 {
     Expr* t_expr = context->get_expr();
     Suite* t_stmt = context->get_suite();
@@ -3098,7 +3098,7 @@ void NodePrintor::visit_while_stmt( WhileStmt* context )
 /**
  * for statement
  **/
-void NodePrintor::visit_for_stmt( ForStmt* context )
+void NodePrintor::visit_for_stmt(ForStmt* context)
 {
     Expr* expr_con = context->get_expr_con();
     Expr* expr_range = context->get_expr_range();
@@ -3127,7 +3127,7 @@ void NodePrintor::visit_for_stmt( ForStmt* context )
 /**
  * finally可以为空
  **/
-void NodePrintor::visit_try_stmt( TryStmt* context )
+void NodePrintor::visit_try_stmt(TryStmt* context)
 {
     Suite* stmt_target = context->get_target();
     CatchStmt* stmt_catchs = context->get_catchs();
@@ -3143,7 +3143,7 @@ void NodePrintor::visit_try_stmt( TryStmt* context )
 
     stmt_target->visit(*this);
     stmt_catchs->visit(*this);
-    
+
     if (stmt_finally != NULL)
     {
         stmt_finally->visit(*this);
@@ -3151,9 +3151,9 @@ void NodePrintor::visit_try_stmt( TryStmt* context )
     return;
 }
 /**
- * 
+ *
  **/
-void NodePrintor::visit_catch_stmt( CatchStmt* context )
+void NodePrintor::visit_catch_stmt(CatchStmt* context)
 {
     Expr* t_expr = context->get_expr();
     Suite* t_stmt = context->get_suite();
@@ -3176,9 +3176,9 @@ void NodePrintor::visit_catch_stmt( CatchStmt* context )
     return;
 }
 /**
- * 
+ *
  **/
-void NodePrintor::visit_fun_stmt( FunStmt* context )
+void NodePrintor::visit_fun_stmt(FunStmt* context)
 {
     std::string name = context->get_name();
     ParametersExpr* para = context->get_para();
@@ -3188,7 +3188,7 @@ void NodePrintor::visit_fun_stmt( FunStmt* context )
 
     //参数可以为空，所以不做判断
     assert(stmt != NULL);
-   
+
     cout << "FunStmt:" << context << "\t"
         << "name:" << name << "\t"
         << "ParametersExpr:" << para << "\t"
@@ -3202,9 +3202,9 @@ void NodePrintor::visit_fun_stmt( FunStmt* context )
     return;
 }
 /**
- * 
+ *
  **/
-void NodePrintor::visit_class_stmt( ClassStmt* context )
+void NodePrintor::visit_class_stmt(ClassStmt* context)
 {
     std::string name = context->get_name();
     Suite* stmt = context->get_suite();
@@ -3220,9 +3220,9 @@ void NodePrintor::visit_class_stmt( ClassStmt* context )
     return;
 }
 /**
- * 
+ *
  **/
-void NodePrintor::visit_suite_stmt( Suite* context )
+void NodePrintor::visit_suite_stmt(Suite* context)
 {
     StmtSeq* stmts = context->get_stmts();
     SimpleStmt* simple_stmt = context->get_simple_stmt();
@@ -3247,7 +3247,7 @@ void NodePrintor::visit_suite_stmt( Suite* context )
 /**
  * 遍历所有参数
  **/
-void NodePrintor::visit_parameters_expr( ParametersExpr* context )
+void NodePrintor::visit_parameters_expr(ParametersExpr* context)
 {
     ParameterExprAtom* parameter = context->get_parameter();
     ParametersExpr* other = context->get_other_para();
@@ -3269,7 +3269,7 @@ void NodePrintor::visit_parameters_expr( ParametersExpr* context )
 /**
  * 普通参数
  **/
-void NodePrintor::visit_no_star_parameter_expr( NostarParameterExpr* context )
+void NodePrintor::visit_no_star_parameter_expr(NostarParameterExpr* context)
 {
     //std::string name = context->get_name();
     AtomExpr* atom = context->get_atom();
@@ -3290,9 +3290,9 @@ void NodePrintor::visit_no_star_parameter_expr( NostarParameterExpr* context )
     return;
 }
 /**
- * 
+ *
  **/
-void NodePrintor::visit_tuple_parameter_expr( TupleParameterExpr* context )
+void NodePrintor::visit_tuple_parameter_expr(TupleParameterExpr* context)
 {
     std::string name = context->get_name();
     Expr* t_expr = context->get_expr();
@@ -3310,9 +3310,9 @@ void NodePrintor::visit_tuple_parameter_expr( TupleParameterExpr* context )
     return;
 }
 /**
- * 
+ *
  **/
-void NodePrintor::visit_map_parameter_expr( MapParameterExpr* context )
+void NodePrintor::visit_map_parameter_expr(MapParameterExpr* context)
 {
     std::string name = context->get_name();
     Expr* t_expr = context->get_expr();
@@ -3330,9 +3330,9 @@ void NodePrintor::visit_map_parameter_expr( MapParameterExpr* context )
     return;
 }
 /**
- * 
+ *
  **/
-void NodePrintor::visit_lambda_expr( LambdaExpr* context )
+void NodePrintor::visit_lambda_expr(LambdaExpr* context)
 {
     ParametersExpr* parameters = context->get_parameters();
     ConExpr* t_expr = context->get_expr();
@@ -3352,9 +3352,9 @@ void NodePrintor::visit_lambda_expr( LambdaExpr* context )
     return;
 }
 /**
- * 
+ *
  **/
-void NodePrintor::visit_logical_or_expr( LogicalOrExpr* context )
+void NodePrintor::visit_logical_or_expr(LogicalOrExpr* context)
 {
     LogicalAndExpr* and_expr = context->get_and_expr();
     LogicalOrExpr* or_expr_r = context->get_or_expr_r();
@@ -3374,9 +3374,9 @@ void NodePrintor::visit_logical_or_expr( LogicalOrExpr* context )
     return;
 }
 /**
- * 
+ *
  **/
-void NodePrintor::visit_logical_and_expr( LogicalAndExpr* context )
+void NodePrintor::visit_logical_and_expr(LogicalAndExpr* context)
 {
     LogicalNotExpr* not_expr = context->get_not_expr();
     LogicalAndExpr* and_expr = context->get_and_expr_r();
@@ -3397,7 +3397,7 @@ void NodePrintor::visit_logical_and_expr( LogicalAndExpr* context )
 /**
  *  逻辑非
  **/
-void NodePrintor::visit_logical_not_expr( LogicalNotExpr* context )
+void NodePrintor::visit_logical_not_expr(LogicalNotExpr* context)
 {
     LogicalNotExpr* not_expr = context->get_not_expr();
     LogicalRelExpr* rel = context->get_rel_expr();
@@ -3420,9 +3420,9 @@ void NodePrintor::visit_logical_not_expr( LogicalNotExpr* context )
     return;
 }
 /**
- * 
+ *
  **/
-void NodePrintor::visit_logical_rel_expr( LogicalRelExpr* context )
+void NodePrintor::visit_logical_rel_expr(LogicalRelExpr* context)
 {
     SmallExpr* small_expr = context->get_small_expr();
     LogicalRelExprR* rel = context->get_rel_r();
@@ -3445,7 +3445,7 @@ void NodePrintor::visit_logical_rel_expr( LogicalRelExpr* context )
 /**
  * 复合二元比较的右部
  **/
-void NodePrintor::visit_logical_rel_expr_r( LogicalRelExprR* context )
+void NodePrintor::visit_logical_rel_expr_r(LogicalRelExprR* context)
 {
     SmallExpr* small_expr = context->get_small_expr();
     LogicalRelExprR* rel = context->get_rel_r();
@@ -3457,7 +3457,7 @@ void NodePrintor::visit_logical_rel_expr_r( LogicalRelExprR* context )
         << "LogicalRelExprR:" << rel << std::endl;
 
     small_expr->visit(*this);
-    
+
     if (rel != NULL)
     {
         rel->visit(*this);
@@ -3465,9 +3465,9 @@ void NodePrintor::visit_logical_rel_expr_r( LogicalRelExprR* context )
     return;
 }
 /**
- * 
+ *
  **/
-void NodePrintor::visit_or_expr( OrExpr* context )
+void NodePrintor::visit_or_expr(OrExpr* context)
 {
     XorExpr* xor_expr = context->get_xor_expr();
     OrExpr* or_expr = context->get_or_expr_r();
@@ -3487,9 +3487,9 @@ void NodePrintor::visit_or_expr( OrExpr* context )
     return;
 }
 /**
- * 
+ *
  **/
-void NodePrintor::visit_xor_expr( XorExpr* context )
+void NodePrintor::visit_xor_expr(XorExpr* context)
 {
     AndExpr* and_expr = context->get_and_expr();
     XorExpr* xor_expr = context->get_xor_expr_r();
@@ -3509,9 +3509,9 @@ void NodePrintor::visit_xor_expr( XorExpr* context )
     return;
 }
 /**
- * 
+ *
  **/
-void NodePrintor::visit_and_expr( AndExpr* context )
+void NodePrintor::visit_and_expr(AndExpr* context)
 {
     ShiftExpr* shift_expr = context->get_shift_expr();
     AndExpr* and_expr = context->get_and_expr_r();
@@ -3533,7 +3533,7 @@ void NodePrintor::visit_and_expr( AndExpr* context )
 /**
  * 包含有右部，其右部都必须不为空
  **/
-void NodePrintor::visit_shift_expr( ShiftExpr* context )
+void NodePrintor::visit_shift_expr(ShiftExpr* context)
 {
     ArithExpr* arith_expr = context->get_arith_expr();
     ShiftExprR* shift_expr = context->get_shift_expr_r();
@@ -3555,9 +3555,9 @@ void NodePrintor::visit_shift_expr( ShiftExpr* context )
     return;
 }
 /**
- * 
+ *
  **/
-void NodePrintor::visit_shift_expr_r( ShiftExprR* context )
+void NodePrintor::visit_shift_expr_r(ShiftExprR* context)
 {
     ArithExpr* arith_expr = context->get_arith_expr();
     ShiftExprR* shift_expr = context->get_shift_expr_r();
@@ -3580,7 +3580,7 @@ void NodePrintor::visit_shift_expr_r( ShiftExprR* context )
 /**
  * 两个孩子都不能为空
  **/
-void NodePrintor::visit_arith_expr( ArithExpr* context )
+void NodePrintor::visit_arith_expr(ArithExpr* context)
 {
     TermExpr* term = context->get_term();
     ArithExprR* arith_expr = context->get_arith_expr_r();
@@ -3593,7 +3593,7 @@ void NodePrintor::visit_arith_expr( ArithExpr* context )
         << "ArithExprR:" << arith_expr << std::endl;
 
     term->visit(*this);
-    
+
     if (arith_expr != NULL)
     {
         arith_expr->visit(*this);
@@ -3601,9 +3601,9 @@ void NodePrintor::visit_arith_expr( ArithExpr* context )
     return;
 }
 /**
- * 
+ *
  **/
-void NodePrintor::visit_arith_expr_r( ArithExprR* context )
+void NodePrintor::visit_arith_expr_r(ArithExprR* context)
 {
     TermExpr* term = context->get_term();
     ArithExprR* arith_expr = context->get_arith_expr_r();
@@ -3623,9 +3623,9 @@ void NodePrintor::visit_arith_expr_r( ArithExprR* context )
     return;
 }
 /**
- * 
+ *
  **/
-void NodePrintor::visit_term_expr( TermExpr* context )
+void NodePrintor::visit_term_expr(TermExpr* context)
 {
     FactorExpr* factor = context->get_factor();
     TermExprR* term_r = context->get_term_r();
@@ -3647,9 +3647,9 @@ void NodePrintor::visit_term_expr( TermExpr* context )
     return;
 }
 /**
- * 
+ *
  **/
-void NodePrintor::visit_term_expr_r( TermExprR* context )
+void NodePrintor::visit_term_expr_r(TermExprR* context)
 {
     FactorExpr* factor = context->get_factor();
     TermExprR* term_r = context->get_term_r();
@@ -3671,7 +3671,7 @@ void NodePrintor::visit_term_expr_r( TermExprR* context )
 /**
  * factor要注意一下
  **/
-void NodePrintor::visit_factor_expr( FactorExpr* context )
+void NodePrintor::visit_factor_expr(FactorExpr* context)
 {
     FactorExpr* factor = context->get_factor();
     PowerExpr* power = context->get_power_expr();
@@ -3693,9 +3693,9 @@ void NodePrintor::visit_factor_expr( FactorExpr* context )
     return;
 }
 /**
- * 
+ *
  **/
-void NodePrintor::visit_power_expr( PowerExpr* context )
+void NodePrintor::visit_power_expr(PowerExpr* context)
 {
     AtomExpr* atom = context->get_atom();
     FactorExpr* factor = context->get_factor();
@@ -3715,9 +3715,9 @@ void NodePrintor::visit_power_expr( PowerExpr* context )
     return;
 }
 /**
- * 
+ *
  **/
-void NodePrintor::visit_tuple_expr( TupleExpr* context )
+void NodePrintor::visit_tuple_expr(TupleExpr* context)
 {
     TupleVariableExpr* variable = context->get_variable();
 
@@ -3730,9 +3730,9 @@ void NodePrintor::visit_tuple_expr( TupleExpr* context )
     return;
 }
 /**
- * 
+ *
  **/
-void NodePrintor::visit_map_expr( MapExpr* context )
+void NodePrintor::visit_map_expr(MapExpr* context)
 {
     MapVariableExpr* variable = context->get_variable();
 
@@ -3745,9 +3745,9 @@ void NodePrintor::visit_map_expr( MapExpr* context )
     return;
 }
 /**
- * 
+ *
  **/
-void NodePrintor::visit_tuple_variable_expr( TupleVariableExpr* context )
+void NodePrintor::visit_tuple_variable_expr(TupleVariableExpr* context)
 {
     Expr* t_expr = context->get_expr();
     TupleVariableExpr* variable = context->get_variable();
@@ -3768,9 +3768,9 @@ void NodePrintor::visit_tuple_variable_expr( TupleVariableExpr* context )
     return;
 }
 /**
- * 
+ *
  **/
-void NodePrintor::visit_map_variable_expr( MapVariableExpr* context )
+void NodePrintor::visit_map_variable_expr(MapVariableExpr* context)
 {
     Expr* t_expr_l = context->get_expr_l();
     Expr* t_expr_r = context->get_expr_r();
@@ -3797,7 +3797,7 @@ void NodePrintor::visit_map_variable_expr( MapVariableExpr* context )
 /**
  * number属于常量，不需要想符号表中添加
  **/
-void NodePrintor::visit_number_expr( NumberExpr* context )
+void NodePrintor::visit_number_expr(NumberExpr* context)
 {
     LongObject* int_value = context->get_int();
     FloatObject* float_value = context->get_float();
@@ -3825,7 +3825,7 @@ void NodePrintor::visit_number_expr( NumberExpr* context )
 /**
  * string也属于常量，也不需要想符号表中添加
  **/
-void NodePrintor::visit_string_expr( StringExpr* context )
+void NodePrintor::visit_string_expr(StringExpr* context)
 {
     std::string name = context->get_value();
     StringExpr* string_other = context->get_string_other();
@@ -3846,7 +3846,7 @@ void NodePrintor::visit_string_expr( StringExpr* context )
 /**
  * do nothing
  **/
-void NodePrintor::visit_keyword_expr( KeyWordExpr* context )
+void NodePrintor::visit_keyword_expr(KeyWordExpr* context)
 {
     LongObject* value = context->get_value();
 
@@ -3859,9 +3859,9 @@ void NodePrintor::visit_keyword_expr( KeyWordExpr* context )
     return;
 }
 /**
- * 
+ *
  **/
-void NodePrintor::visit_name_expr( NameExpr* context )
+void NodePrintor::visit_name_expr(NameExpr* context)
 {
     std::string name = context->get_name();
     AtomExpr* name_expr = context->get_name_expr_r();
@@ -3879,9 +3879,9 @@ void NodePrintor::visit_name_expr( NameExpr* context )
     return;
 }
 /**
- * 
+ *
  **/
-void NodePrintor::visit_fun_invoke_expr( FunInvokeExpr* context )
+void NodePrintor::visit_fun_invoke_expr(FunInvokeExpr* context)
 {
     ParametersExpr* paras = context->get_paras();
 
@@ -3896,9 +3896,9 @@ void NodePrintor::visit_fun_invoke_expr( FunInvokeExpr* context )
     return;
 }
 /**
- * 
+ *
  **/
-void NodePrintor::visit_module_invoke_expr( ModuleInvokeExpr* context )
+void NodePrintor::visit_module_invoke_expr(ModuleInvokeExpr* context)
 {
     std::string name = context->get_name();
     ModuleInvokeExpr* module_invoke = context->get_module_expr_r();
@@ -3915,14 +3915,14 @@ void NodePrintor::visit_module_invoke_expr( ModuleInvokeExpr* context )
 }
 #endif //EF_DEBUG
 /**
- * 
+ *
  */
 NodeReleasor::NodeReleasor()
 {
     return;
 }
 /**
- * 
+ *
  */
 NodeReleasor::~NodeReleasor()
 {
@@ -3931,7 +3931,7 @@ NodeReleasor::~NodeReleasor()
 /**
  * @context 上下文环境
  **/
-void NodeReleasor::visit_stmt_seq( StmtSeq* context )
+void NodeReleasor::visit_stmt_seq(StmtSeq* context)
 {
     Stmt* t_stmt = context->get_stmt();
     StmtSeq* stmt_seq = context->get_stmt_seq();
@@ -3951,7 +3951,7 @@ void NodeReleasor::visit_stmt_seq( StmtSeq* context )
 /**
  * simple_stmt是连续的，不进入作用域
  **/
-void NodeReleasor::visit_simple_stmt( SimpleStmt* context )
+void NodeReleasor::visit_simple_stmt(SimpleStmt* context)
 {
     SmallStmt* small_stmt = context->get_small_stmt();
     SimpleStmt* small_stmt_r = context->get_small_stmt_r();
@@ -3972,21 +3972,21 @@ void NodeReleasor::visit_simple_stmt( SimpleStmt* context )
 /**
  *
  **/
-void NodeReleasor::visit_del_stmt( DelStmt* context )
+void NodeReleasor::visit_del_stmt(DelStmt* context)
 {
     return;
 }
 /**
- * 
+ *
  **/
-void NodeReleasor::visit_import_stmt( ImportStmt* context )
+void NodeReleasor::visit_import_stmt(ImportStmt* context)
 {
     return;
 }
 /**
- * 
+ *
  **/
-void NodeReleasor::visit_assign_stmt( Assign* context )
+void NodeReleasor::visit_assign_stmt(Assign* context)
 {
     Expr* t_expr = context->get_expr();
 
@@ -4019,7 +4019,7 @@ void NodeReleasor::visit_assign_stmt( Assign* context )
 /**
  *
  **/
-void NodeReleasor::visit_derict_assign_stmt( DerictAssign* context )
+void NodeReleasor::visit_derict_assign_stmt(DerictAssign* context)
 {
     Expr* t_expr = context->get_expr();
     DerictAssign* exprs_r = context->get_exprs_r();
@@ -4039,7 +4039,7 @@ void NodeReleasor::visit_derict_assign_stmt( DerictAssign* context )
 /**
  *
  **/
-void NodeReleasor::visit_aug_assign_stmt( AugAssign* context )
+void NodeReleasor::visit_aug_assign_stmt(AugAssign* context)
 {
     //对tokenflag不做处理
     Expr* t_expr = context->get_expr();
@@ -4053,7 +4053,7 @@ void NodeReleasor::visit_aug_assign_stmt( AugAssign* context )
 /**
  * 访问if语句的时候要注意elif与else语句可以为空
  **/
-void NodeReleasor::visit_if_stmt( IfStmt* context )
+void NodeReleasor::visit_if_stmt(IfStmt* context)
 {
     Expr* t_expr = context->get_expr();
     Suite* t_stmt = context->get_suite();
@@ -4083,9 +4083,9 @@ void NodeReleasor::visit_if_stmt( IfStmt* context )
     return;
 }
 /**
- * 
+ *
  **/
-void NodeReleasor::visit_elif_stmt( ElifStmt* context )
+void NodeReleasor::visit_elif_stmt(ElifStmt* context)
 {
     Expr* t_expr = context->get_expr();
     Suite* t_stmt = context->get_suite();
@@ -4093,7 +4093,7 @@ void NodeReleasor::visit_elif_stmt( ElifStmt* context )
 
     assert(t_expr != NULL);
     assert(t_stmt != NULL);
-    
+
     t_expr->visit(*this);
     t_stmt->visit(*this);
     delete t_expr;
@@ -4110,7 +4110,7 @@ void NodeReleasor::visit_elif_stmt( ElifStmt* context )
 /**
  * else语句只是简单的访问suite
  **/
-void NodeReleasor::visit_else_stmt( ElseStmt* context )
+void NodeReleasor::visit_else_stmt(ElseStmt* context)
 {
     Suite* t_stmt = context->get_suite();
 
@@ -4123,7 +4123,7 @@ void NodeReleasor::visit_else_stmt( ElseStmt* context )
 /**
  * else 语句也只是简单的访问，不对else进行访问
  **/
-void NodeReleasor::visit_while_stmt( WhileStmt* context )
+void NodeReleasor::visit_while_stmt(WhileStmt* context)
 {
     Expr* t_expr = context->get_expr();
     Suite* t_stmt = context->get_suite();
@@ -4147,7 +4147,7 @@ void NodeReleasor::visit_while_stmt( WhileStmt* context )
 /**
  * for statement
  **/
-void NodeReleasor::visit_for_stmt( ForStmt* context )
+void NodeReleasor::visit_for_stmt(ForStmt* context)
 {
     Expr* expr_con = context->get_expr_con();
     Expr* expr_range = context->get_expr_range();
@@ -4165,7 +4165,7 @@ void NodeReleasor::visit_for_stmt( ForStmt* context )
     delete expr_con;
     delete expr_range;
     delete stmt;
-    
+
     if (else_ != NULL)
     {
         else_->visit(*this);
@@ -4176,7 +4176,7 @@ void NodeReleasor::visit_for_stmt( ForStmt* context )
 /**
  * finally可以为空
  **/
-void NodeReleasor::visit_try_stmt( TryStmt* context )
+void NodeReleasor::visit_try_stmt(TryStmt* context)
 {
     Suite* stmt_target = context->get_target();
     CatchStmt* stmt_catchs = context->get_catchs();
@@ -4189,7 +4189,7 @@ void NodeReleasor::visit_try_stmt( TryStmt* context )
     stmt_catchs->visit(*this);
     delete stmt_target;
     delete stmt_catchs;
-    
+
     if (stmt_finally != NULL)
     {
         stmt_finally->visit(*this);
@@ -4198,9 +4198,9 @@ void NodeReleasor::visit_try_stmt( TryStmt* context )
     return;
 }
 /**
- * 
+ *
  **/
-void NodeReleasor::visit_catch_stmt( CatchStmt* context )
+void NodeReleasor::visit_catch_stmt(CatchStmt* context)
 {
     Expr* t_expr = context->get_expr();
     Suite* t_stmt = context->get_suite();
@@ -4222,9 +4222,9 @@ void NodeReleasor::visit_catch_stmt( CatchStmt* context )
     return;
 }
 /**
- * 
+ *
  **/
-void NodeReleasor::visit_fun_stmt( FunStmt* context )
+void NodeReleasor::visit_fun_stmt(FunStmt* context)
 {
     ParametersExpr* para = context->get_para();
     Suite* stmt = context->get_suite();
@@ -4241,9 +4241,9 @@ void NodeReleasor::visit_fun_stmt( FunStmt* context )
     return;
 }
 /**
- * 
+ *
  **/
-void NodeReleasor::visit_class_stmt( ClassStmt* context )
+void NodeReleasor::visit_class_stmt(ClassStmt* context)
 {
     Suite* stmt = context->get_suite();
 
@@ -4254,9 +4254,9 @@ void NodeReleasor::visit_class_stmt( ClassStmt* context )
     return;
 }
 /**
- * 
+ *
  **/
-void NodeReleasor::visit_suite_stmt( Suite* context )
+void NodeReleasor::visit_suite_stmt(Suite* context)
 {
     StmtSeq* stmts = context->get_stmts();
     SimpleStmt* simple_stmt = context->get_simple_stmt();
@@ -4278,7 +4278,7 @@ void NodeReleasor::visit_suite_stmt( Suite* context )
 /**
  * 遍历所有参数
  **/
-void NodeReleasor::visit_parameters_expr( ParametersExpr* context )
+void NodeReleasor::visit_parameters_expr(ParametersExpr* context)
 {
     ParameterExprAtom* parameter = context->get_parameter();
     ParametersExpr* other = context->get_other_para();
@@ -4297,7 +4297,7 @@ void NodeReleasor::visit_parameters_expr( ParametersExpr* context )
 /**
  * 普通参数
  **/
-void NodeReleasor::visit_no_star_parameter_expr( NostarParameterExpr* context )
+void NodeReleasor::visit_no_star_parameter_expr(NostarParameterExpr* context)
 {
     //std::string name = context->get_name();
     AtomExpr* atom = context->get_atom();
@@ -4316,9 +4316,9 @@ void NodeReleasor::visit_no_star_parameter_expr( NostarParameterExpr* context )
     return;
 }
 /**
- * 
+ *
  **/
-void NodeReleasor::visit_tuple_parameter_expr( TupleParameterExpr* context )
+void NodeReleasor::visit_tuple_parameter_expr(TupleParameterExpr* context)
 {
     Expr* t_expr = context->get_expr();
 
@@ -4330,9 +4330,9 @@ void NodeReleasor::visit_tuple_parameter_expr( TupleParameterExpr* context )
     return;
 }
 /**
- * 
+ *
  **/
-void NodeReleasor::visit_map_parameter_expr( MapParameterExpr* context )
+void NodeReleasor::visit_map_parameter_expr(MapParameterExpr* context)
 {
     Expr* t_expr = context->get_expr();
 
@@ -4344,9 +4344,9 @@ void NodeReleasor::visit_map_parameter_expr( MapParameterExpr* context )
     return;
 }
 /**
- * 
+ *
  **/
-void NodeReleasor::visit_lambda_expr( LambdaExpr* context )
+void NodeReleasor::visit_lambda_expr(LambdaExpr* context)
 {
     ParametersExpr* parameters = context->get_parameters();
     ConExpr* t_expr = context->get_expr();
@@ -4364,9 +4364,9 @@ void NodeReleasor::visit_lambda_expr( LambdaExpr* context )
     return;
 }
 /**
- * 
+ *
  **/
-void NodeReleasor::visit_logical_or_expr( LogicalOrExpr* context )
+void NodeReleasor::visit_logical_or_expr(LogicalOrExpr* context)
 {
     LogicalAndExpr* and_expr = context->get_and_expr();
     LogicalOrExpr* or_expr_r = context->get_or_expr_r();
@@ -4384,9 +4384,9 @@ void NodeReleasor::visit_logical_or_expr( LogicalOrExpr* context )
     return;
 }
 /**
- * 
+ *
  **/
-void NodeReleasor::visit_logical_and_expr( LogicalAndExpr* context )
+void NodeReleasor::visit_logical_and_expr(LogicalAndExpr* context)
 {
     LogicalNotExpr* not_expr = context->get_not_expr();
     LogicalAndExpr* and_expr = context->get_and_expr_r();
@@ -4406,7 +4406,7 @@ void NodeReleasor::visit_logical_and_expr( LogicalAndExpr* context )
 /**
  *  逻辑非
  **/
-void NodeReleasor::visit_logical_not_expr( LogicalNotExpr* context )
+void NodeReleasor::visit_logical_not_expr(LogicalNotExpr* context)
 {
     LogicalNotExpr* not_expr = context->get_not_expr();
     LogicalRelExpr* rel = context->get_rel_expr();
@@ -4427,9 +4427,9 @@ void NodeReleasor::visit_logical_not_expr( LogicalNotExpr* context )
     return;
 }
 /**
- * 
+ *
  **/
-void NodeReleasor::visit_logical_rel_expr( LogicalRelExpr* context )
+void NodeReleasor::visit_logical_rel_expr(LogicalRelExpr* context)
 {
     SmallExpr* small_expr = context->get_small_expr();
     LogicalRelExprR* rel = context->get_rel_r();
@@ -4450,7 +4450,7 @@ void NodeReleasor::visit_logical_rel_expr( LogicalRelExpr* context )
 /**
  * 复合二元比较的右部
  **/
-void NodeReleasor::visit_logical_rel_expr_r( LogicalRelExprR* context )
+void NodeReleasor::visit_logical_rel_expr_r(LogicalRelExprR* context)
 {
     SmallExpr* small_expr = context->get_small_expr();
     LogicalRelExprR* rel = context->get_rel_r();
@@ -4458,7 +4458,7 @@ void NodeReleasor::visit_logical_rel_expr_r( LogicalRelExprR* context )
     assert(small_expr != NULL);
     small_expr->visit(*this);
     delete small_expr;
-    
+
     if (rel != NULL)
     {
         rel->visit(*this);
@@ -4467,9 +4467,9 @@ void NodeReleasor::visit_logical_rel_expr_r( LogicalRelExprR* context )
     return;
 }
 /**
- * 
+ *
  **/
-void NodeReleasor::visit_or_expr( OrExpr* context )
+void NodeReleasor::visit_or_expr(OrExpr* context)
 {
     XorExpr* xor_expr = context->get_xor_expr();
     OrExpr* or_expr = context->get_or_expr_r();
@@ -4487,9 +4487,9 @@ void NodeReleasor::visit_or_expr( OrExpr* context )
     return;
 }
 /**
- * 
+ *
  **/
-void NodeReleasor::visit_xor_expr( XorExpr* context )
+void NodeReleasor::visit_xor_expr(XorExpr* context)
 {
     AndExpr* and_expr = context->get_and_expr();
     XorExpr* xor_expr = context->get_xor_expr_r();
@@ -4507,9 +4507,9 @@ void NodeReleasor::visit_xor_expr( XorExpr* context )
     return;
 }
 /**
- * 
+ *
  **/
-void NodeReleasor::visit_and_expr( AndExpr* context )
+void NodeReleasor::visit_and_expr(AndExpr* context)
 {
     ShiftExpr* shift_expr = context->get_shift_expr();
     AndExpr* and_expr = context->get_and_expr_r();
@@ -4528,7 +4528,7 @@ void NodeReleasor::visit_and_expr( AndExpr* context )
 /**
  * 包含有右部，其右部都必须不为空
  **/
-void NodeReleasor::visit_shift_expr( ShiftExpr* context )
+void NodeReleasor::visit_shift_expr(ShiftExpr* context)
 {
     ArithExpr* arith_expr = context->get_arith_expr();
     ShiftExprR* shift_expr = context->get_shift_expr_r();
@@ -4547,9 +4547,9 @@ void NodeReleasor::visit_shift_expr( ShiftExpr* context )
     return;
 }
 /**
- * 
+ *
  **/
-void NodeReleasor::visit_shift_expr_r( ShiftExprR* context )
+void NodeReleasor::visit_shift_expr_r(ShiftExprR* context)
 {
     ArithExpr* arith_expr = context->get_arith_expr();
     ShiftExprR* shift_expr = context->get_shift_expr_r();
@@ -4569,27 +4569,7 @@ void NodeReleasor::visit_shift_expr_r( ShiftExprR* context )
 /**
  * 两个孩子都不能为空
  **/
-void NodeReleasor::visit_arith_expr( ArithExpr* context )
-{
-    TermExpr* term = context->get_term();
-    ArithExprR* arith_expr = context->get_arith_expr_r();
-
-    assert(term != NULL);
-
-    term->visit(*this);
-    delete term;
-    
-    if (arith_expr != NULL)
-    {
-        arith_expr->visit(*this);
-        delete arith_expr;
-    }
-    return;
-}
-/**
- * 
- **/
-void NodeReleasor::visit_arith_expr_r( ArithExprR* context )
+void NodeReleasor::visit_arith_expr(ArithExpr* context)
 {
     TermExpr* term = context->get_term();
     ArithExprR* arith_expr = context->get_arith_expr_r();
@@ -4607,9 +4587,29 @@ void NodeReleasor::visit_arith_expr_r( ArithExprR* context )
     return;
 }
 /**
- * 
+ *
  **/
-void NodeReleasor::visit_term_expr( TermExpr* context )
+void NodeReleasor::visit_arith_expr_r(ArithExprR* context)
+{
+    TermExpr* term = context->get_term();
+    ArithExprR* arith_expr = context->get_arith_expr_r();
+
+    assert(term != NULL);
+
+    term->visit(*this);
+    delete term;
+
+    if (arith_expr != NULL)
+    {
+        arith_expr->visit(*this);
+        delete arith_expr;
+    }
+    return;
+}
+/**
+ *
+ **/
+void NodeReleasor::visit_term_expr(TermExpr* context)
 {
     FactorExpr* factor = context->get_factor();
     TermExprR* term_r = context->get_term_r();
@@ -4627,9 +4627,9 @@ void NodeReleasor::visit_term_expr( TermExpr* context )
     return;
 }
 /**
- * 
+ *
  **/
-void NodeReleasor::visit_term_expr_r( TermExprR* context )
+void NodeReleasor::visit_term_expr_r(TermExprR* context)
 {
     FactorExpr* factor = context->get_factor();
     TermExprR* term_r = context->get_term_r();
@@ -4649,7 +4649,7 @@ void NodeReleasor::visit_term_expr_r( TermExprR* context )
 /**
  * factor要注意一下
  **/
-void NodeReleasor::visit_factor_expr( FactorExpr* context )
+void NodeReleasor::visit_factor_expr(FactorExpr* context)
 {
     FactorExpr* factor = context->get_factor();
     PowerExpr* power = context->get_power_expr();
@@ -4669,9 +4669,9 @@ void NodeReleasor::visit_factor_expr( FactorExpr* context )
     return;
 }
 /**
- * 
+ *
  **/
-void NodeReleasor::visit_power_expr( PowerExpr* context )
+void NodeReleasor::visit_power_expr(PowerExpr* context)
 {
     AtomExpr* atom = context->get_atom();
     FactorExpr* factor = context->get_factor();
@@ -4689,9 +4689,9 @@ void NodeReleasor::visit_power_expr( PowerExpr* context )
     return;
 }
 /**
- * 
+ *
  **/
-void NodeReleasor::visit_tuple_expr( TupleExpr* context )
+void NodeReleasor::visit_tuple_expr(TupleExpr* context)
 {
     TupleVariableExpr* variable = context->get_variable();
 
@@ -4701,9 +4701,9 @@ void NodeReleasor::visit_tuple_expr( TupleExpr* context )
     return;
 }
 /**
- * 
+ *
  **/
-void NodeReleasor::visit_map_expr( MapExpr* context )
+void NodeReleasor::visit_map_expr(MapExpr* context)
 {
     MapVariableExpr* variable = context->get_variable();
 
@@ -4714,9 +4714,9 @@ void NodeReleasor::visit_map_expr( MapExpr* context )
     return;
 }
 /**
- * 
+ *
  **/
-void NodeReleasor::visit_tuple_variable_expr( TupleVariableExpr* context )
+void NodeReleasor::visit_tuple_variable_expr(TupleVariableExpr* context)
 {
     Expr* t_expr = context->get_expr();
     TupleVariableExpr* variable = context->get_variable();
@@ -4734,9 +4734,9 @@ void NodeReleasor::visit_tuple_variable_expr( TupleVariableExpr* context )
     return;
 }
 /**
- * 
+ *
  **/
-void NodeReleasor::visit_map_variable_expr( MapVariableExpr* context )
+void NodeReleasor::visit_map_variable_expr(MapVariableExpr* context)
 {
     Expr* t_expr_l = context->get_expr_l();
     Expr* t_expr_r = context->get_expr_r();
@@ -4760,14 +4760,14 @@ void NodeReleasor::visit_map_variable_expr( MapVariableExpr* context )
 /**
  * number属于常量，不需要想符号表中添加
  **/
-void NodeReleasor::visit_number_expr( NumberExpr* context )
+void NodeReleasor::visit_number_expr(NumberExpr* context)
 {
     return;
 }
 /**
  * string也属于常量，也不需要想符号表中添加
  **/
-void NodeReleasor::visit_string_expr( StringExpr* context )
+void NodeReleasor::visit_string_expr(StringExpr* context)
 {
     StringExpr* string_other = context->get_string_other();
 
@@ -4782,14 +4782,14 @@ void NodeReleasor::visit_string_expr( StringExpr* context )
 /**
  * do nothing
  **/
-void NodeReleasor::visit_keyword_expr( KeyWordExpr* context )
+void NodeReleasor::visit_keyword_expr(KeyWordExpr* context)
 {
     return;
 }
 /**
- * 
+ *
  **/
-void NodeReleasor::visit_name_expr( NameExpr* context )
+void NodeReleasor::visit_name_expr(NameExpr* context)
 {
     AtomExpr* name_expr = context->get_name_expr_r();
 
@@ -4801,9 +4801,9 @@ void NodeReleasor::visit_name_expr( NameExpr* context )
     return;
 }
 /**
- * 
+ *
  **/
-void NodeReleasor::visit_fun_invoke_expr( FunInvokeExpr* context )
+void NodeReleasor::visit_fun_invoke_expr(FunInvokeExpr* context)
 {
     ParametersExpr* paras = context->get_paras();
 
@@ -4815,9 +4815,9 @@ void NodeReleasor::visit_fun_invoke_expr( FunInvokeExpr* context )
     return;
 }
 /**
- * 
+ *
  **/
-void NodeReleasor::visit_module_invoke_expr( ModuleInvokeExpr* context )
+void NodeReleasor::visit_module_invoke_expr(ModuleInvokeExpr* context)
 {
     ModuleInvokeExpr* module_invoke = context->get_module_expr_r();
 

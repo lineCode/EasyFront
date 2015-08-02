@@ -16,20 +16,20 @@
 
 EF_NAMESPACE_BEGIN
 /**
- * 
+ *
  */
-Executor::Executor( CodeObject* t_code_object )
-:code_object(t_code_object),
-names(t_code_object->get_names()),
-strings(t_code_object->get_const()),
-ints(t_code_object->get_interger()),
-doubles(t_code_object->get_floats()),
-codes(t_code_object->get_codes())
+Executor::Executor(CodeObject* t_code_object)
+ :code_object(t_code_object),
+ names(t_code_object->get_names()),
+ strings(t_code_object->get_const()),
+ ints(t_code_object->get_interger()),
+ doubles(t_code_object->get_floats()),
+ codes(t_code_object->get_codes())
 {
     return;
 }
 /**
- * 
+ *
  */
 Executor::~Executor()
 {
@@ -259,7 +259,7 @@ int32_t Executor::load_name(int32_t id)
         //找到系统保留关键字
         std::string name = iter_name->second;
         ob = reserver(name);
-        run_time_stack.push(new ObjectObject(ob,FUN_TYPE));    //将该值存入栈中
+        run_time_stack.push(new ObjectObject(ob, FUN_TYPE));    //将该值存入栈中
         return 1;
     }
     run_time_stack.push(iter_value->second);    //将该值存入栈中
@@ -267,9 +267,9 @@ int32_t Executor::load_name(int32_t id)
     return 1;
 }
 /**
- * 
+ *
  */
-int32_t Executor::load_int( int32_t id )
+int32_t Executor::load_int(int32_t id)
 {
     IntEntry::iterator iter_int = ints.find(id);
 
@@ -280,14 +280,14 @@ int32_t Executor::load_int( int32_t id )
     }
     int32_t value = iter_int->second;
     LongObject* ob = new LongObject(value);
-    run_time_stack.push(new ObjectObject(ob,LONG_TYPE));    //将该值存入栈中
+    run_time_stack.push(new ObjectObject(ob, LONG_TYPE));    //将该值存入栈中
 
     return 1;
 }
 /**
- * 
+ *
  */
-int32_t Executor::load_double( int32_t id )
+int32_t Executor::load_double(int32_t id)
 {
     DoubleEntry::iterator iter_double = doubles.find(id);
 
@@ -298,14 +298,14 @@ int32_t Executor::load_double( int32_t id )
     }
     double value = iter_double->second;
     FloatObject* ob = new FloatObject(value);
-    run_time_stack.push(new ObjectObject(ob,DOUBLE_TYPE));    //将该值存入栈中
+    run_time_stack.push(new ObjectObject(ob, DOUBLE_TYPE));    //将该值存入栈中
 
     return 1;
 }
 /**
- * 
+ *
  */
-int32_t Executor::load_const( int32_t id )
+int32_t Executor::load_const(int32_t id)
 {
     ConstStringEntry::iterator iter_string = strings.find(id);
 
@@ -316,14 +316,14 @@ int32_t Executor::load_const( int32_t id )
     }
     std::string value = iter_string->second;
     StringObject* ob = new StringObject(value);
-    run_time_stack.push(new ObjectObject(ob,STRING_TYPE));    //将该值存入栈中
+    run_time_stack.push(new ObjectObject(ob, STRING_TYPE));    //将该值存入栈中
 
     return 1;
 }
 /**
- * 
+ *
  */
-int32_t Executor::load_object( int32_t id )
+int32_t Executor::load_object(int32_t id)
 {
     CodeObjectEntry::iterator iter_code = codes.find(id);
 
@@ -333,14 +333,14 @@ int32_t Executor::load_object( int32_t id )
         return -1;
     }
     CodeObject* ob = iter_code->second;
-    run_time_stack.push(new ObjectObject(ob,CODE_TYPE));    //将该值存入栈中
+    run_time_stack.push(new ObjectObject(ob, CODE_TYPE));    //将该值存入栈中
 
     return 1;
 }
 /**
  * 存储
  */
-int32_t Executor::store_name( int32_t id )
+int32_t Executor::store_name(int32_t id)
 {
     if (run_time_stack.empty() == true)
     {
@@ -352,9 +352,9 @@ int32_t Executor::store_name( int32_t id )
     return 1;
 }
 /**
- * 
+ *
  */
-int32_t Executor::compare_op( int32_t arg )
+int32_t Executor::compare_op(int32_t arg)
 {
     //弹出栈顶两个元素
     ObjectObject* top1 = run_time_stack.top();
@@ -365,7 +365,7 @@ int32_t Executor::compare_op( int32_t arg )
     //由于先load的是右边的符号，所以比较的时候是左右
 #define COMPARE(right,left,arg,ty)                  \
     switch (arg)                                    \
-    {                                               \
+        {                                               \
     case Cmp_EQ:                                    \
         push_bool(*((ty*)right) == (*(ty*)left));   \
         break;                                      \
@@ -386,7 +386,7 @@ int32_t Executor::compare_op( int32_t arg )
         break;                                      \
     default:                                        \
         return -1;                                  \
-    }
+        }
 
     ObjectType ty = top1->get_type();
     Object* ob1 = top2->get_ob();
@@ -402,42 +402,42 @@ int32_t Executor::compare_op( int32_t arg )
      */
     switch (ty)
     {
-    case LONG_TYPE:             COMPARE(ob1,ob2,arg,LongObject);
+    case LONG_TYPE:             COMPARE(ob1, ob2, arg, LongObject);
         break;
-    case DOUBLE_TYPE:           COMPARE(ob1,ob2,arg,FloatObject);
+    case DOUBLE_TYPE:           COMPARE(ob1, ob2, arg, FloatObject);
         break;
-    case STRING_TYPE:           COMPARE(ob1,ob2,arg,StringObject);
+    case STRING_TYPE:           COMPARE(ob1, ob2, arg, StringObject);
         break;
-    case CODE_TYPE:             COMPARE(ob1,ob2,arg,CodeObject);
+    case CODE_TYPE:             COMPARE(ob1, ob2, arg, CodeObject);
         break;
-    case FUN_TYPE:              COMPARE(ob1,ob2,arg,FunObject);
+    case FUN_TYPE:              COMPARE(ob1, ob2, arg, FunObject);
         break;
     }
 #undef COMPARE
     return 1;
 }
 /**
- * 
+ *
  */
-int32_t Executor::push_bool( bool arg )
+int32_t Executor::push_bool(bool arg)
 {
     LongObject* ob_true = new LongObject(1);
     LongObject* ob_false = new LongObject(0);
-    
+
     if (arg)
     {
-        run_time_stack.push(new ObjectObject(ob_true,LONG_TYPE));
+        run_time_stack.push(new ObjectObject(ob_true, LONG_TYPE));
     }
     else
     {
-        run_time_stack.push(new ObjectObject(ob_false,LONG_TYPE));
+        run_time_stack.push(new ObjectObject(ob_false, LONG_TYPE));
     }
     return 1;
 }
 /**
- * 
+ *
  */
-int32_t Executor::call_function( int32_t arg )
+int32_t Executor::call_function(int32_t arg)
 {
     int32_t count = arg;
     std::vector<ObjectObject*> args;  //存储所有参数
@@ -449,16 +449,16 @@ int32_t Executor::call_function( int32_t arg )
 
     for (int i = var_size - 1;i >= 0;i --)
     {
-        //load_name(vars[i]);
-        if (- 1 == store_name(vars[i]))
-        {
-            debug_stream << "" << std::endl;
-            return -1;
-        }
+    //load_name(vars[i]);
+    if (- 1 == store_name(vars[i]))
+    {
+    debug_stream << "" << std::endl;
+    return -1;
+    }
     }
     for (int i = 0;i < var_size;i ++)
     {
-        load_name(vars[i]);
+    load_name(vars[i]);
     }
     */
     while (count > 0)
@@ -480,7 +480,7 @@ int32_t Executor::call_function( int32_t arg )
 /**
  * 弹出并跳转
  */
-Instruction* Executor::pop_jump_if_false( int32_t arg )
+Instruction* Executor::pop_jump_if_false(int32_t arg)
 {
     ObjectObject* ob = (ObjectObject*)run_time_stack.top();
     run_time_stack.pop();
@@ -493,7 +493,7 @@ Instruction* Executor::pop_jump_if_false( int32_t arg )
     return NULL;
 }
 
-Instruction* Executor::pop_jump_if_true( int32_t arg )
+Instruction* Executor::pop_jump_if_true(int32_t arg)
 {
     ObjectObject* ob = (ObjectObject*)run_time_stack.top();
     run_time_stack.pop();
@@ -506,9 +506,9 @@ Instruction* Executor::pop_jump_if_true( int32_t arg )
     return NULL;
 }
 /**
- * 
+ *
  */
-Instruction* Executor::jump_forword( int32_t arg )
+Instruction* Executor::jump_forword(int32_t arg)
 {
     return code_object->next_instr(arg);
 }
@@ -517,13 +517,13 @@ Instruction* Executor::jump_absulute(int32_t arg)
     return code_object->next_instr(arg);
 }
 /**
- * 
+ *
  */
-int32_t Executor::binary_add(int32_t arg )
+int32_t Executor::binary_add(int32_t arg)
 {
-    ObjectObject* ob_top1 = (ObjectObject*) run_time_stack.top();
+    ObjectObject* ob_top1 = (ObjectObject*)run_time_stack.top();
     run_time_stack.pop();
-    ObjectObject* ob_top2 = (ObjectObject*) run_time_stack.top();
+    ObjectObject* ob_top2 = (ObjectObject*)run_time_stack.top();
     run_time_stack.pop();
 
     ObjectObject* ob_result = *ob_top1 + *ob_top2;
@@ -531,13 +531,13 @@ int32_t Executor::binary_add(int32_t arg )
     return 1;
 }
 /**
- * 
+ *
  */
-int32_t Executor::binary_subscr( int32_t arg )
+int32_t Executor::binary_subscr(int32_t arg)
 {
-    ObjectObject* ob_top1 = (ObjectObject*) run_time_stack.top();
+    ObjectObject* ob_top1 = (ObjectObject*)run_time_stack.top();
     run_time_stack.pop();
-    ObjectObject* ob_top2 = (ObjectObject*) run_time_stack.top();
+    ObjectObject* ob_top2 = (ObjectObject*)run_time_stack.top();
     run_time_stack.pop();
 
     ObjectObject* ob_result = *ob_top2 - *ob_top1;
@@ -545,13 +545,13 @@ int32_t Executor::binary_subscr( int32_t arg )
     return 1;
 }
 /**
- * 
+ *
  */
-int32_t Executor::binary_multiply( int32_t arg )
+int32_t Executor::binary_multiply(int32_t arg)
 {
-    ObjectObject* ob_top1 = (ObjectObject*) run_time_stack.top();
+    ObjectObject* ob_top1 = (ObjectObject*)run_time_stack.top();
     run_time_stack.pop();
-    ObjectObject* ob_top2 = (ObjectObject*) run_time_stack.top();
+    ObjectObject* ob_top2 = (ObjectObject*)run_time_stack.top();
     run_time_stack.pop();
 
     ObjectObject* ob_result = *ob_top2 * *ob_top1;
@@ -559,13 +559,13 @@ int32_t Executor::binary_multiply( int32_t arg )
     return 1;
 }
 /**
- * 
+ *
  */
-int32_t Executor::binary_ture_divide( int32_t arg )
+int32_t Executor::binary_ture_divide(int32_t arg)
 {
-    ObjectObject* ob_top1 = (ObjectObject*) run_time_stack.top();
+    ObjectObject* ob_top1 = (ObjectObject*)run_time_stack.top();
     run_time_stack.pop();
-    ObjectObject* ob_top2 = (ObjectObject*) run_time_stack.top();
+    ObjectObject* ob_top2 = (ObjectObject*)run_time_stack.top();
     run_time_stack.pop();
 
     ObjectObject* ob_result = *ob_top2 / *ob_top1;
@@ -573,13 +573,13 @@ int32_t Executor::binary_ture_divide( int32_t arg )
     return 1;
 }
 /**
- * 
+ *
  */
-int32_t Executor::binary_modulo( int32_t arg )
+int32_t Executor::binary_modulo(int32_t arg)
 {
-    ObjectObject* ob_top1 = (ObjectObject*) run_time_stack.top();
+    ObjectObject* ob_top1 = (ObjectObject*)run_time_stack.top();
     run_time_stack.pop();
-    ObjectObject* ob_top2 = (ObjectObject*) run_time_stack.top();
+    ObjectObject* ob_top2 = (ObjectObject*)run_time_stack.top();
     run_time_stack.pop();
 
     ObjectObject* ob_result = *ob_top2 % *ob_top1;
@@ -587,13 +587,13 @@ int32_t Executor::binary_modulo( int32_t arg )
     return 1;
 }
 /**
- * 
+ *
  */
-int32_t Executor::binary_floor_divide( int32_t arg )
+int32_t Executor::binary_floor_divide(int32_t arg)
 {
-    ObjectObject* ob_top1 = (ObjectObject*) run_time_stack.top();
+    ObjectObject* ob_top1 = (ObjectObject*)run_time_stack.top();
     run_time_stack.pop();
-    ObjectObject* ob_top2 = (ObjectObject*) run_time_stack.top();
+    ObjectObject* ob_top2 = (ObjectObject*)run_time_stack.top();
     run_time_stack.pop();
 
     ObjectObject* ob_result = *ob_top2 / *ob_top1;
@@ -603,13 +603,13 @@ int32_t Executor::binary_floor_divide( int32_t arg )
     return 1;
 }
 /**
- * 
+ *
  */
-int32_t Executor::binary_or( int32_t arg )
+int32_t Executor::binary_or(int32_t arg)
 {
-    ObjectObject* ob_top1 = (ObjectObject*) run_time_stack.top();
+    ObjectObject* ob_top1 = (ObjectObject*)run_time_stack.top();
     run_time_stack.pop();
-    ObjectObject* ob_top2 = (ObjectObject*) run_time_stack.top();
+    ObjectObject* ob_top2 = (ObjectObject*)run_time_stack.top();
     run_time_stack.pop();
 
     ObjectObject* ob_result = *ob_top2 | *ob_top1;
@@ -617,13 +617,13 @@ int32_t Executor::binary_or( int32_t arg )
     return 1;
 }
 /**
- * 
+ *
  */
-int32_t Executor::binary_xor( int32_t arg )
+int32_t Executor::binary_xor(int32_t arg)
 {
-    ObjectObject* ob_top1 = (ObjectObject*) run_time_stack.top();
+    ObjectObject* ob_top1 = (ObjectObject*)run_time_stack.top();
     run_time_stack.pop();
-    ObjectObject* ob_top2 = (ObjectObject*) run_time_stack.top();
+    ObjectObject* ob_top2 = (ObjectObject*)run_time_stack.top();
     run_time_stack.pop();
 
     ObjectObject* ob_result = (*ob_top2) ^ (*ob_top1);
@@ -631,16 +631,16 @@ int32_t Executor::binary_xor( int32_t arg )
     return 1;
 }
 /**
- * 
+ *
  */
-int32_t Executor::make_function( int32_t arg )
+int32_t Executor::make_function(int32_t arg)
 {
-    ObjectObject* ob_top = (ObjectObject*) run_time_stack.top();
+    ObjectObject* ob_top = (ObjectObject*)run_time_stack.top();
     run_time_stack.pop();
 
     FunObject* ob = new FunObject((CodeObject*)ob_top->get_ob());
 
-    run_time_stack.push(new ObjectObject(ob,FUN_TYPE));
+    run_time_stack.push(new ObjectObject(ob, FUN_TYPE));
     return 1;
 }
 

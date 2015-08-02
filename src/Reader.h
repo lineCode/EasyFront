@@ -5,11 +5,9 @@
  *         2011年8月13日 9:00:09
  * Author:
  *         张彦升
---------------------------------------------------------------------*/
-
-#ifndef _READER_H_2011_8_12_lisency
-#define _READER_H_2011_8_12_lisency
-
+ --------------------------------------------------------------------*/
+#ifndef _Reader_h__
+#define _Reader_h__
 
 #include "Util.h"
 #include "Misc.h"
@@ -62,17 +60,17 @@ public:
     * @min and @max control the read number
     * the read character number;
     **/
-    virtual uint32_t read(const char*& start,uint32_t min, uint32_t max) = 0;
+    virtual uint32_t read(const char*& start, uint32_t min, uint32_t max) = 0;
     /**
     * return the current read offset position
     **/
     virtual uint32_t position() const = 0;
     /**
-    * return the buffer size 
+    * return the buffer size
     **/
     virtual size_t size() const = 0;
     /**
-    *  
+    *
     **/
     //virtual int32_t thisId() = 0;
 protected:
@@ -88,15 +86,15 @@ public:
     Reader();
     virtual ~Reader();
     /**
-    *   reset the read offset position 
+    *   reset the read offset position
     * @to the position value,@to must within the limit[0,this->size()]
     *  if out of the range,do nothing,just return current position
     *  however it return current position
     **/
-    virtual uint32_t reset(uint32_t to= 0);
+    virtual uint32_t reset(uint32_t to = 0);
     /**
     *   at any time you want to skip some position without read it,you can use this method
-    * @ntoskip,n number of position you will skip,is equivalent to 
+    * @ntoskip,n number of position you will skip,is equivalent to
     *  this->pos = this->pos + @ntoskip
     *  the real skiped number,only if @ntoskip is greater than this->size() - @ntoskip,it
     *  set the position to the end and return the end position
@@ -124,11 +122,11 @@ protected:
     uint32_t pos;        //read position
 public:
     /**
-    *  
+    *
     **/
     StdinReader();
     /**
-    *  
+    *
     **/
     virtual ~StdinReader();
     /**
@@ -147,7 +145,7 @@ public:
     /**
     *   重新设置缓存的位置
     **/
-    virtual uint32_t reset(uint32_t to= 0);
+    virtual uint32_t reset(uint32_t to = 0);
     /**
     *   移动缓存的位置
     **/
@@ -167,31 +165,31 @@ public:
  **/
 class FileReader
     : public Reader
-{//从文件中读取
+{
 public:
     static const int DEFAULT_BUFFER_SIZE = 4096;
 
     /**
     *   构造函数
     **/
-    FileReader ( const std::string path, int32_t buflen = -1 );
+    FileReader(const std::string path, int32_t buflen = -1);
     /**
-    *   destructor 
+    *   destructor
     **/
-    virtual ~FileReader ();
+    virtual ~FileReader();
 
     /**
-    *  
+    *
     **/
     virtual uint32_t read(const char*& start, uint32_t min, uint32_t max);
     /**
     *   as well
     **/
-    virtual uint32_t position() const ;
+    virtual uint32_t position() const;
     /**
-    *  
+    *
     **/
-    virtual uint32_t reset(uint32_t to= 0);
+    virtual uint32_t reset(uint32_t to = 0);
     /**
     *   skip n position
     **/
@@ -199,7 +197,7 @@ public:
     /**
     *   total size
     **/
-    virtual size_t size() const ;
+    virtual size_t size() const;
     /**
     *  得到当前读取路径
     **/
@@ -224,5 +222,4 @@ private:
 
 EF_NAMESPACE_END
 
-#endif // _READER_H_2011_8_12_lisency
-
+#endif /*!_Reader_h__*/

@@ -6,11 +6,11 @@
  *         2011年11月13日 10:23:36
  * Author:
  *         张彦升
---------------------------------------------------------------------*/
+ --------------------------------------------------------------------*/
 
-#ifndef _OBJECT_H_2011_11_13_lisency
-#define _OBJECT_H_2011_11_13_lisency
-
+#ifndef _object_h__
+#define _object_h__
+ 
 #include "Util.h"
 #include "Base.h"
 #include "Opcode.h"
@@ -31,11 +31,11 @@ EF_NAMESPACE_BEGIN
  */
 enum ObjectType
 {
-    LONG_TYPE       = 0,
-    DOUBLE_TYPE     = 1,
-    STRING_TYPE     = 2,
-    CODE_TYPE       = 3,
-    FUN_TYPE        = 4,
+    LONG_TYPE = 0,
+    DOUBLE_TYPE = 1,
+    STRING_TYPE = 2,
+    CODE_TYPE = 3,
+    FUN_TYPE = 4,
 };
 class Object;
 class ObjectObject;
@@ -52,15 +52,15 @@ class Object
 {
 public:
     /**
-     * 
+     *
      */
     virtual ~Object() = 0;
     /**
-     * 
+     *
      */
     virtual void print(std::ostream& cout);
     /**
-     * 
+     *
      */
     virtual int32_t hash();
     bool operator == (const Object& right) const;
@@ -89,7 +89,7 @@ public:
     std::string doc;
 protected:
     /**
-     * 
+     *
      */
     Object();
 private:
@@ -104,16 +104,16 @@ private:
     std::string name;        //for print
 };
 /**
- * 
+ *
  */
 class ObjectObject
     :public Object
 {
 public:
-	/**
+    /**
      *
      */
-    ObjectObject(Object* t_ob,ObjectType ty);
+    ObjectObject(Object* t_ob, ObjectType ty);
     /**
      *
      */
@@ -150,11 +150,11 @@ public:
         return type;
     }
     /**
-     * 
+     *
      */
     ObjectObject* to_longobject();
     /**
-     * 
+     *
      */
     ObjectObject* to_floatobject();
 protected:
@@ -170,12 +170,12 @@ class GeneralObject
 {
 public:
     /**
-     * 
+     *
      */
     virtual ~GeneralObject() = 0;
 protected:
     /**
-     * 
+     *
      */
     GeneralObject();
 private:
@@ -188,12 +188,12 @@ class AbstractObject
 {
 public:
     /**
-     * 
+     *
      */
     virtual ~AbstractObject() = 0;
 protected:
     /**
-     * 
+     *
      */
     AbstractObject();
 private:
@@ -206,15 +206,15 @@ class ExceptionObject
 {
 public:
     /**
-     * 
+     *
      */
     ExceptionObject();
     /**
-     * 
+     *
      */
     ~ExceptionObject();
 protected:
-    
+
 private:
 };
 /**
@@ -225,7 +225,7 @@ class CodeObject
 {
 public:
     /**
-     * 
+     *
      */
     CodeObject();
     /**
@@ -240,7 +240,7 @@ public:
     bool operator > (const CodeObject& right) const;
     bool operator >= (const CodeObject& right) const;
     /**
-     * 
+     *
      */
     operator bool() const;
 
@@ -258,7 +258,7 @@ public:
     CodeObject* operator | (const CodeObject& right) const;
     CodeObject* operator ^ (const CodeObject& right) const;
     /**
-     * 
+     *
      */
     ~CodeObject();
     /**
@@ -290,7 +290,7 @@ public:
      */
     void set_floats(FloatTable& float_table);
     /**
-     * 
+     *
      */
     void set_codes(CodeObjectEntry t_cods);
     /**
@@ -302,7 +302,7 @@ public:
      */
     void set_block_size(int32_t block_size);
     /**
-     * 
+     *
      */
     Instruction* next_instr();
     /**
@@ -310,71 +310,71 @@ public:
      */
     Instruction* next_instr(int32_t pos);
     /**
-     * 
+     *
      */
     ConstStringEntry get_const();
     /**
-     * 
+     *
      */
     NameEntry get_names();
     /**
-     * 
+     *
      */
     NameEntry get_varnames();
     /**
-     * 
+     *
      */
     IntEntry get_interger();
     /**
-     * 
+     *
      */
     DoubleEntry get_floats();
     /**
-     * 
+     *
      */
     CodeObjectEntry get_codes();
     /**
-     * 
+     *
      */
     std::string find_const(int32_t id);
     /**
-     * 
+     *
      */
     std::string find_name(int32_t id);
     /**
-     * 
+     *
      */
     std::string find_varname(int32_t id);
     /**
-     * 
+     *
      */
     int32_t find_int(int32_t id);
     /**
-     * 
+     *
      */
     double find_double(int32_t id);
     /**
-     * 
+     *
      */
     CodeObject* find_code(int32_t id);
     /**
-     * 
+     *
      */
     int32_t add_var(std::string& var);
     /**
-     * 
+     *
      */
     int32_t set_var(std::vector<int32_t>& var);
     /**
-     * 
+     *
      */
     std::vector<int32_t> get_vars();
     /**
-     * 
+     *
      */
     int32_t get_var_size();
     /**
-     * 
+     *
      */
     int32_t reset_iter();
 protected:
@@ -394,7 +394,7 @@ private:
     int32_t iter_block;
     int32_t iter_instr;
 
-//#ifdef EF_DEBUG
+    //#ifdef EF_DEBUG
     inline std::string compare_op(int32_t arg)
     {
         switch (arg)
@@ -526,7 +526,7 @@ private:
         }
         return "ERROR When find opcode name";
     }
-//#endif //EF_DEBU
+    //#endif //EF_DEBU
 };
 /**
  *
@@ -536,91 +536,91 @@ class TypeObject
 {
 public:
     /**
-     * 
+     *
      */
     TypeObject();
     /**
-     * 
+     *
      */
     ~TypeObject();
 protected:
-    
+
 private:
 };
 /**
- * 
+ *
  **/
 class MethodObject
     :public AbstractObject
 {
 public:
     /**
-     * 
+     *
      */
     MethodObject();
     /**
-     * 
+     *
      */
     ~MethodObject();
 protected:
-    
+
 private:
 };
 /**
- * 
+ *
  **/
 class IterObject
     :public AbstractObject
 {
 public:
     /**
-     * 
+     *
      */
     IterObject();
     /**
-     * 
+     *
      */
     ~IterObject();
 protected:
-    
+
 private:
 };
 /**
- * 
+ *
  **/
 class ClassObject
     :public AbstractObject
 {
 public:
     /**
-     * 
+     *
      */
     ClassObject();
     /**
-     * 
+     *
      */
     ~ClassObject();
 protected:
-    
+
 private:
 };
 /**
- * 
+ *
  **/
 class BytesObject
     :public GeneralObject
 {
 public:
     /**
-     * 
+     *
      */
     BytesObject();
     /**
-     * 
+     *
      */
     ~BytesObject();
 protected:
-    
+
 private:
 };
 /**
@@ -630,13 +630,13 @@ class MapObject
     :public GeneralObject
 {
 public:
-    typedef std::map<Object*,Object*> MapEntry;
+    typedef std::map<Object*, Object*> MapEntry;
     /**
     *  默认构造函数，构造一个空映射
     **/
     MapObject();
     /**
-    * 
+    *
     **/
     ~MapObject();
     /**
@@ -645,7 +645,7 @@ public:
     *  @value
     *  nothing
     **/
-    void insert(Object* key,Object* value);
+    void insert(Object* key, Object* value);
     /**
     * 删除一个元素
     * @key
@@ -678,8 +678,8 @@ protected:
     static const int32_t MIN_MAP_SIZE = 8;
     //struct MapEntry
     //{
-        //Object* key;    //根据key排序，排列value
-        //Object* value;
+    //Object* key;    //根据key排序，排列value
+    //Object* value;
     //};
 private:
     MapEntry* map_table;
@@ -695,63 +695,63 @@ private:
     * @ dst 目标地址
     * return: 拷贝的大小，非绝对地址空间
     **/
-    int32_t copy_table(MapEntry* begin,MapEntry* end,MapEntry* dst );
+    int32_t copy_table(MapEntry* begin, MapEntry* end, MapEntry* dst);
 };
 /**
- * 
+ *
  **/
 class TupleObject
     :public GeneralObject
 {
 public:
     /**
-     * 
+     *
      */
     TupleObject();
     /**
-     * 
+     *
      */
     ~TupleObject();
 protected:
-    
+
 private:
 };
 /**
- * 
+ *
  **/
 class ListObject
     :public GeneralObject
 {
 public:
     /**
-     * 
+     *
      */
     ListObject();
     /**
-     * 
+     *
      */
     ~ListObject();
 protected:
-    
+
 private:
 };
 /**
- * 
+ *
  **/
 class SetObject
     :public GeneralObject
 {
 public:
     /**
-     * 
+     *
      */
     SetObject();
     /**
-     * 
+     *
      */
     ~SetObject();
 protected:
-    
+
 private:
 };
 /**
@@ -762,7 +762,7 @@ class NumObject
 {
 public:
     /**
-     * 
+     *
      */
     NumObject();
     /**
@@ -770,11 +770,11 @@ public:
      */
     NumObject(std::string& str);
     /**
-     * 
+     *
      */
     ~NumObject();
     /**
-     * 
+     *
      */
     bool operator == (const NumObject& right) const;
     bool operator < (const NumObject& right) const;
@@ -784,7 +784,7 @@ public:
     bool operator >= (const NumObject& right) const;
     operator bool() const;
 protected:
-    
+
 private:
 };
 /**
@@ -800,23 +800,23 @@ public:
     **/
     LongObject(int32_t t_value);
     /**
-     * 
+     *
      */
     LongObject(std::string& str);
     /**
-     * 
+     *
      */
     ~LongObject();
     /**
-     * 
+     *
      */
     virtual void print(std::ostream& cout);
     /**
-    *   
+    *
     **/
     virtual int32_t get_int() const;
     /**
-     * 
+     *
      */
     bool operator == (const LongObject& right) const;
     bool operator < (const LongObject& right) const;
@@ -846,34 +846,34 @@ protected:
 private:
 };
 /**
- * 
+ *
  **/
 class FloatObject
     :public NumObject
 {
 public:
     /**
-     * 
+     *
      */
     FloatObject(double t_value);
     /**
-     * 
+     *
      */
     FloatObject(std::string& str);
     /**
-     * 
+     *
      */
     ~FloatObject();
     /**
-     * 
+     *
      */
     virtual void print(std::ostream& cout);
     /**
-    *   
+    *
     **/
     virtual double get_double() const;
     /**
-     * 
+     *
      */
     bool operator == (const FloatObject& right) const;
     bool operator < (const FloatObject& right) const;
@@ -904,22 +904,22 @@ protected:
 private:
 };
 /**
- * 
+ *
  **/
 class StringObject
     :public GeneralObject
 {
 public:
     /**
-     * 
+     *
      */
     StringObject(std::string t_value);
     /**
-     * 
+     *
      */
     ~StringObject();
     /**
-     * 
+     *
      */
     inline std::string get_value() const
     {
@@ -927,7 +927,7 @@ public:
     }
     virtual void print(std::ostream& cout);
     /**
-     * 
+     *
      */
     bool operator == (const StringObject& right) const;
     bool operator < (const StringObject& right) const;
@@ -955,22 +955,22 @@ protected:
 private:
 };
 /**
- * 
+ *
  **/
 class FunObject
     :public AbstractObject
 {
 public:
     /**
-     * 
+     *
      */
     FunObject();
     /**
-     * 
+     *
      */
     FunObject(CodeObject* ob);
     /**
-     * 
+     *
      */
     ~FunObject();
     /**
@@ -1005,13 +1005,13 @@ protected:
 private:
 };
 /**
- * 
+ *
  */
 class CoutObject
     :public FunObject
 {
 public:
-	/**
+    /**
      *
      */
     CoutObject();
@@ -1020,7 +1020,7 @@ public:
      */
     ~CoutObject();
     /**
-     * 
+     *
      */
     virtual int32_t invoke(std::vector<ObjectObject*> arg);
 
@@ -1032,32 +1032,30 @@ public:
     bool operator >= (const FunObject& right) const;
     operator bool() const;
 protected:
-    
+
 private:
 };
 
 /**
- * 
+ *
  **/
 class BoolObject
     :public GeneralObject
 {
 public:
     /**
-     * 
+     *
      */
     BoolObject();
     /**
-     * 
+     *
      */
     ~BoolObject();
 protected:
-    
+
 private:
 };
 
 EF_NAMESPACE_END
 
-#endif // _OBJECT_H_2011_11_13_lisency
-
-
+#endif /*!_object_h__*/

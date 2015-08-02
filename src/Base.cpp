@@ -4,14 +4,14 @@
 EF_NAMESPACE_BEGIN
 
 /**
- * 
+ *
  */
-Base::Base()
+ Base::Base()
 {
     return;
 }
 /**
- * 
+ *
  */
 Base::~Base()
 {

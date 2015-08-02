@@ -5,7 +5,7 @@
  *         2011年12月1日 21:16:08
  * Author:
  *         张彦升
---------------------------------------------------------------------*/
+ --------------------------------------------------------------------*/
 
 #include "Parser.h"
 #include "Debug.h"
@@ -18,7 +18,7 @@ EF_NAMESPACE_BEGIN
  *
  */
 Parser::Parser(Scanner &t_scanner)
-:scanner(t_scanner)
+ :scanner(t_scanner)
 {
     return;
 }
@@ -33,7 +33,7 @@ Parser::~Parser()
  *
  */
 EFParser::EFParser(Scanner &scanner)
-:Parser(scanner)
+    :Parser(scanner)
 {
     file_path = scanner.get_path();
     Node::set_file_path(file_path);
@@ -81,7 +81,7 @@ bool EFParser::match(TokenFlag token_flag)
 void EFParser::throw_error(int error_id)
 {
     //抛出异常，文件以异常结束
-    EFExc exc(file_path,look->row,look->col,error_id);
+    EFExc exc(file_path, look->row, look->col, error_id);
     throw exc;
 }
 /**
@@ -126,7 +126,7 @@ StmtSeq* EFParser::stmts()
     {
         return NULL;
     }
-    return new StmtSeq(t_stmt,stmts());
+    return new StmtSeq(t_stmt, stmts());
 }
 /**
  * 根据文件读入的数据流匹配相应的数据流，匹配stmt
@@ -159,10 +159,10 @@ Stmt* EFParser::stmt()
     default:
         return simple_stmt();
         //其余的全部是SimpleStmt
-    //case DEL_MARKER:                        //删除语句
-    //case IMPORT_MARKER:                     //导入语句
-    //case NAME:                              //是赋值等语句
-    //    return simple_stmt();
+        //case DEL_MARKER:                        //删除语句
+        //case IMPORT_MARKER:                     //导入语句
+        //case NAME:                              //是赋值等语句
+        //    return simple_stmt();
     }
 }
 /**
@@ -179,7 +179,7 @@ SimpleStmt* EFParser::simple_stmt()
         return NULL;
     }
 
-    SimpleStmt* t_simple_stmt = new SimpleStmt(t_small_stmt,small_stmt_list());
+    SimpleStmt* t_simple_stmt = new SimpleStmt(t_small_stmt, small_stmt_list());
 
     match(SEMI);  //略过分号，分号可有可无
 
@@ -233,7 +233,7 @@ SimpleStmt* EFParser::small_stmt_list()
     {
         throw_error(ERROR_NO_USE_WORD);
     }
-    return new SimpleStmt(t_small_stmt,small_stmt_list());
+    return new SimpleStmt(t_small_stmt, small_stmt_list());
 }
 /**
  *
@@ -290,11 +290,11 @@ Assign* EFParser::assign_stmt()
     Expr* t_expr = expr();        //规则右部的第一个expr
     if (this->look->id == EQUAL)
     {
-        return new Assign(t_expr,derict_assign());
+        return new Assign(t_expr, derict_assign());
     }
     else if (is_aug_assign(this->look))
     {
-        return new Assign(t_expr,aug_assign());
+        return new Assign(t_expr, aug_assign());
     }
     else
     {
@@ -322,7 +322,7 @@ DerictAssign* EFParser::derict_assign()
     {
         throw_error(ERROR_REDUNDANT_EQUAL);
     }
-    return new DerictAssign(t_expr,derict_assign());
+    return new DerictAssign(t_expr, derict_assign());
 }
 /**
  *   augassign -> augmentassign expr
@@ -348,7 +348,7 @@ AugAssign* EFParser::aug_assign()
         throw_error(ERROR_REDUNDANT_EQUAL);
     }
 
-    return new AugAssign(t_token,t_expr);
+    return new AugAssign(t_token, t_expr);
 }
 /**
  *   compound_stmt -> if_stmt |
@@ -356,7 +356,7 @@ AugAssign* EFParser::aug_assign()
  *                    for_stmt |
  *                    try_stmt |
  *                    fundef_stmt |
- *                    classdef_stmt 
+ *                    classdef_stmt
  **/
 CompoundStmt* EFParser::compound_stmt()
 {
@@ -416,7 +416,7 @@ IfStmt* EFParser::if_stmt()
     ElifStmt* elif = elif_stmt();
     ElseStmt* else_ = else_stmt();
 
-    return new IfStmt(t_expr,t_stmt,elif,else_);
+    return new IfStmt(t_expr, t_stmt, elif, else_);
 }
 /**
  *
@@ -441,7 +441,7 @@ WhileStmt* EFParser::while_stmt()
     {
         throw_error(ERROR_KEY_MARKER);
     }
-    return new WhileStmt(t_expr,suite(),else_stmt());
+    return new WhileStmt(t_expr, suite(), else_stmt());
 }
 /**
  * 注意if与elif共用一个If结构
@@ -465,7 +465,7 @@ ElifStmt* EFParser::elif_stmt()
         throw_error(ERROR_KEY_MARKER);
     }
     Suite* t_stmt = suite();
-    return new ElifStmt(t_expr,t_stmt,elif_stmt());
+    return new ElifStmt(t_expr, t_stmt, elif_stmt());
 }
 /**
  *
@@ -527,7 +527,7 @@ ForStmt* EFParser::for_stmt()
     {
         throw_error(ERROR_KEY_MARKER);
     }
-    return new ForStmt(t_expr,expr_range,t_stmt,else_stmt());
+    return new ForStmt(t_expr, expr_range, t_stmt, else_stmt());
 }
 /**
  *
@@ -560,7 +560,7 @@ TryStmt* EFParser::try_stmt()
     if (b_match == false)
     {
         //throw_error(ERROR_KEY_MARKER);
-        return new TryStmt(stmt_try,t_catchs_stmt,NULL);
+        return new TryStmt(stmt_try, t_catchs_stmt, NULL);
     }
     b_match = match(COLON);
     if (b_match == false)
@@ -572,7 +572,7 @@ TryStmt* EFParser::try_stmt()
     {
         throw_error(ERROR_KEY_MARKER);
     }
-    return new TryStmt(stmt_try,t_catchs_stmt,stmt_finally);
+    return new TryStmt(stmt_try, t_catchs_stmt, stmt_finally);
 }
 /**
  *
@@ -587,7 +587,7 @@ CatchStmt* EFParser::catch_stmt()
     }
 
     Expr* t_expr = expr();
-    if (t_expr == NULL  )
+    if (t_expr == NULL)
     {
         //do nothing,这个可以为空
     }
@@ -602,7 +602,7 @@ CatchStmt* EFParser::catch_stmt()
     {
         throw_error(ERROR_KEY_MARKER);
     }
-    return new CatchStmt(t_expr,t_stmt,catch_stmt());
+    return new CatchStmt(t_expr, t_stmt, catch_stmt());
 }
 /**
  *
@@ -650,7 +650,7 @@ FunStmt* EFParser::fun_stmt()
     {
         throw_error(ERROR_KEY_MARKER);
     }
-    return new FunStmt(token,t_para,stmt);
+    return new FunStmt(token, t_para, stmt);
 }
 /**
  *
@@ -688,7 +688,7 @@ ClassStmt* EFParser::cla_stmt()
     {
         throw_error(ERROR_NO_SUITE);
     }
-    return new ClassStmt(t_token,t_stmt);
+    return new ClassStmt(t_token, t_stmt);
 }
 
 /**
@@ -774,9 +774,9 @@ ParametersExpr* EFParser::parameters()
     bool b_match = match(COMMA);
     if (b_match == false)
     {
-        return new ParametersExpr(t_atom_para,NULL);
+        return new ParametersExpr(t_atom_para, NULL);
     }
-    return new ParametersExpr(t_atom_para,parameters());
+    return new ParametersExpr(t_atom_para, parameters());
 }
 /**
  *
@@ -801,11 +801,11 @@ ParameterExprAtom* EFParser::atom_para()
 
         if (b_match == false)
         {
-            return new TupleParameterExpr(token,NULL);
+            return new TupleParameterExpr(token, NULL);
         }
         else
         {
-            return new TupleParameterExpr(token,expr());
+            return new TupleParameterExpr(token, expr());
         }
     }
     //map参数
@@ -823,11 +823,11 @@ ParameterExprAtom* EFParser::atom_para()
 
         if (b_match == false)
         {
-            return new MapParameterExpr(token,NULL);
+            return new MapParameterExpr(token, NULL);
         }
         else
         {
-            return new MapParameterExpr(token,expr());
+            return new MapParameterExpr(token, expr());
         }
     }
     //普通参数
@@ -844,12 +844,12 @@ ParameterExprAtom* EFParser::atom_para()
 
         if (b_match == false)
         {
-            NostarParameterExpr* para = new NostarParameterExpr(t_atom,NULL);
+            NostarParameterExpr* para = new NostarParameterExpr(t_atom, NULL);
             return para;
         }
         else
         {
-            return new NostarParameterExpr(t_atom,expr());
+            return new NostarParameterExpr(t_atom, expr());
         }
     }
     //tuple参数
@@ -901,7 +901,7 @@ LambdaExpr* EFParser::lambda_expr()
     {
         throw_error(ERROR_KEY_MARKER);
     }
-    return new LambdaExpr(t_para,t_expr);
+    return new LambdaExpr(t_para, t_expr);
 }
 /**
  *
@@ -914,7 +914,7 @@ LogicalOrExpr* EFParser::logical_or_expr()
     {
         return NULL;
     }
-    return new LogicalOrExpr(and_expr,logical_or_expr_r());
+    return new LogicalOrExpr(and_expr, logical_or_expr_r());
 }
 /**
  * 这里没有实现&&，||，等，暂留，如果要实现的话，在词法分析的
@@ -933,7 +933,7 @@ LogicalOrExpr* EFParser::logical_or_expr_r()
     {
         throw_error(ERROR_KEY_MARKER);
     }
-    return new LogicalOrExpr(and_expr,logical_or_expr_r());
+    return new LogicalOrExpr(and_expr, logical_or_expr_r());
 }
 /**
  *
@@ -946,7 +946,7 @@ LogicalAndExpr* EFParser::logical_and_expr()
     {
         return NULL;
     }
-    return new LogicalAndExpr(t_not_expr,logical_and_expr_r());
+    return new LogicalAndExpr(t_not_expr, logical_and_expr_r());
 }
 /**
  *
@@ -964,7 +964,7 @@ LogicalAndExpr* EFParser::logical_and_expr_r()
     {
         throw_error(ERROR_KEY_MARKER);
     }
-    return new LogicalAndExpr(t_not_expr,logical_and_expr_r());
+    return new LogicalAndExpr(t_not_expr, logical_and_expr_r());
 }
 /**
  *
@@ -996,7 +996,7 @@ LogicalRelExpr* EFParser::comparison()
     {
         return NULL;
     }
-    return new LogicalRelExpr(t_small_expr1,comparison_r());
+    return new LogicalRelExpr(t_small_expr1, comparison_r());
 }
 /**
  *
@@ -1017,7 +1017,7 @@ LogicalRelExprR* EFParser::comparison_r()
     {
         throw_error(ERROR_KEY_MARKER);
     }
-    return new LogicalRelExprR(t_token,t_small_expr,comparison_r());
+    return new LogicalRelExprR(t_token, t_small_expr, comparison_r());
 }
 /**
  *
@@ -1030,7 +1030,7 @@ OrExpr* EFParser::or_expr()
     {
         return NULL;
     }
-    return new OrExpr(t_xor_expr,or_expr_r());
+    return new OrExpr(t_xor_expr, or_expr_r());
 }
 /**
  *
@@ -1048,7 +1048,7 @@ OrExpr* EFParser::or_expr_r()
     {
         throw_error(ERROR_KEY_MARKER);
     }
-    return new OrExpr(t_xor_expr,or_expr_r());
+    return new OrExpr(t_xor_expr, or_expr_r());
 }
 /**
  *
@@ -1061,7 +1061,7 @@ XorExpr* EFParser::xor_expr()
     {
         return NULL;
     }
-    return new XorExpr(t_and_expr,xor_expr_r());
+    return new XorExpr(t_and_expr, xor_expr_r());
 }
 /**
  *
@@ -1079,7 +1079,7 @@ XorExpr* EFParser::xor_expr_r()
     {
         throw_error(ERROR_KEY_MARKER);
     }
-    return new XorExpr(t_and_expr,xor_expr_r());
+    return new XorExpr(t_and_expr, xor_expr_r());
 }
 /**
  *
@@ -1093,7 +1093,7 @@ AndExpr* EFParser::and_expr()
     {
         return NULL;
     }
-    return new AndExpr(t_shift_expr,and_expr_r());
+    return new AndExpr(t_shift_expr, and_expr_r());
 }
 /**
  *
@@ -1111,7 +1111,7 @@ AndExpr* EFParser::and_expr_r()
     {
         throw_error(ERROR_KEY_MARKER);
     }
-    return new AndExpr(t_shift_expr,and_expr_r());
+    return new AndExpr(t_shift_expr, and_expr_r());
 }
 /**
  *
@@ -1124,7 +1124,7 @@ ShiftExpr* EFParser::shift_expr()
     {
         return NULL;
     }
-    return new ShiftExpr(t_arith_expr,shift_expr_r());
+    return new ShiftExpr(t_arith_expr, shift_expr_r());
 }
 /**
  *
@@ -1145,7 +1145,7 @@ ShiftExprR* EFParser::shift_expr_r()
     {
         throw_error(ERROR_KEY_MARKER);
     }
-    return new ShiftExprR(token,t_arith_expr,shift_expr_r());
+    return new ShiftExprR(token, t_arith_expr, shift_expr_r());
 }
 /**
  *
@@ -1158,7 +1158,7 @@ ArithExpr* EFParser::arith_expr()
     {
         return NULL;
     }
-    return new ArithExpr(t_term,arith_expr_r());
+    return new ArithExpr(t_term, arith_expr_r());
 }
 /**
  *
@@ -1179,7 +1179,7 @@ ArithExprR* EFParser::arith_expr_r()
         throw_error(ERROR_KEY_MARKER);
         //错误处理
     }
-    return new ArithExprR(token,t_term,arith_expr_r());
+    return new ArithExprR(token, t_term, arith_expr_r());
 }
 /**
  *
@@ -1192,7 +1192,7 @@ TermExpr* EFParser::term_expr()
     {
         return NULL;
     }
-    return new TermExpr(t_factor,term_expr_r());
+    return new TermExpr(t_factor, term_expr_r());
 }
 /**
  *
@@ -1215,7 +1215,7 @@ TermExprR* EFParser::term_expr_r()
     {
         throw_error(ERROR_KEY_MARKER);
     }
-    return new TermExprR(token,t_factor,term_expr_r());
+    return new TermExprR(token, t_factor, term_expr_r());
 }
 /**
  *
@@ -1236,7 +1236,7 @@ FactorExpr* EFParser::factor()
         }
         else
         {
-            return new FactorExpr(token,t_factor);
+            return new FactorExpr(token, t_factor);
         }
     }
     PowerExpr* t_power = power();
@@ -1268,7 +1268,7 @@ PowerExpr* EFParser::power()
         throw_error(ERROR_KEY_MARKER);
         //错误处理
     }
-    return new PowerExpr(t_atom,t_factor);
+    return new PowerExpr(t_atom, t_factor);
 }
 /**
  *
@@ -1294,7 +1294,7 @@ AtomExpr* EFParser::atom()
         return keyword_expr();
     case NAME:                    //NAME
         return name_expr();
-    default:   
+    default:
         return NULL;
     }
 }
@@ -1332,7 +1332,7 @@ TupleVariableExpr* EFParser::tuple_variable_expr()
     {
         return NULL;
     }
-    return new TupleVariableExpr(t_expr,tuple_variable_expr_r());
+    return new TupleVariableExpr(t_expr, tuple_variable_expr_r());
 }
 /**
  *
@@ -1352,7 +1352,7 @@ TupleVariableExpr* EFParser::tuple_variable_expr_r()
         //直接返回
         return NULL;
     }
-    return new TupleVariableExpr(t_expr,tuple_variable_expr_r());
+    return new TupleVariableExpr(t_expr, tuple_variable_expr_r());
 }
 /**
  *
@@ -1398,7 +1398,7 @@ MapVariableExpr* EFParser::map_variable_expr()
     {
         throw_error(ERROR_KEY_MARKER);
     }
-    return new MapVariableExpr(t_expr_l,t_expr_r,map_variable_expr_r());
+    return new MapVariableExpr(t_expr_l, t_expr_r, map_variable_expr_r());
 }
 /**
  *
@@ -1427,7 +1427,7 @@ MapVariableExpr* EFParser::map_variable_expr_r()
     {
         throw_error(ERROR_KEY_MARKER);
     }
-    return new MapVariableExpr(t_expr_l,t_expr_r,map_variable_expr_r());
+    return new MapVariableExpr(t_expr_l, t_expr_r, map_variable_expr_r());
 }
 /**
  *
@@ -1456,7 +1456,7 @@ StringExpr* EFParser::string_expr()
     {
         return NULL;
     }
-    return new StringExpr(t_token,string_expr());
+    return new StringExpr(t_token, string_expr());
 }
 /**
  *
@@ -1492,15 +1492,15 @@ NameExpr* EFParser::name_expr()
 
     if (look->id == DOT)
     {
-        return new NameExpr(token,module_invoke());
+        return new NameExpr(token, module_invoke());
     }
     else if (look->id == LPAR)
     {
-        return new NameExpr(token,fun_invoke());
+        return new NameExpr(token, fun_invoke());
     }
     else
     {
-        return new NameExpr(token,NULL);
+        return new NameExpr(token, NULL);
     }
 }
 /*    fun_invoke -> '(' parameters ')'
@@ -1530,7 +1530,7 @@ FunInvokeExpr* EFParser::fun_invoke()
     if (parameter == NULL)
     {
         //无参
-        return new FunInvokeExpr(t_token->row,t_token->col);
+        return new FunInvokeExpr(t_token->row, t_token->col);
     }
     else
     {
@@ -1556,7 +1556,7 @@ ModuleInvokeExpr* EFParser::module_invoke()
     {
         throw_error(ERROR_KEY_MARKER);
     }
-    return new ModuleInvokeExpr(token,module_invoke());
+    return new ModuleInvokeExpr(token, module_invoke());
 }
 
 EF_NAMESPACE_END

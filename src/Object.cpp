@@ -5,7 +5,7 @@
  *         2012年2月9日 20:50:41
  * Author:
  *         张彦升
---------------------------------------------------------------------*/
+ --------------------------------------------------------------------*/
 
 #include "Object.h"
 #include "Executor.h"
@@ -17,57 +17,57 @@
 
 EF_NAMESPACE_BEGIN
 
-/**
- * 
+/*
+ *
  */
 Object::Object()
 {
     return;
 }
 /**
- * 
+ *
  */
 Object::~Object()
 {
     return;
 }
 /**
- * 
+ *
  */
 void Object::print(std::ostream& cout)
 {
     return;
 }
 /**
- * 
+ *
  */
 int32_t Object::hash()
 {
     return 0;
 }
-bool Object::operator==( const Object& right ) const
+bool Object::operator==(const Object& right) const
 {
     return true;
 }
-bool Object::operator<( const Object& right ) const
+bool Object::operator<(const Object& right) const
 {
     return true;
 }
-bool Object::operator!=( const Object& right ) const
+bool Object::operator!=(const Object& right) const
 {
     return !(*this == right);
 }
-bool Object::operator<=( const Object& right ) const
+bool Object::operator<=(const Object& right) const
 {
     return !(right < (*this));
 }
 
-bool Object::operator>( const Object& right ) const
+bool Object::operator>(const Object& right) const
 {
     return right < *this;
 }
 
-bool Object::operator>=( const Object& right ) const
+bool Object::operator>=(const Object& right) const
 {
     return !(*this < right);
 }
@@ -77,59 +77,59 @@ Object::operator bool() const
     return false;
 }
 
-Object* Object::operator+( const Object& right ) const
+Object* Object::operator+(const Object& right) const
 {
     return NULL;
 }
-Object* Object::operator-( const Object& right ) const
+Object* Object::operator-(const Object& right) const
 {
     return NULL;
 }
-Object* Object::operator*( const Object& right ) const
-{
-    return NULL;
-}
-
-Object* Object::operator/( const Object& right ) const
+Object* Object::operator*(const Object& right) const
 {
     return NULL;
 }
 
-Object* Object::operator+=( const Object& right ) const
+Object* Object::operator/(const Object& right) const
 {
     return NULL;
 }
 
-Object* Object::operator-=( const Object& right ) const
+Object* Object::operator+=(const Object& right) const
 {
     return NULL;
 }
 
-Object* Object::operator*=( const Object& right ) const
+Object* Object::operator-=(const Object& right) const
 {
     return NULL;
 }
 
-Object* Object::operator/=( const Object& right ) const
+Object* Object::operator*=(const Object& right) const
 {
     return NULL;
 }
 
-Object* Object::operator|( const Object& right ) const
+Object* Object::operator/=(const Object& right) const
 {
     return NULL;
 }
-Object* Object::operator^( const Object& right ) const
+
+Object* Object::operator|(const Object& right) const
+{
+    return NULL;
+}
+Object* Object::operator^(const Object& right) const
 {
     return NULL;
 }
 
 /**
- * 
+ *
  */
-ObjectObject::ObjectObject( Object* t_ob,ObjectType ty )
-:ob(t_ob),
-type(ty)
+ObjectObject::ObjectObject(Object* t_ob, ObjectType ty)
+    :ob(t_ob),
+    type(ty)
 {
     return;
 }
@@ -140,7 +140,7 @@ ObjectObject::~ObjectObject()
 }
 
 
-bool ObjectObject::operator==( const ObjectObject& right ) const
+bool ObjectObject::operator==(const ObjectObject& right) const
 {
     switch (type)
     {
@@ -159,7 +159,7 @@ bool ObjectObject::operator==( const ObjectObject& right ) const
     }
 }
 
-bool ObjectObject::operator<( const ObjectObject& right ) const
+bool ObjectObject::operator<(const ObjectObject& right) const
 {
     switch (type)
     {
@@ -178,22 +178,22 @@ bool ObjectObject::operator<( const ObjectObject& right ) const
     }
 }
 
-bool ObjectObject::operator!=( const ObjectObject& right ) const
+bool ObjectObject::operator!=(const ObjectObject& right) const
 {
     return !(*this == right);
 }
 
-bool ObjectObject::operator<=( const ObjectObject& right ) const
+bool ObjectObject::operator<=(const ObjectObject& right) const
 {
     return !(right < (*this));
 }
 
-bool ObjectObject::operator>( const ObjectObject& right ) const
+bool ObjectObject::operator>(const ObjectObject& right) const
 {
     return right < *this;
 }
 
-bool ObjectObject::operator>=( const ObjectObject& right ) const
+bool ObjectObject::operator>=(const ObjectObject& right) const
 {
     return !(*this < right);
 }
@@ -216,207 +216,207 @@ ObjectObject::operator bool() const
     }
 }
 
-ObjectObject* ObjectObject::operator+( const ObjectObject& right ) const
+ObjectObject* ObjectObject::operator+(const ObjectObject& right) const
 {
     if (type == LONG_TYPE)
     {
         LongObject* result = (*(LongObject*)ob) + *(LongObject*)right.get_ob();
-        return new ObjectObject(result,LONG_TYPE);
+        return new ObjectObject(result, LONG_TYPE);
     }
     else if (type == DOUBLE_TYPE)
     {
         FloatObject* result = (*(FloatObject*)ob) + *(FloatObject*)right.get_ob();
-        return new ObjectObject(result,DOUBLE_TYPE);
+        return new ObjectObject(result, DOUBLE_TYPE);
     }
     else if (type == STRING_TYPE)
     {
         StringObject* result = (*(StringObject*)ob) + *(StringObject*)right.get_ob();
-        return new ObjectObject(result,STRING_TYPE);
+        return new ObjectObject(result, STRING_TYPE);
     }
     else if (type == CODE_TYPE)
     {
         CodeObject* result = (*(CodeObject*)ob) + *(CodeObject*)right.get_ob();
-        return new ObjectObject(result,CODE_TYPE);
+        return new ObjectObject(result, CODE_TYPE);
     }
     else if (type == FUN_TYPE)
     {
         FunObject* result = (*(FunObject*)ob) + *(FunObject*)right.get_ob();
-        return new ObjectObject(result,FUN_TYPE);
+        return new ObjectObject(result, FUN_TYPE);
     }
     return NULL;
 }
 
-ObjectObject* ObjectObject::operator-( const ObjectObject& right ) const
+ObjectObject* ObjectObject::operator-(const ObjectObject& right) const
 {
     if (type == LONG_TYPE)
     {
         LongObject* result = (*(LongObject*)ob) - *(LongObject*)right.get_ob();
-        return new ObjectObject(result,LONG_TYPE);
+        return new ObjectObject(result, LONG_TYPE);
     }
     else if (type == DOUBLE_TYPE)
     {
         FloatObject* result = (*(FloatObject*)ob) - *(FloatObject*)right.get_ob();
-        return new ObjectObject(result,DOUBLE_TYPE);
+        return new ObjectObject(result, DOUBLE_TYPE);
     }
     else if (type == STRING_TYPE)
     {
         StringObject* result = (*(StringObject*)ob) - *(StringObject*)right.get_ob();
-        return new ObjectObject(result,STRING_TYPE);
+        return new ObjectObject(result, STRING_TYPE);
     }
     else if (type == CODE_TYPE)
     {
         CodeObject* result = (*(CodeObject*)ob) - *(CodeObject*)right.get_ob();
-        return new ObjectObject(result,CODE_TYPE);
+        return new ObjectObject(result, CODE_TYPE);
     }
     else if (type == FUN_TYPE)
     {
         FunObject* result = (*(FunObject*)ob) - *(FunObject*)right.get_ob();
-        return new ObjectObject(result,FUN_TYPE);
+        return new ObjectObject(result, FUN_TYPE);
     }
     return NULL;
 }
 
-ObjectObject* ObjectObject::operator*( const ObjectObject& right ) const
+ObjectObject* ObjectObject::operator*(const ObjectObject& right) const
 {
     if (type == LONG_TYPE)
     {
         LongObject* result = (*(LongObject*)ob) * *(LongObject*)right.get_ob();
-        return new ObjectObject(result,LONG_TYPE);
+        return new ObjectObject(result, LONG_TYPE);
     }
     else if (type == DOUBLE_TYPE)
     {
         FloatObject* result = (*(FloatObject*)ob) * *(FloatObject*)right.get_ob();
-        return new ObjectObject(result,DOUBLE_TYPE);
+        return new ObjectObject(result, DOUBLE_TYPE);
     }
     else if (type == STRING_TYPE)
     {
         StringObject* result = (*(StringObject*)ob) * *(LongObject*)right.get_ob();
-        return new ObjectObject(result,STRING_TYPE);
+        return new ObjectObject(result, STRING_TYPE);
     }
     else if (type == CODE_TYPE)
     {
         CodeObject* result = (*(CodeObject*)ob) * *(CodeObject*)right.get_ob();
-        return new ObjectObject(result,CODE_TYPE);
+        return new ObjectObject(result, CODE_TYPE);
     }
     else if (type == FUN_TYPE)
     {
         FunObject* result = (*(FunObject*)ob) * *(FunObject*)right.get_ob();
-        return new ObjectObject(result,FUN_TYPE);
+        return new ObjectObject(result, FUN_TYPE);
     }
     return NULL;
 }
 
-ObjectObject* ObjectObject::operator/( const ObjectObject& right ) const
+ObjectObject* ObjectObject::operator/(const ObjectObject& right) const
 {
     if (type == LONG_TYPE)
     {
         LongObject* result = (*(LongObject*)ob) / *(LongObject*)right.get_ob();
-        return new ObjectObject(result,LONG_TYPE);
+        return new ObjectObject(result, LONG_TYPE);
     }
     else if (type == DOUBLE_TYPE)
     {
         FloatObject* result = (*(FloatObject*)ob) / *(FloatObject*)right.get_ob();
-        return new ObjectObject(result,DOUBLE_TYPE);
+        return new ObjectObject(result, DOUBLE_TYPE);
     }
     else if (type == STRING_TYPE)
     {
         StringObject* result = (*(StringObject*)ob) / *(StringObject*)right.get_ob();
-        return new ObjectObject(result,STRING_TYPE);
+        return new ObjectObject(result, STRING_TYPE);
     }
     else if (type == CODE_TYPE)
     {
         CodeObject* result = (*(CodeObject*)ob) / *(CodeObject*)right.get_ob();
-        return new ObjectObject(result,CODE_TYPE);
+        return new ObjectObject(result, CODE_TYPE);
     }
     else if (type == FUN_TYPE)
     {
         FunObject* result = (*(FunObject*)ob) / *(FunObject*)right.get_ob();
-        return new ObjectObject(result,FUN_TYPE);
+        return new ObjectObject(result, FUN_TYPE);
     }
     return NULL;
 }
 
-ObjectObject* ObjectObject::operator%( const ObjectObject& right ) const
+ObjectObject* ObjectObject::operator%(const ObjectObject& right) const
 {
     if (type == LONG_TYPE)
     {
         LongObject* result = (*(LongObject*)ob) % *(LongObject*)right.get_ob();
-        return new ObjectObject(result,LONG_TYPE);
+        return new ObjectObject(result, LONG_TYPE);
     }
     else if (type == DOUBLE_TYPE)
     {
         FloatObject* result = (*(FloatObject*)ob) % *(FloatObject*)right.get_ob();
-        return new ObjectObject(result,DOUBLE_TYPE);
+        return new ObjectObject(result, DOUBLE_TYPE);
     }
     else if (type == STRING_TYPE)
     {
         StringObject* result = (*(StringObject*)ob) % *(StringObject*)right.get_ob();
-        return new ObjectObject(result,STRING_TYPE);
+        return new ObjectObject(result, STRING_TYPE);
     }
     else if (type == CODE_TYPE)
     {
         CodeObject* result = (*(CodeObject*)ob) % *(CodeObject*)right.get_ob();
-        return new ObjectObject(result,CODE_TYPE);
+        return new ObjectObject(result, CODE_TYPE);
     }
     else if (type == FUN_TYPE)
     {
         FunObject* result = (*(FunObject*)ob) % *(FunObject*)right.get_ob();
-        return new ObjectObject(result,FUN_TYPE);
+        return new ObjectObject(result, FUN_TYPE);
     }
     return NULL;
 }
 
-ObjectObject* ObjectObject::operator+=( const ObjectObject& right ) const
+ObjectObject* ObjectObject::operator+=(const ObjectObject& right) const
 {
     return NULL;
 }
 
-ObjectObject* ObjectObject::operator-=( const ObjectObject& right ) const
+ObjectObject* ObjectObject::operator-=(const ObjectObject& right) const
 {
     return NULL;
 }
 
-ObjectObject* ObjectObject::operator*=( const ObjectObject& right ) const
+ObjectObject* ObjectObject::operator*=(const ObjectObject& right) const
 {
     return NULL;
 }
 
-ObjectObject* ObjectObject::operator/=( const ObjectObject& right ) const
+ObjectObject* ObjectObject::operator/=(const ObjectObject& right) const
 {
     return NULL;
 }
 
-ObjectObject* ObjectObject::operator|( const ObjectObject& right ) const
+ObjectObject* ObjectObject::operator|(const ObjectObject& right) const
 {
     if (type == LONG_TYPE)
     {
         LongObject* result = (*(LongObject*)ob) | *(LongObject*)right.get_ob();
-        return new ObjectObject(result,LONG_TYPE);
+        return new ObjectObject(result, LONG_TYPE);
     }
     else if (type == DOUBLE_TYPE)
     {
         FloatObject* result = (*(FloatObject*)ob) | *(FloatObject*)right.get_ob();
-        return new ObjectObject(result,DOUBLE_TYPE);
+        return new ObjectObject(result, DOUBLE_TYPE);
     }
     else if (type == STRING_TYPE)
     {
         StringObject* result = (*(StringObject*)ob) | *(StringObject*)right.get_ob();
-        return new ObjectObject(result,STRING_TYPE);
+        return new ObjectObject(result, STRING_TYPE);
     }
     else if (type == CODE_TYPE)
     {
         CodeObject* result = (*(CodeObject*)ob) | *(CodeObject*)right.get_ob();
-        return new ObjectObject(result,CODE_TYPE);
+        return new ObjectObject(result, CODE_TYPE);
     }
     else if (type == FUN_TYPE)
     {
         FunObject* result = (*(FunObject*)ob) | *(FunObject*)right.get_ob();
-        return new ObjectObject(result,FUN_TYPE);
+        return new ObjectObject(result, FUN_TYPE);
     }
     return NULL;
 }
 
-ObjectObject* ObjectObject::operator^( const ObjectObject& right ) const
+ObjectObject* ObjectObject::operator^(const ObjectObject& right) const
 {
     return NULL;
 }
@@ -443,28 +443,28 @@ ObjectObject* ObjectObject::to_floatobject()
 }
 
 /**
- * 
+ *
  */
 GeneralObject::GeneralObject()
 {
     return;
 }
 /**
- * 
+ *
  */
 GeneralObject::~GeneralObject()
 {
     return;
 }
 /**
- * 
+ *
  */
 AbstractObject::AbstractObject()
 {
     return;
 }
 /**
- * 
+ *
  */
 AbstractObject::~AbstractObject()
 {
@@ -491,15 +491,15 @@ CodeObject::CodeObject()
 /**
  * 拷贝构造函数
  */
-CodeObject::CodeObject( CodeObject& right )
-:consts(right.consts),
-names(right.names),
-varnames(right.varnames),
-intergers(right.intergers),
-doubles(right.doubles),
-codes(right.codes),
-block(right.block),
-nblocks(right.nblocks)
+CodeObject::CodeObject(CodeObject& right)
+    :consts(right.consts),
+    names(right.names),
+    varnames(right.varnames),
+    intergers(right.intergers),
+    doubles(right.doubles),
+    codes(right.codes),
+    block(right.block),
+    nblocks(right.nblocks)
 {
     iter_block = right.nblocks - 1;
     iter_instr = 0;
@@ -513,7 +513,7 @@ CodeObject::~CodeObject()
     return;
 }
 /**
- * 
+ *
  */
 int32_t CodeObject::hash()
 {
@@ -526,15 +526,15 @@ void CodeObject::print(std::ostream& cout)
 {
     cout.unsetf(std::ios_base::hex);
     //遍历所有块,块是反序放的，但是指令并没有反序存放
-    for (int32_t i = nblocks - 1;i >= 0;i--)
+    for (int32_t i = nblocks - 1; i >= 0; i--)
     {
         Basicblock* b = block[i];
 
-        cout  << std::setw(4) << std::left << nblocks - i - 1;
+        cout << std::setw(4) << std::left << nblocks - i - 1;
 
         int32_t instr_size = block[i]->b_iused;
         //遍历所有指令
-        for (int32_t j = 0;j < instr_size;j++)
+        for (int32_t j = 0; j < instr_size; j++)
         {
             Instruction instr = b->b_instr[j];
 
@@ -547,12 +547,12 @@ void CodeObject::print(std::ostream& cout)
             }
             cout << std::left << std::setw(4) << j;
 
-            cout  << std::setw(20) << std::left << op_name(opcode);
+            cout << std::setw(20) << std::left << op_name(opcode);
 
             switch (opcode)
             {
             case LOAD_NAME:
-                cout << i_oparg << " " << "(" 
+                cout << i_oparg << " " << "("
                     << find_name(i_oparg) << ")" << std::endl;
                 break;
             case LOAD_INT:
@@ -585,7 +585,7 @@ void CodeObject::print(std::ostream& cout)
 }
 
 
-bool CodeObject::operator==( const CodeObject& right ) const
+bool CodeObject::operator==(const CodeObject& right) const
 {
     if (block == right.block)
     {
@@ -594,28 +594,28 @@ bool CodeObject::operator==( const CodeObject& right ) const
     return false;
 }
 
-bool CodeObject::operator<( const CodeObject& right ) const
+bool CodeObject::operator<(const CodeObject& right) const
 {
     debug_stream << "在CodeObject之间有小于号比较，这是不允许的" << std::endl;
     return false;
 }
 
-bool CodeObject::operator!=( const CodeObject& right ) const
+bool CodeObject::operator!=(const CodeObject& right) const
 {
     return !(*this == right);
 }
 
-bool CodeObject::operator<=( const CodeObject& right ) const
+bool CodeObject::operator<=(const CodeObject& right) const
 {
     return !(right < (*this));
 }
 
-bool CodeObject::operator>( const CodeObject& right ) const
+bool CodeObject::operator>(const CodeObject& right) const
 {
     return right < *this;
 }
 
-bool CodeObject::operator>=( const CodeObject& right ) const
+bool CodeObject::operator>=(const CodeObject& right) const
 {
     return !(*this < right);
 }
@@ -628,56 +628,56 @@ CodeObject::operator bool() const
     return true;
 }
 
-CodeObject* CodeObject::operator+( const CodeObject& right ) const
+CodeObject* CodeObject::operator+(const CodeObject& right) const
 {
     return NULL;
 }
 
-CodeObject* CodeObject::operator-( const CodeObject& right ) const
+CodeObject* CodeObject::operator-(const CodeObject& right) const
 {
     return NULL;
 }
 
-CodeObject* CodeObject::operator*( const CodeObject& right ) const
+CodeObject* CodeObject::operator*(const CodeObject& right) const
 {
     return NULL;
 }
 
-CodeObject* CodeObject::operator/( const CodeObject& right ) const
+CodeObject* CodeObject::operator/(const CodeObject& right) const
 {
     return NULL;
 }
 
-CodeObject* CodeObject::operator%( const CodeObject& right ) const
+CodeObject* CodeObject::operator%(const CodeObject& right) const
 {
     return NULL;
 }
-CodeObject* CodeObject::operator+=( const CodeObject& right ) const
-{
-    return NULL;
-}
-
-CodeObject* CodeObject::operator-=( const CodeObject& right ) const
+CodeObject* CodeObject::operator+=(const CodeObject& right) const
 {
     return NULL;
 }
 
-CodeObject* CodeObject::operator*=( const CodeObject& right ) const
+CodeObject* CodeObject::operator-=(const CodeObject& right) const
 {
     return NULL;
 }
 
-CodeObject* CodeObject::operator/=( const CodeObject& right ) const
+CodeObject* CodeObject::operator*=(const CodeObject& right) const
 {
     return NULL;
 }
 
-CodeObject* CodeObject::operator|( const CodeObject& right ) const
+CodeObject* CodeObject::operator/=(const CodeObject& right) const
 {
     return NULL;
 }
 
-CodeObject* CodeObject::operator^( const CodeObject& right ) const
+CodeObject* CodeObject::operator|(const CodeObject& right) const
+{
+    return NULL;
+}
+
+CodeObject* CodeObject::operator^(const CodeObject& right) const
 {
     return NULL;
 }
@@ -694,7 +694,7 @@ Instruction* CodeObject::next_instr()
 
     if (iter_instr >= b->b_iused)
     {
-        iter_block --;
+        iter_block--;
         //指令已经用完
         if (iter_block < 0)
         {
@@ -710,7 +710,7 @@ Instruction* CodeObject::next_instr()
     return &b->b_instr[iter_instr++];
 }
 
-Instruction* CodeObject::next_instr( int32_t pos )
+Instruction* CodeObject::next_instr(int32_t pos)
 {
     pos = nblocks - pos - 1;
     if (pos > nblocks - 1)
@@ -728,7 +728,7 @@ Instruction* CodeObject::next_instr( int32_t pos )
     return &b->b_instr[iter_instr++];
 }
 
-std::string CodeObject::find_const( int32_t id )
+std::string CodeObject::find_const(int32_t id)
 {
     ConstStringEntry::iterator iter = consts.find(id);
     if (iter == consts.end())
@@ -740,7 +740,7 @@ std::string CodeObject::find_const( int32_t id )
     return iter->second;
 }
 
-std::string CodeObject::find_name( int32_t id )
+std::string CodeObject::find_name(int32_t id)
 {
     NameEntry::iterator iter = names.find(id);
     if (iter == names.end())
@@ -752,7 +752,7 @@ std::string CodeObject::find_name( int32_t id )
     return iter->second;
 }
 
-std::string CodeObject::find_varname( int32_t id )
+std::string CodeObject::find_varname(int32_t id)
 {
     NameEntry::iterator iter = varnames.find(id);
     if (iter == varnames.end())
@@ -764,7 +764,7 @@ std::string CodeObject::find_varname( int32_t id )
     return iter->second;
 }
 
-int32_t CodeObject::find_int( int32_t id )
+int32_t CodeObject::find_int(int32_t id)
 {
     IntEntry::iterator iter = intergers.find(id);
     if (iter == intergers.end())
@@ -776,7 +776,7 @@ int32_t CodeObject::find_int( int32_t id )
     return iter->second;
 }
 
-double CodeObject::find_double( int32_t id )
+double CodeObject::find_double(int32_t id)
 {
     DoubleEntry::iterator iter = doubles.find(id);
     if (iter == doubles.end())
@@ -788,7 +788,7 @@ double CodeObject::find_double( int32_t id )
     return iter->second;
 }
 
-CodeObject* CodeObject::find_code( int32_t id )
+CodeObject* CodeObject::find_code(int32_t id)
 {
     CodeObjectEntry::iterator iter = codes.find(id);
     if (iter == codes.end())
@@ -800,46 +800,46 @@ CodeObject* CodeObject::find_code( int32_t id )
     return iter->second;
 }
 
-void CodeObject::set_consts( StrTable& consts_table )
+void CodeObject::set_consts(StrTable& consts_table)
 {
-    invertMap(consts_table,consts);
+    invertMap(consts_table, consts);
 }
 
-void CodeObject::set_names( StrTable& names_table )
+void CodeObject::set_names(StrTable& names_table)
 {
-    invertMap(names_table,names);
+    invertMap(names_table, names);
 }
 
-void CodeObject::set_varname( StrTable& varname_table )
+void CodeObject::set_varname(StrTable& varname_table)
 {
-    invertMap(varname_table,varnames);
+    invertMap(varname_table, varnames);
 }
 
-void CodeObject::set_codes( CodeObjectEntry t_cods )
+void CodeObject::set_codes(CodeObjectEntry t_cods)
 {
     codes = t_cods;
     return;
 }
 
-void CodeObject::set_interger( IntTable& inter_table )
+void CodeObject::set_interger(IntTable& inter_table)
 {
-    invertMap(inter_table,intergers);
+    invertMap(inter_table, intergers);
 }
 
-void CodeObject::set_floats( FloatTable& float_table )
+void CodeObject::set_floats(FloatTable& float_table)
 {
-    invertMap(float_table,doubles);
+    invertMap(float_table, doubles);
 }
 
-void CodeObject::set_blocks( Basicblock** t_blocks )
+void CodeObject::set_blocks(Basicblock** t_blocks)
 {
     block = t_blocks;
 }
 
-void CodeObject::set_block_size( int32_t block_size )
+void CodeObject::set_block_size(int32_t block_size)
 {
     nblocks = block_size;
-    iter_block = nblocks -1;
+    iter_block = nblocks - 1;
 }
 
 ConstStringEntry CodeObject::get_const()
@@ -877,7 +877,7 @@ std::vector<int32_t> CodeObject::get_vars()
     return vars;
 }
 
-int32_t CodeObject::set_var( std::vector<int32_t>& var )
+int32_t CodeObject::set_var(std::vector<int32_t>& var)
 {
     vars = var;
     return 1;
@@ -891,7 +891,7 @@ int32_t CodeObject::get_var_size()
 int32_t CodeObject::reset_iter()
 {
     nblocks = nblocks;
-    iter_block = nblocks -1;
+    iter_block = nblocks - 1;
     iter_instr = 0;
     return 1;
 }
@@ -937,7 +937,7 @@ BytesObject::~BytesObject()
     return;
 }
 /**
- * 
+ *
  */
 MapObject::MapObject()
 {
@@ -947,28 +947,28 @@ MapObject::MapObject()
     return;
 }
 /**
- * 
+ *
  **/
 MapObject::~MapObject()
 {
     return;
 }
 /**
- * 
+ *
  */
-void MapObject::insert( Object* key,Object* value )
+void MapObject::insert(Object* key, Object* value)
 {
-    map_table->insert(std::make_pair(key,value));
+    map_table->insert(std::make_pair(key, value));
     //如果空间太小，则成倍增
     /*
     if (size >= reverse_size)
     {
-        reverse_size *= 2;
-        MapEntry* t_map_table = new MapEntry[reverse_size];
-        copy_table(map_table,
-            map_table + sizeof(map_table) / sizeof(MapEntry),t_map_table);
-        delete[] map_table;
-        map_table = t_map_table;
+    reverse_size *= 2;
+    MapEntry* t_map_table = new MapEntry[reverse_size];
+    copy_table(map_table,
+    map_table + sizeof(map_table) / sizeof(MapEntry),t_map_table);
+    delete[] map_table;
+    map_table = t_map_table;
     }
 
     //最好用平衡树的
@@ -979,16 +979,16 @@ void MapObject::insert( Object* key,Object* value )
     return;
 }
 /**
- * 
+ *
  */
-void MapObject::erase( Object* key )
+void MapObject::erase(Object* key)
 {
     MapEntry::iterator iter = map_table->find(key);
     map_table->erase(iter);
     return;
 }
 /**
- * 
+ *
  */
 void MapObject::clear()
 {
@@ -996,45 +996,45 @@ void MapObject::clear()
     return;
 }
 /**
- * 
+ *
  */
 Object* MapObject::next()
 {
     return NULL;
 }
 /**
- * 
+ *
  */
 int32_t MapObject::get_size()
 {
     return map_table->size();
 }
 /**
- * description:    
+ * description:
  **/
-Object* MapObject::find( Object* key )
+Object* MapObject::find(Object* key)
 {
     MapEntry::iterator iter = map_table->find(key);
     //return *iter;
     return NULL;
 }
 /**
- * 
+ *
  */
-MapObject* MapObject::merge( MapObject* other )
+MapObject* MapObject::merge(MapObject* other)
 {
     return NULL;
 }
 /**
- * 
+ *
  */
-int32_t MapObject::copy_table( MapEntry* begin,MapEntry* end,MapEntry* dst )
+int32_t MapObject::copy_table(MapEntry* begin, MapEntry* end, MapEntry* dst)
 {
     /*int pos = 0;
     while (begin != end)
     {
-        dst[pos++] = *begin;
-        ++begin;
+    dst[pos++] = *begin;
+    ++begin;
     }*/
     return 0;
 }
@@ -1075,33 +1075,33 @@ NumObject::~NumObject()
     return;
 }
 
-bool NumObject::operator==( const NumObject& right ) const
+bool NumObject::operator==(const NumObject& right) const
 {
     return false;
 }
 
-bool NumObject::operator<( const NumObject& right ) const
+bool NumObject::operator<(const NumObject& right) const
 {
     return false;
 }
 
 
-bool NumObject::operator!=( const NumObject& right ) const
+bool NumObject::operator!=(const NumObject& right) const
 {
     return !(*this == right);
 }
 
-bool NumObject::operator<=( const NumObject& right ) const
+bool NumObject::operator<=(const NumObject& right) const
 {
     return !(right < (*this));
 }
 
-bool NumObject::operator>( const NumObject& right ) const
+bool NumObject::operator>(const NumObject& right) const
 {
     return right < *this;
 }
 
-bool NumObject::operator>=( const NumObject& right ) const
+bool NumObject::operator>=(const NumObject& right) const
 {
     return !(*this < right);
 }
@@ -1111,37 +1111,37 @@ NumObject::operator bool() const
 }
 
 /**
- * 
+ *
  */
 LongObject::LongObject(int32_t t_value)
-:value(t_value)
+    :value(t_value)
 {
     return;
 }
 
-LongObject::LongObject( std::string& str )
+LongObject::LongObject(std::string& str)
 {
     return;
 }
 
 /**
- * 
+ *
  */
 LongObject::~LongObject()
 {
     return;
 }
 /**
- *   
+ *
  **/
 int32_t LongObject::get_int() const
 {
     return value;
 }
 /**
- * 
+ *
  */
-bool LongObject::operator==( const LongObject& right ) const
+bool LongObject::operator==(const LongObject& right) const
 {
     int32_t right_value = right.get_int();
 
@@ -1152,9 +1152,9 @@ bool LongObject::operator==( const LongObject& right ) const
     return false;
 }
 /**
- * 
+ *
  */
-bool LongObject::operator<( const LongObject& right ) const
+bool LongObject::operator<(const LongObject& right) const
 {
     int32_t right_value = right.get_int();
 
@@ -1164,25 +1164,25 @@ bool LongObject::operator<( const LongObject& right ) const
     }
     return false;
 }
-bool LongObject::operator!=( const LongObject& right ) const
+bool LongObject::operator!=(const LongObject& right) const
 {
     return !(*this == right);
 }
-bool LongObject::operator<=( const LongObject& right ) const
+bool LongObject::operator<=(const LongObject& right) const
 {
     return !(right < (*this));
 }
 
-bool LongObject::operator>( const LongObject& right ) const
+bool LongObject::operator>(const LongObject& right) const
 {
     return right < *this;
 }
 
-bool LongObject::operator>=( const LongObject& right ) const
+bool LongObject::operator>=(const LongObject& right) const
 {
     return !(*this < right);
 }
-void LongObject::print( std::ostream& cout )
+void LongObject::print(std::ostream& cout)
 {
     cout << value;
 }
@@ -1196,53 +1196,53 @@ LongObject::operator bool() const
     return true;
 }
 
-LongObject* LongObject::operator+( const LongObject& right ) const
+LongObject* LongObject::operator+(const LongObject& right) const
 {
     int32_t t_value = value + right.get_int();
     return new LongObject(t_value);
 }
 
-LongObject* LongObject::operator-( const LongObject& right ) const
+LongObject* LongObject::operator-(const LongObject& right) const
 {
     int32_t t_value = value - right.get_int();
     return new LongObject(t_value);
 }
 
-LongObject* LongObject::operator*( const LongObject& right ) const
+LongObject* LongObject::operator*(const LongObject& right) const
 {
     int32_t t_value = value * right.get_int();
     return new LongObject(t_value);
 }
 
-LongObject* LongObject::operator/( const LongObject& right ) const
+LongObject* LongObject::operator/(const LongObject& right) const
 {
     int32_t t_value = value / right.get_int();
     return new LongObject(t_value);
 }
 
-LongObject* LongObject::operator%( const LongObject& right ) const
+LongObject* LongObject::operator%(const LongObject& right) const
 {
     int32_t t_value = value % right.get_int();
     return new LongObject(t_value);
 }
 
-LongObject* LongObject::operator+=( const LongObject& right ) const
+LongObject* LongObject::operator+=(const LongObject& right) const
 {
     //value += right.get_int();
     return NULL;
 }
 
-LongObject* LongObject::operator-=( const LongObject& right ) const
+LongObject* LongObject::operator-=(const LongObject& right) const
 {
     return NULL;
 }
 
-LongObject* LongObject::operator*=( const LongObject& right ) const
+LongObject* LongObject::operator*=(const LongObject& right) const
 {
     return NULL;
 }
 
-LongObject* LongObject::operator/=( const LongObject& right ) const
+LongObject* LongObject::operator/=(const LongObject& right) const
 {
     return NULL;
 }
@@ -1252,14 +1252,14 @@ LongObject::operator FloatObject*()
     return new FloatObject(value * 1.0);
 }
 
-LongObject* LongObject::operator|( const LongObject& right ) const
+LongObject* LongObject::operator|(const LongObject& right) const
 {
     int32_t t_value = value | right.get_int();
 
     return new LongObject(t_value);
 }
 
-LongObject* LongObject::operator^( const LongObject& right ) const
+LongObject* LongObject::operator^(const LongObject& right) const
 {
     int32_t t_value = value ^ right.get_int();
 
@@ -1267,31 +1267,31 @@ LongObject* LongObject::operator^( const LongObject& right ) const
 }
 
 /**
- * 
+ *
  */
 FloatObject::FloatObject(double t_value)
-:value(t_value)
+    :value(t_value)
 {
     return;
 }
 /**
- * 
+ *
  */
 FloatObject::~FloatObject()
 {
     return;
 }
 /**
- *   
+ *
  **/
 double FloatObject::get_double() const
 {
     return value;
 }
-bool FloatObject::operator==( const FloatObject& right ) const
+bool FloatObject::operator==(const FloatObject& right) const
 {
     double right_value = right.get_double();
-    if (value == right_value) 
+    if (value == right_value)
     {
         return true;
     }
@@ -1300,10 +1300,10 @@ bool FloatObject::operator==( const FloatObject& right ) const
 /**
  * bug
  */
-bool FloatObject::operator<( const FloatObject& right ) const
+bool FloatObject::operator<(const FloatObject& right) const
 {
     double right_value = right.get_double();
-    if (value < right_value) 
+    if (value < right_value)
     {
         return true;
     }
@@ -1311,22 +1311,22 @@ bool FloatObject::operator<( const FloatObject& right ) const
 }
 
 
-bool FloatObject::operator!=( const FloatObject& right ) const
+bool FloatObject::operator!=(const FloatObject& right) const
 {
     return !(*this == right);
 }
 
-bool FloatObject::operator<=( const FloatObject& right ) const
+bool FloatObject::operator<=(const FloatObject& right) const
 {
     return !(right < (*this));
 }
 
-bool FloatObject::operator>( const FloatObject& right ) const
+bool FloatObject::operator>(const FloatObject& right) const
 {
     return right < *this;
 }
 
-bool FloatObject::operator>=( const FloatObject& right ) const
+bool FloatObject::operator>=(const FloatObject& right) const
 {
     return !(*this < right);
 }
@@ -1339,36 +1339,36 @@ FloatObject::operator bool() const
     }
     return true;
 }
-void FloatObject::print( std::ostream& cout )
+void FloatObject::print(std::ostream& cout)
 {
     cout << value;
 }
 
-FloatObject* FloatObject::operator+( const FloatObject& right ) const
+FloatObject* FloatObject::operator+(const FloatObject& right) const
 {
     double t_value = value + right.get_double();
     return new FloatObject(t_value);
 }
 
-FloatObject* FloatObject::operator-( const FloatObject& right ) const
+FloatObject* FloatObject::operator-(const FloatObject& right) const
 {
     double t_value = value - right.get_double();
     return new FloatObject(t_value);
 }
 
-FloatObject* FloatObject::operator*( const FloatObject& right ) const
+FloatObject* FloatObject::operator*(const FloatObject& right) const
 {
     double t_value = value * right.get_double();
     return new FloatObject(t_value);
 }
 
-FloatObject* FloatObject::operator/( const FloatObject& right ) const
+FloatObject* FloatObject::operator/(const FloatObject& right) const
 {
     double t_value = value / right.get_double();
     return new FloatObject(t_value);
 }
 
-FloatObject* FloatObject::operator%( const FloatObject& right ) const
+FloatObject* FloatObject::operator%(const FloatObject& right) const
 {
     int32_t value1 = int32_t(value);
     int32_t value2 = int32_t(right.get_double());
@@ -1381,22 +1381,22 @@ FloatObject* FloatObject::operator%( const FloatObject& right ) const
     return new FloatObject(1.0 * t_value);
 }
 
-FloatObject* FloatObject::operator+=( const FloatObject& right ) const
+FloatObject* FloatObject::operator+=(const FloatObject& right) const
 {
     return NULL;
 }
 
-FloatObject* FloatObject::operator-=( const FloatObject& right ) const
+FloatObject* FloatObject::operator-=(const FloatObject& right) const
 {
     return NULL;
 }
 
-FloatObject* FloatObject::operator*=( const FloatObject& right ) const
+FloatObject* FloatObject::operator*=(const FloatObject& right) const
 {
     return NULL;
 }
 
-FloatObject* FloatObject::operator/=( const FloatObject& right ) const
+FloatObject* FloatObject::operator/=(const FloatObject& right) const
 {
     return NULL;
 }
@@ -1406,14 +1406,14 @@ FloatObject::operator LongObject*()
     return new LongObject(int32_t(value));
 }
 
-FloatObject* FloatObject::operator|( const FloatObject& right ) const
+FloatObject* FloatObject::operator|(const FloatObject& right) const
 {
     //double t_value = value | right.get_double();
     //return new FloatObject(t_value);
     return NULL;
 }
 
-FloatObject* FloatObject::operator^( const FloatObject& right ) const
+FloatObject* FloatObject::operator^(const FloatObject& right) const
 {
     //double t_value = value ^ right.get_double();
     //return new FloatObject(t_value);
@@ -1421,22 +1421,22 @@ FloatObject* FloatObject::operator^( const FloatObject& right ) const
 }
 
 /**
- * 
+ *
  */
 StringObject::StringObject(std::string t_value)
-:value(t_value)
+    :value(t_value)
 {
     return;
 }
 /**
- * 
+ *
  */
 StringObject::~StringObject()
 {
     return;
 }
 
-bool StringObject::operator==( const StringObject& right ) const
+bool StringObject::operator==(const StringObject& right) const
 {
     std::string right_value = right.get_value();
     if (right_value == value)
@@ -1445,7 +1445,7 @@ bool StringObject::operator==( const StringObject& right ) const
     }
     return false;
 }
-bool StringObject::operator<( const StringObject& right ) const
+bool StringObject::operator<(const StringObject& right) const
 {
     std::string right_value = right.get_value();
     if (value < right_value)
@@ -1456,27 +1456,27 @@ bool StringObject::operator<( const StringObject& right ) const
 }
 
 
-bool StringObject::operator!=( const StringObject& right ) const
+bool StringObject::operator!=(const StringObject& right) const
 {
     return !(*this == right);
 }
 
-bool StringObject::operator<=( const StringObject& right ) const
+bool StringObject::operator<=(const StringObject& right) const
 {
     return !(right < (*this));
 }
 
-bool StringObject::operator>( const StringObject& right ) const
+bool StringObject::operator>(const StringObject& right) const
 {
     return right < *this;
 }
 
-bool StringObject::operator>=( const StringObject& right ) const
+bool StringObject::operator>=(const StringObject& right) const
 {
     return !(*this < right);
 }
 
-void StringObject::print( std::ostream& cout )
+void StringObject::print(std::ostream& cout)
 {
     cout << value;
 }
@@ -1490,14 +1490,14 @@ StringObject::operator bool() const
     return true;
 }
 
-StringObject* StringObject::operator+( const StringObject& right ) const
+StringObject* StringObject::operator+(const StringObject& right) const
 {
     std::string t_value = right.get_value() + value;
 
     return new StringObject(t_value);
 }
 
-StringObject* StringObject::operator-( const StringObject& right ) const
+StringObject* StringObject::operator-(const StringObject& right) const
 {
     int32_t pos = value.find(right.get_value());
     if (pos == std::string::npos)
@@ -1505,12 +1505,12 @@ StringObject* StringObject::operator-( const StringObject& right ) const
         return NULL;
     }
     std::string t_value = value;
-    t_value.erase(pos,right.get_value().size());
+    t_value.erase(pos, right.get_value().size());
 
     return new StringObject(t_value);
 }
 
-StringObject* StringObject::operator*( const LongObject& right ) const
+StringObject* StringObject::operator*(const LongObject& right) const
 {
     std::string t_value = value;
     int32_t count = right.get_int();
@@ -1524,42 +1524,42 @@ StringObject* StringObject::operator*( const LongObject& right ) const
     return new StringObject(result);
 }
 
-StringObject* StringObject::operator/( const StringObject& right ) const
+StringObject* StringObject::operator/(const StringObject& right) const
 {
     return NULL;
 }
 
-StringObject* StringObject::operator%( const StringObject& right ) const
+StringObject* StringObject::operator%(const StringObject& right) const
 {
     return NULL;
 }
 
-StringObject* StringObject::operator+=( const StringObject& right ) const
+StringObject* StringObject::operator+=(const StringObject& right) const
 {
     return NULL;
 }
 
-StringObject* StringObject::operator-=( const StringObject& right ) const
+StringObject* StringObject::operator-=(const StringObject& right) const
 {
     return NULL;
 }
 
-StringObject* StringObject::operator*=( const StringObject& right ) const
+StringObject* StringObject::operator*=(const StringObject& right) const
 {
     return NULL;
 }
 
-StringObject* StringObject::operator/=( const StringObject& right ) const
+StringObject* StringObject::operator/=(const StringObject& right) const
 {
     return NULL;
 }
 
-StringObject* StringObject::operator^( const StringObject& right ) const
+StringObject* StringObject::operator^(const StringObject& right) const
 {
     return NULL;
 }
 
-StringObject* StringObject::operator|( const StringObject& right ) const
+StringObject* StringObject::operator|(const StringObject& right) const
 {
     return NULL;
 }
@@ -1569,7 +1569,7 @@ FunObject::FunObject()
     return;
 }
 
-FunObject::FunObject( CodeObject* ob )
+FunObject::FunObject(CodeObject* ob)
 {
     op_code = ob;
     return;
@@ -1581,7 +1581,7 @@ FunObject::~FunObject()
 }
 //class Executor;
 
-int32_t FunObject::invoke(std::vector<ObjectObject*> arg )
+int32_t FunObject::invoke(std::vector<ObjectObject*> arg)
 {
     std::vector<int32_t> vars = op_code->get_vars();
     if (arg.size() > vars.size())
@@ -1598,7 +1598,7 @@ int32_t FunObject::invoke(std::vector<ObjectObject*> arg )
 
     int32_t pos = 0;
 
-    for (;iter != arg.rend();++iter)
+    for (; iter != arg.rend(); ++iter)
     {
         int32_t id = vars[pos++];
 
@@ -1610,14 +1610,14 @@ int32_t FunObject::invoke(std::vector<ObjectObject*> arg )
     //函数返回值没有添加
     return 1;
 }
-bool FunObject::operator==( const FunObject& right ) const
+bool FunObject::operator==(const FunObject& right) const
 {
     debug_stream << "在两个函数object之间存在了等于比较，这个功能未完成"
         << std::endl;
     return false;
 }
 
-bool FunObject::operator<( const FunObject& right ) const
+bool FunObject::operator<(const FunObject& right) const
 {
     debug_stream << "在两个函数object之间存在了小于比较，这个功能未完成"
         << std::endl;
@@ -1625,22 +1625,22 @@ bool FunObject::operator<( const FunObject& right ) const
     return false;
 }
 
-bool FunObject::operator!=( const FunObject& right ) const
+bool FunObject::operator!=(const FunObject& right) const
 {
     return !(*this == right);
 }
 
-bool FunObject::operator<=( const FunObject& right ) const
+bool FunObject::operator<=(const FunObject& right) const
 {
     return !(right < (*this));
 }
 
-bool FunObject::operator>( const FunObject& right ) const
+bool FunObject::operator>(const FunObject& right) const
 {
     return right < *this;
 }
 
-bool FunObject::operator>=( const FunObject& right ) const
+bool FunObject::operator>=(const FunObject& right) const
 {
     return !(*this < right);
 }
@@ -1650,57 +1650,57 @@ FunObject::operator bool() const
     return false;
 }
 
-FunObject* FunObject::operator+( const FunObject& right ) const
+FunObject* FunObject::operator+(const FunObject& right) const
 {
     return NULL;
 }
 
-FunObject* FunObject::operator-( const FunObject& right ) const
+FunObject* FunObject::operator-(const FunObject& right) const
 {
     return NULL;
 }
 
-FunObject* FunObject::operator*( const FunObject& right ) const
+FunObject* FunObject::operator*(const FunObject& right) const
 {
     return NULL;
 }
 
-FunObject* FunObject::operator/( const FunObject& right ) const
+FunObject* FunObject::operator/(const FunObject& right) const
 {
     return NULL;
 }
 
-FunObject* FunObject::operator%( const FunObject& right ) const
+FunObject* FunObject::operator%(const FunObject& right) const
 {
     return NULL;
 }
 
-FunObject* FunObject::operator+=( const FunObject& right ) const
+FunObject* FunObject::operator+=(const FunObject& right) const
 {
     return NULL;
 }
 
-FunObject* FunObject::operator-=( const FunObject& right ) const
+FunObject* FunObject::operator-=(const FunObject& right) const
 {
     return NULL;
 }
 
-FunObject* FunObject::operator*=( const FunObject& right ) const
+FunObject* FunObject::operator*=(const FunObject& right) const
 {
     return NULL;
 }
 
-FunObject* FunObject::operator/=( const FunObject& right ) const
+FunObject* FunObject::operator/=(const FunObject& right) const
 {
     return NULL;
 }
 
-FunObject* FunObject::operator|( const FunObject& right ) const
+FunObject* FunObject::operator|(const FunObject& right) const
 {
     return NULL;
 }
 
-FunObject* FunObject::operator^( const FunObject& right ) const
+FunObject* FunObject::operator^(const FunObject& right) const
 {
     return NULL;
 }
@@ -1725,11 +1725,11 @@ CoutObject::~CoutObject()
 
 }
 
-int32_t CoutObject::invoke( std::vector<ObjectObject*> arg )
+int32_t CoutObject::invoke(std::vector<ObjectObject*> arg)
 {
     std::vector<ObjectObject*>::reverse_iterator iter = arg.rbegin();
 
-    for (;iter != arg.rend();++iter)
+    for (; iter != arg.rend(); ++iter)
     {
         (*iter)->get_ob()->print(std::cout);
         (*iter)->get_ob()->print(debug_stream);
@@ -1738,36 +1738,36 @@ int32_t CoutObject::invoke( std::vector<ObjectObject*> arg )
     debug_stream << std::endl;
     return 1;
 }
-bool CoutObject::operator==( const FunObject& right ) const
+bool CoutObject::operator==(const FunObject& right) const
 {
     debug_stream << "在两个CoutObject之间存在了等于比较，这个功能未完成"
         << std::endl;
     return false;
 }
 
-bool CoutObject::operator<( const FunObject& right ) const
+bool CoutObject::operator<(const FunObject& right) const
 {
     debug_stream << "在两个CoutObject之间存在了小于比较，这个功能未完成"
         << std::endl;
     return false;
 }
 
-bool CoutObject::operator!=( const FunObject& right ) const
+bool CoutObject::operator!=(const FunObject& right) const
 {
     return !(*this == right);
 }
 
-bool CoutObject::operator<=( const FunObject& right ) const
+bool CoutObject::operator<=(const FunObject& right) const
 {
     return !(right < (*this));
 }
 
-bool CoutObject::operator>( const FunObject& right ) const
+bool CoutObject::operator>(const FunObject& right) const
 {
     return right < *this;
 }
 
-bool CoutObject::operator>=( const FunObject& right ) const
+bool CoutObject::operator>=(const FunObject& right) const
 {
     return !(*this < right);
 }

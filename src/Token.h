@@ -5,10 +5,11 @@
  *         2011年11月13日 11:50:55
  * Author:
  *         张彦升
---------------------------------------------------------------------*/
+ --------------------------------------------------------------------*/
 
-#ifndef _TOKEN_H_2011_11_13_lisency
-#define _TOKEN_H_2011_11_13_lisency
+#ifndef _Token_h__
+#define _Token_h__
+ 
 
 #include <string>
 #include <stdint.h>
@@ -22,83 +23,83 @@ EF_NAMESPACE_BEGIN
 /* Special definitions for cooperation with parser */
 
 enum TokenFlag{
-    ENDMARKER          =    0,    //结束标志
-    IF_MARKER          =    1,    //if
-    ELIF_MARKER        =    2,    //elif
-    WHILE_MARKER       =    3,    //while
-    FOR_MARKER         =    4,    //for
-    IN_MARKER          =    5,    //in
-    TRY_MARKER         =    6,    //try
-    FINALLY_MARKER     =    7,    //finally
-    CATCH_MARKER       =    8,    //catch
-    FUN_MARKER         =    9,    //fun
-    CLASS_MARKER       =    10,    //class
-    DEL_MARKER         =    11,    //del
-    IMPORT_MARKER      =    12,    //import
-    NULL_MARKER        =    13,    //null
-    TRUE_MARKER        =    14,    //true
-    FALSE_MARKER       =    15,   //false
-    LAMBDA_MARKER      =    16,   //lambda表达式
-    NOT_MARKER         =    17,   //not
-    OR_MARKER          =    18,   //or
-    AND_MARKER         =    19,   //and
-    NAME               =    20,   //名称
-    NUMBER             =    21,   //数字
-    STRING             =    22,   //字符串
-    NEWLINE            =    23,   //新行符
-    INDENT             =    24,   //缩进符
-    DEDENT             =    25,   //反缩进
-    LPAR               =    26,   //左圆括号
-    RPAR               =    27,   //右圆括号
-    LSQB               =    28,   //左方括号
-    RSQB               =    29,   //右方括号
-                                  //30暂留
-    COLON              =    31,   //冒号
-    COMMA              =    32,   //逗号
-    SEMI               =    33,   //分号;
-    PLUS               =    34,   //加号
-    MINUS              =    35,   //减号
-    STAR               =    36,   //乘号，星号
-    SLASH              =    37,   //斜线 /
-    VBAR               =    38,   // |
-    AMPER              =    39,   // &
-    LESS               =    30,   //小于，<
-    GREATER            =    41,   //大于，>
-    EQUAL              =    42,   //等于，=
-    DOT                =    43,   //点 .
-    PERCENT            =    44,   //百分号 %
-    BACKQUOTE          =    45,   //第二个引号
-    LBRACE             =    46,   //左尖括号
-    RBRACE             =    47,   //右尖括号
-    EQEQUAL            =    48,   //==
-    NOTEQUAL           =    49,   //!=
-    LESSEQUAL          =    40,   //<=
-    GREATEREQUAL       =    51,   //>=
-    TILDE              =    52,   //~波浪号
-    CIRCUMFLEX         =    53,   //异或
-    LEFTSHIFT          =    54,   //<<
-    RIGHTSHIFT         =    55,   //>>
-    DOUBLESTAR         =    56,   //**
-    PLUSEQUAL          =    57,   //+=
-    MINEQUAL           =    58,   //-=
-    STAREQUAL          =    59,   //*=
-    SLASHEQUAL         =    50,   ///=
-    PERCENTEQUAL       =    61,   //%=
-    AMPEREQUAL         =    62,   //&=
-    VBAREQUAL          =    63,   //|=
-    CIRCUMFLEXEQUAL    =    64,   //^=
-    LEFTSHIFTEQUAL     =    65,   //<<=
-    RIGHTSHIFTEQUAL    =    66,   //>>=
-    DOUBLESTAREQUAL    =    67,   //**=
-    DOUBLESLASH        =    68,   // //
-    DOUBLESLASHEQUAL   =    69,   // //=
-    AT                 =    60,   //@
-    RARROW             =    71,   //#
-    ELLIPSIS           =    72,   //...省略符
-    OP                 =    73,   //比较符
-    ERRORTOKEN         =    74,   //错误标志
-    EMPTY              =    75,   //空
-    ELSE_MARKER        =    76,   //else,I am forget
+    ENDMARKER = 0,    //结束标志
+    IF_MARKER = 1,    //if
+    ELIF_MARKER = 2,    //elif
+    WHILE_MARKER = 3,    //while
+    FOR_MARKER = 4,    //for
+    IN_MARKER = 5,    //in
+    TRY_MARKER = 6,    //try
+    FINALLY_MARKER = 7,    //finally
+    CATCH_MARKER = 8,    //catch
+    FUN_MARKER = 9,    //fun
+    CLASS_MARKER = 10,    //class
+    DEL_MARKER = 11,    //del
+    IMPORT_MARKER = 12,    //import
+    NULL_MARKER = 13,    //null
+    TRUE_MARKER = 14,    //true
+    FALSE_MARKER = 15,   //false
+    LAMBDA_MARKER = 16,   //lambda表达式
+    NOT_MARKER = 17,   //not
+    OR_MARKER = 18,   //or
+    AND_MARKER = 19,   //and
+    NAME = 20,   //名称
+    NUMBER = 21,   //数字
+    STRING = 22,   //字符串
+    NEWLINE = 23,   //新行符
+    INDENT = 24,   //缩进符
+    DEDENT = 25,   //反缩进
+    LPAR = 26,   //左圆括号
+    RPAR = 27,   //右圆括号
+    LSQB = 28,   //左方括号
+    RSQB = 29,   //右方括号
+    //30暂留
+    COLON = 31,   //冒号
+    COMMA = 32,   //逗号
+    SEMI = 33,   //分号;
+    PLUS = 34,   //加号
+    MINUS = 35,   //减号
+    STAR = 36,   //乘号，星号
+    SLASH = 37,   //斜线 /
+    VBAR = 38,   // |
+    AMPER = 39,   // &
+    LESS = 30,   //小于，<
+    GREATER = 41,   //大于，>
+    EQUAL = 42,   //等于，=
+    DOT = 43,   //点 .
+    PERCENT = 44,   //百分号 %
+    BACKQUOTE = 45,   //第二个引号
+    LBRACE = 46,   //左尖括号
+    RBRACE = 47,   //右尖括号
+    EQEQUAL = 48,   //==
+    NOTEQUAL = 49,   //!=
+    LESSEQUAL = 40,   //<=
+    GREATEREQUAL = 51,   //>=
+    TILDE = 52,   //~波浪号
+    CIRCUMFLEX = 53,   //异或
+    LEFTSHIFT = 54,   //<<
+    RIGHTSHIFT = 55,   //>>
+    DOUBLESTAR = 56,   //**
+    PLUSEQUAL = 57,   //+=
+    MINEQUAL = 58,   //-=
+    STAREQUAL = 59,   //*=
+    SLASHEQUAL = 50,   ///=
+    PERCENTEQUAL = 61,   //%=
+    AMPEREQUAL = 62,   //&=
+    VBAREQUAL = 63,   //|=
+    CIRCUMFLEXEQUAL = 64,   //^=
+    LEFTSHIFTEQUAL = 65,   //<<=
+    RIGHTSHIFTEQUAL = 66,   //>>=
+    DOUBLESTAREQUAL = 67,   //**=
+    DOUBLESLASH = 68,   // //
+    DOUBLESLASHEQUAL = 69,   // //=
+    AT = 60,   //@
+    RARROW = 71,   //#
+    ELLIPSIS = 72,   //...省略符
+    OP = 73,   //比较符
+    ERRORTOKEN = 74,   //错误标志
+    EMPTY = 75,   //空
+    ELSE_MARKER = 76,   //else,I am forget
 };
 
 #define N_TOKENS        76    // 总数
@@ -113,7 +114,7 @@ static const short TERMINAL_SIZE = 100;    //终结符号的个数
 /**
  * 存每个词素的类型及位置信息
  **/
-class Token 
+class Token
 {
 public:
     TokenFlag id;        //每个token的id
@@ -122,8 +123,8 @@ public:
     int32_t col;        //起始列号
 
 public:
-    Token(TokenFlag t_id,std::string t_str,
-        int32_t t_row,int32_t t_col)
+    Token(TokenFlag t_id, std::string t_str,
+        int32_t t_row, int32_t t_col)
         :id(t_id),
         str(t_str),
         row(t_row),
@@ -151,7 +152,7 @@ public:
         const std::string flag_name = get_flag_name(id);
 
         cout << std::left << std::setw(20) << flag_name;
-        cout << std::setw(20) << str ;
+        cout << std::setw(20) << str;
         cout << std::setw(5) << row << "\t";
         cout << col << std::endl;
         return;
@@ -164,7 +165,7 @@ public:
         cout << std::left << std::setw(20) << "TOKENFLAG"
             << std::setw(20) << "字符串"
             << std::setw(5) << "row\t"
-            << "col"<< std::endl;
+            << "col" << std::endl;
     }
     /**
      * 得到tokenflag的名称，方便打印
@@ -252,7 +253,7 @@ public:
 
         return "";
     }
-    #endif  //EF_DEBUG
+#endif  //EF_DEBUG
 };
 
 enum ChFlags
@@ -261,5 +262,4 @@ enum ChFlags
 };
 EF_NAMESPACE_END
 
-#endif // _TOKEN_H_2011_11_13_lisency
-
+#endif /*!_Token_h__*/

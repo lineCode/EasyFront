@@ -1,11 +1,11 @@
 /*-------------------------------------------------------------------
  * Purpose:
- *         reader class 
+ *         reader class
  * Time:
  *         2011年8月13日 11:57:03
  * Author:
  *         张彦升
---------------------------------------------------------------------*/
+ --------------------------------------------------------------------*/
 
 #include "Reader.h"
 #include "Debug.h"
@@ -27,8 +27,8 @@ ReaderBase::~ReaderBase()
 int32_t ReaderBase::getch()
 {
     const char* buffer = NULL;
-    const int32_t nread = read(buffer,1, 1);
-    if ( nread == READ_END )
+    const int32_t nread = read(buffer, 1, 1);
+    if (nread == READ_END)
     {
         return READ_END;
     }
@@ -88,49 +88,49 @@ uint32_t ReaderBase::position() const
     return 0;
 }
 /**
- * 
+ *
  */
 size_t ReaderBase::size() const
 {
     return 0;
 }
 /**
- * 
+ *
  */
 Reader::Reader()
 {
     return;
 }
 /**
- * 
+ *
  */
 Reader::~Reader()
 {
     return;
 }
 /**
- * 
+ *
  */
 uint32_t Reader::reset(uint32_t to)
 {
     return 0;
 }
 /**
- * 
+ *
  */
 uint32_t Reader::skip(int32_t ntoskip)
 {
     return 0;
 }
 /**
- * 
+ *
  */
 std::string Reader::get_path()
 {
     return "";
 }
 /**
- * 
+ *
  */
 StdinReader::StdinReader()
 {
@@ -138,7 +138,7 @@ StdinReader::StdinReader()
     this->pos = 0;
 }
 /**
- * 
+ *
  */
 StdinReader::~StdinReader()
 {
@@ -146,23 +146,23 @@ StdinReader::~StdinReader()
     return;
 }
 /**
- * 
+ *
  */
 StdinReader::StdinReader(const StdinReader &copy_item)
-:value(copy_item.value),
-pos(copy_item.pos)
+    :value(copy_item.value),
+    pos(copy_item.pos)
 {
     D("why are you copy StdinReader? give some reason");
 }
 /**
- * 
+ *
  */
 size_t StdinReader::size() const
 {
     return value.size();
 }
 /**
- * 
+ *
  */
 uint32_t StdinReader::read(const char*& start, uint32_t min, uint32_t max)
 {
@@ -170,9 +170,9 @@ uint32_t StdinReader::read(const char*& start, uint32_t min, uint32_t max)
     {//确保缓存中没有东西，那么我们进行输出
         std::cin.sync();
         std::cin.clear();
-        getline(std::cin,value);
+        getline(std::cin, value);
     }
-    if ( value.size() == pos )
+    if (value.size() == pos)
     {
         value.clear();
         pos = 0;
@@ -180,88 +180,88 @@ uint32_t StdinReader::read(const char*& start, uint32_t min, uint32_t max)
     }
     start = value.c_str() + pos;
     uint32_t remain_len = value.size() - pos;
-    uint32_t r = (int32_t)get_min(get_max(min,max),remain_len);
+    uint32_t r = (int32_t)get_min(get_max(min, max), remain_len);
     pos += r;
     return r;
 }
 /**
- * 
+ *
  */
 uint32_t StdinReader::position() const
 {
     return pos;
 }
 /**
- * 
+ *
  */
 uint32_t StdinReader::reset(uint32_t pos)
 {
-    if ( pos >= 0 && pos < this->value.size() )
+    if (pos >= 0 && pos < this->value.size())
         this->pos = pos;
     return this->pos;
 }
 /**
- * 
+ *
  */
 uint32_t StdinReader::skip(int32_t ntoskip)
 {
-    int32_t remain_len = value.size()-pos;
-    int32_t s = get_min(ntoskip,remain_len);
+    int32_t remain_len = value.size() - pos;
+    int32_t s = get_min(ntoskip, remain_len);
     this->pos += s;
     return s;
 }
 /**
- * 
+ *
  */
 std::string StdinReader::get_path()
 {
     return "<stdin>";
 }
 /**
- * 
+ *
  */
-FileReader::FileReader( const std::string path, int32_t buflen  )
-:file_path(path)
+FileReader::FileReader(const std::string path, int32_t buflen)
+    :file_path(path)
 {
-    if ( buflen == -1 )
+    if (buflen == -1)
     {
         buflen = DEFAULT_BUFFER_SIZE;
     }
 
-    fs.open(file_path.c_str(),std::ios_base::in | std::ios_base::binary);
+    fs.open(file_path.c_str(), std::ios_base::in | std::ios_base::binary);
     if (!fs)
     {
-        EFExc exc(path,0,0,ERROR_FILE_READFAILD);
+        EFExc exc(path, 0, 0, ERROR_FILE_READFAILD);
         throw exc;
     }
 
     pos = 0;
     buffer_size = 0;
     buffer = new char[buflen];
-    memset(buffer,0,buflen);
+    memset(buffer, 0, buflen);
 }
 /**
- * 
+ *
  */
 FileReader::~FileReader()
 {
     delete buffer;
 }
 /**
- * 
+ *
  */
 size_t FileReader::size() const
 {
     return buffer_size;
 }
 /**
- * 
+ *
  */
 uint32_t FileReader::read(const char*& start, uint32_t min, uint32_t max)
 {//从文件中读入
     if (buffer_size <= 0 || pos >= buffer_size)
     {//如果缓冲区没有读过或已经读完，则从文件中读入
-        fs.read(buffer,DEFAULT_BUFFER_SIZE - 1);//4095
+        fs.read(buffer, DEFAULT_BUFFER_SIZE - 1);//4095
         int32_t read_num = fs.gcount();
         buffer[read_num] = 0;
         buffer_size = read_num;
@@ -275,33 +275,33 @@ uint32_t FileReader::read(const char*& start, uint32_t min, uint32_t max)
 
     start = this->buffer + pos;
     uint32_t remain_len = buffer_size - pos;
-    uint32_t r = (uint32_t)get_min(get_max(min,max),remain_len);
+    uint32_t r = (uint32_t)get_min(get_max(min, max), remain_len);
     pos += r;
     return r;
 }
 /**
- * 
+ *
  */
 uint32_t FileReader::position() const
 {
     return pos;
 }
 /**
- * 
+ *
  */
 uint32_t FileReader::reset(uint32_t to)
 {
-    if ( to >= 0 && to < this->buffer_size)
+    if (to >= 0 && to < this->buffer_size)
         this->pos = to;
     return this->pos;
 }
 /**
- * 
+ *
  */
 uint32_t FileReader::skip(int32_t ntoskip)
 {
-    int32_t remain_len = buffer_size-pos;
-    int32_t s = get_min(ntoskip,remain_len);
+    int32_t remain_len = buffer_size - pos;
+    int32_t s = get_min(ntoskip, remain_len);
     this->pos += s;
     return s;
 }
