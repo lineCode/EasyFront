@@ -14,6 +14,7 @@
 #include <map>
 #include <stack>
 #include <stdint.h>
+#include <string>
 
 EF_NAMESPACE_BEGIN
 

@@ -16,7 +16,6 @@
 #include "Opcode.h"
 #include "Debug.h"
 
-#include <yvals.h>
 #include <string>
 #include <map>
 #include <vector>

@@ -81,7 +81,7 @@ void SymbolTable::set_type(SymbolTableType t_type)
  */
 void SymbolTable::push_back(std::string item)
 {
-    if (find_local(item) == NULL)
+    if (find_local(item) == false)
     {
         symbols.insert(item);
     }

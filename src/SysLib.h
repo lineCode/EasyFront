@@ -10,7 +10,7 @@
 #define _SysLib_h__
 
 #include "Util.h"
-#include "object.h"
+#include "Object.h"
 
 #include <iostream>
 #include <string>

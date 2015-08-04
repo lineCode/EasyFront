@@ -11,7 +11,7 @@
 
 #include "Base.h"
 #include "Opcode.h"
-#include "object.h"
+#include "Object.h"
 #include "Exception.h"
 
 #include <stack>

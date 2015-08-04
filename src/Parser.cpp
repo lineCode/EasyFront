@@ -1409,7 +1409,7 @@ MapVariableExpr* EFParser::map_variable_expr_r()
     bool b_match = match(COMMA);
     if (b_match == false)
     {
-        return false;
+        return NULL;
     }
     Expr* t_expr_l = expr();
     if (t_expr_l == NULL)

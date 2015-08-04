@@ -12,6 +12,8 @@
 #include <stdint.h>
 #include <string>
 #include <ctime>
+#include <cstring>
+#include <cstdlib>
 //#include <boost/regex.hpp>
 
 #include "Util.h"
@@ -59,84 +61,10 @@ inline const time_t curTime()
     return time(NULL);
 }
 
-inline char* curTimeBuffer()
+inline const char* curTimeBuffer()
 {
-    char *buffer = new char[30];
-    memset(buffer, 0, 30);
-    const time_t cur_time = curTime();    //得到当前时间
-    errno_t err = ctime_s(buffer, 30, &cur_time);
-    buffer[strlen(buffer) - 1] = 0;
-
-    return buffer;
+    return "";
 }
-
-inline void **malloc2d(int height, int width, size_t size, int align = 8)
-{//这个网上抄的代码还有点问题。。。
-    // alloc all spaces: index area, largest padding area and data area
-    int index_size = sizeof(void *) * height;
-    int row_size = size * width;
-    void **p = (void **)malloc(index_size + align + height * row_size);
-    // compute padding
-    char *ptr_index_ending = (char *)p + index_size;
-    int padding = (align - ((int)ptr_index_ending + 1) % align) % align;
-    // link index area and data area
-    // starting address of data area
-    char *ptr_data = ptr_index_ending + 1 + padding;
-    for (int i = 0; i < height; i++)
-    {
-        p[i] = ptr_data;
-        ptr_data += size * width;
-    }
-    return p;
-}
-#ifndef _WIN32
-#include <iconv.h>
-inline int Utf8ToGbk(const std::string &utf8_code,std::string &gbk_code)
-{
-    if (utf8_code.empty())
-    {
-        return -1;
-    }
-    iconv_t cd = iconv_open("GBK","UTF-8");
-    char *p_utf8_code = const_cast<char*>(utf8_code.c_str());
-    size_t inlen = utf8_code.size();
-    size_t outlen = inlen;
-    char *p_gbk_code = new char[outlen];
-    memset(p_gbk_code,0,outlen);
-
-    char *inptr = p_utf8_code;
-    size_t insize = inlen;
-    char *outptr = p_gbk_code;
-    size_t outsize = outlen;
-    iconv(cd,NULL,NULL,NULL,NULL);
-    size_t res = iconv(cd,(char**)&inptr,&insize,&outptr,&outsize);
-    gbk_code.assign(p_gbk_code);
-    return 1;
-}
-inline int GbkToUtf8(const std::string &gbk_code,std::string &utf8_code)
-{
-    if (gbk_code.empty())
-    {
-        return -1;
-    }
-    iconv_t cd = iconv_open("UTF-8","GBK");
-    char *p_gbk_code = const_cast<char*>(gbk_code.c_str());
-    size_t inlen = gbk_code.size();
-    size_t outlen = inlen * 4;
-    char *p_utf8_code = new char[outlen];
-    memset(p_utf8_code,0,outlen);
-
-    char* inptr = p_gbk_code;
-    size_t insize = inlen;
-    char* outptr = p_utf8_code;
-    size_t outsize = outlen;
-
-    iconv(cd,NULL,NULL,NULL,NULL);
-    size_t res = iconv(cd,(char**)&inptr,&insize,&outptr,&outsize);
-    utf8_code.assign(p_utf8_code);
-    return 1;
-}
-#endif
 
 /**
  * description:    这个函数最终会被遗弃

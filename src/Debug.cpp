@@ -24,12 +24,12 @@ std::string debug_file_path = TEMP_PATH + debug_file_name;
 
 //std::fstream D::log_file(log_file_path.c_str(),std::ios_base::app);
 
-extern std::fstream log_stream(log_file_path.c_str(),std::ios_base::app);
-extern std::fstream debug_stream(debug_file_path.c_str(),std::ios_base::out);
+std::fstream log_stream(log_file_path.c_str(),std::ios_base::app);
+std::fstream debug_stream(debug_file_path.c_str(),std::ios_base::out);
 
-extern EfDebug d(debug_stream,std::cout);
-extern EfDebug l(log_stream);
-extern EfDebug e(log_stream,std::cout);
-extern EfDebug i(std::cout);
+EfDebug d(debug_stream,std::cout);
+EfDebug l(log_stream);
+EfDebug e(log_stream,std::cout);
+EfDebug i(std::cout);
 
 EF_NAMESPACE_END

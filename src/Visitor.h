@@ -454,7 +454,7 @@ public:
     /**
     *
     **/
-    SymTableGen(std::string& t_file_path);
+    SymTableGen(std::string t_file_path);
     /**
     *
     **/

@@ -1850,7 +1850,7 @@ void ByteCodeGen::visit_name_expr(NameExpr* context)
     //能够支持，对Python不可能
     if (name_expr_r != NULL)
     {
-        if (code_builder.find_symbol(name) == NULL)
+        if (code_builder.find_symbol(name) == false)
         {
             THROW_ERROR(ERROR_NO_FOUND_SYMBOL);
         }
@@ -1925,7 +1925,7 @@ void ByteCodeGen::visit_module_invoke_expr(ModuleInvokeExpr* context)
     std::string name = context->get_name();
     ModuleInvokeExpr* module_invoke = context->get_module_expr_r();
 
-    assert(name.empty() != NULL);
+    assert(name.empty() != false);
     assert(module_invoke != NULL);
 
     code_builder.addop_name(LOAD_NAME, name);
@@ -1935,7 +1935,7 @@ void ByteCodeGen::visit_module_invoke_expr(ModuleInvokeExpr* context)
     {
         module_invoke = module_invoke->get_module_expr_r();
         name = module_invoke->get_name();
-        assert(name.empty() != NULL);
+        assert(name.empty() != false);
 
         code_builder.addop_name(LOAD_NAME, name);
         counter++;
@@ -1948,7 +1948,7 @@ void ByteCodeGen::visit_module_invoke_expr(ModuleInvokeExpr* context)
  *  每个符号表生成都是从语法树根部开始的，即模块，所以符号
  *  被初始化为了模块表
  **/
-SymTableGen::SymTableGen(std::string& t_file_path)
+SymTableGen::SymTableGen(std::string t_file_path)
 {
     //模块前一符号表为空，恰好为返回标志
     //模块的名字为文件路径
@@ -2817,7 +2817,7 @@ void SymTableGen::visit_module_invoke_expr(ModuleInvokeExpr* context)
     std::string name = context->get_name();
     ModuleInvokeExpr* module_invoke = context->get_module_expr_r();
 
-    assert(name.empty() != NULL);
+    assert(name.empty() != false);
     assert(module_invoke != NULL);
 
     module_invoke->visit(*this);

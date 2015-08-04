@@ -70,8 +70,8 @@ public:
     {
         std::string exc_massage = file_path;
 
-        char message[1000] = "0";
-        sprintf_s(message, 1000, "\t%s at row:%d column:%d",
+        char message[1000] = {0};
+        sprintf(message,"\t%s at row:%d column:%d",
             get_message(error_id), row, col);
         exc_massage += message;
         return exc_massage;

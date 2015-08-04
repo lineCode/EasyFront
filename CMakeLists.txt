@@ -17,6 +17,9 @@ PROJECT(EasyFront C CXX)
 #cmake版本应在2.8以上
 CMAKE_MINIMUM_REQUIRED(VERSION 2.8.0 FATAL_ERROR)
 
+# 将工程src暴露在外面以便能够引用
+INCLUDE_DIRECTORIES("${EasyFront_SOURCE_DIR}/src")
+
 # 添加cmake模块目录
 LIST(APPEND CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake)
 
