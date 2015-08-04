@@ -27,6 +27,8 @@ int main(int argc,char* argv[])
 
     if (argc <= 1)
     {
+        cout << "usage:./EasyFront file.ef" << endl;
+
         return -1;
     }
     file_path = argv[1];
